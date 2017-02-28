@@ -63,8 +63,6 @@ AppAsset::register($this);
         ]) ?>
 
 
-
-
             <div class="container">
                 <p class="text-center"><img src='<?=\yii\helpers\Url::to('/img/barded.png')?>' width="200px"></p>
                 <h1 class="text-center">РАДИО-БЛОГ <br>"Комната с мехом"</h1>
@@ -96,7 +94,7 @@ AppAsset::register($this);
 
 
         au.onerror = function () {
-            window.location = '/radio-off/';
+            window.location = '/site/error';
         };
     });
         
