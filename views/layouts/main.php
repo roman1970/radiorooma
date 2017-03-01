@@ -67,6 +67,7 @@ AppAsset::register($this);
                 <p class="text-center"><img src='<?=\yii\helpers\Url::to('/img/barded.png')?>' width="200px"></p>
                 <h1 class="text-center">РАДИО-БЛОГ <br>"Комната с мехом"</h1>
                 <p class="text-center">Ведущий - "Бард, который перевернул ЗИЛ" - Роман Беляшов!</p>
+                <h1 class="text-center" id="gone"></h1>
             </div>
             <audio id="au" autoplay >
             </audio>
@@ -94,7 +95,8 @@ AppAsset::register($this);
 
 
         au.onerror = function () {
-            window.location = '/site/error';
+            var gone = document.getElementById('gone');
+            gone.innerHTML = 'Извините, пошёл спать!';
         };
     });
         
