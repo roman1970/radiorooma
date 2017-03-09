@@ -27,7 +27,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Комната с мехом',
+        'brandLabel' => '',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -56,24 +56,21 @@ AppAsset::register($this);
     */
     NavBar::end();
     ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
 
 
-            <div class="container">
-                <p class="text-center"><img src='<?=\yii\helpers\Url::to('/img/barded.png')?>' width="200px"></p>
-                <h1 class="text-center">РАДИО-БЛОГ <br>"Комната с мехом"</h1>
-                <p class="text-center">Ведущий - "Бард, который перевернул ЗИЛ" - Роман Беляшов!</p>
-                <h1 class="text-center" id="gone"></h1>
-            </div>
-            <audio id="au" autoplay >
-            </audio>
+
+        <audio id="au" autoplay ></audio>
 
         <?= $content ?>
+
+
     </div>
+
+   
 </div>
 
 <footer class="footer">

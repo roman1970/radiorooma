@@ -63,11 +63,7 @@ class SiteController extends Controller
         return $this->render('index');
     }
     
-    public function actionRadioOff()
-    {
-        return $this->render('error');
-    }
-
+    
     /**
      * Login action.
      *
