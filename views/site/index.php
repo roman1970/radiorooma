@@ -20,12 +20,12 @@ $this->title = 'Radiorooma';
 
         <div class="row">
             <ul class="nav navbar-nav">
-            <?php  foreach ($cats as $cat) : ?>
+            <?php echo phpinfo(); /*foreach ($cats as $cat) : ?>
 
                     <li class="active"><a href="#"><?=$cat->name?></a></li>
 
 
-            <?php endforeach; ?>
+            <?php endforeach; */ ?>
             </ul>
 
 
