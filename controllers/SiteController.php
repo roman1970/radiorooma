@@ -62,7 +62,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $cats = '';
-            Category::find()->all();
+            //Category::find()->all();
 
         return $this->render('index', ['cats' => $cats]);
         //return $this->render('index');
