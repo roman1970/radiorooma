@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\RadioItem;
 use yii\web\Controller;
 use Yii;
 use yii\helpers\Url;
@@ -102,6 +103,14 @@ class CategoryController extends Controller
             throw new \yii\web\HttpException(404,'Cant delete record.');
         };
 
+
+    }
+
+    public function actionItems($id){
+
+        $items = RadioItem::find()->where(['cat_id' => $id])->all();
+
+        return $this->renderPartial('category_items', ['items' => $items]);
 
     }
 

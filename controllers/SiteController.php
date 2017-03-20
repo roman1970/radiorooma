@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\RadioItem;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -62,8 +63,9 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $cats = Category::find()->all();
+        $items = RadioItem::find()->all();
 
-        return $this->render('index', ['cats' => $cats]);
+        return $this->render('index', ['cats' => $cats, 'items' => $items]);
         //return $this->render('index');
     }
     
@@ -127,4 +129,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
 }

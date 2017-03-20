@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\widgets\Pjax;
 
 AppAsset::register($this);
 ?>
@@ -65,12 +66,30 @@ AppAsset::register($this);
 
         <audio id="au" autoplay ></audio>
 
-        <?= $content ?>
+        <script id="script_item"></script>
+        <div class="row row-offcanvas row-offcanvas-right">
 
+            <div class="col-xs-12 col-sm-9">
+
+                <p class="text-center"><img src='<?=\yii\helpers\Url::to('/img/barded.png')?>' width="200px"></p>
+                <h1 class="text-center">РАДИО-БЛОГ <br>"Комната с мехом"</h1>
+                <h2 class="text-center"> Смысл выше качества! </h2>
+                <h2 class="text-center"> Прямой эфир! 18+ </h2>
+                <h4 class="text-center">Ведущий - "Бард, который перевернул ЗИЛ" - Роман Беляшов!</h4>
+                <p class="text-center">Трансляция в тестовом режиме</p>
+                <h1 class="text-center" id="gone"></h1>
+
+                <div class="row">
+
+                    <?= $content ?>
+
+                </div>
+
+            </div>
+        </div>
 
     </div>
 
-   
 </div>
 
 <footer class="footer">
