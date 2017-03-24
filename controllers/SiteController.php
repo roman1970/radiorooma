@@ -64,8 +64,13 @@ class SiteController extends Controller
     {
         $cats = Category::find()->all();
         $items = RadioItem::find()->all();
+        //$this->redirect(Yii::$app->request->referrer);
+        //$file = file("http://37.192.187.83:10088/ices.vclt");
+        //$file = file($file);
 
-        return $this->render('index', ['cats' => $cats, 'items' => $items]);
+      
+        return $this->render('index', ['cats' => $cats, 'items' => $items, 'file' => file("http://37.192.187.83:10088/ices.vclt") ?
+                              substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : '']);
         //return $this->render('index');
     }
     
@@ -128,6 +133,18 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    function actionGetItemByLink(){
+        $current_track = file("http://37.192.187.83:10088/ices.vclt") ?
+            substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : 'Радио-блог Комната с мехом';
+
+        if($current_track){
+            return "document.getElementById('rand').innerHTML = '".trim($current_track)."';";
+            //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+        };
+        //return "document.getElementById('rand').innerHTML = 'Доброго Вам Времени!';";
+        return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
     }
     
 }

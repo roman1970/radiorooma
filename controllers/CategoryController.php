@@ -9,13 +9,28 @@ use yii\helpers\Url;
 
 class CategoryController extends Controller
 {
-    public $layout = 'admin';
+    //public $layout = 'admin';
 
-    public function actionIndex()
+    public function actionIndex($id)
     {
+        $items = RadioItem::find()->where(['cat_id' => $id])->all();
+        
         $cats = Category::find()->all();
-       
-        return $this->render('index', ['cats' => $cats]);
+
+        //$referrer = Yii::$app->request->referrer;
+
+        //$home_url = Url::home(true);
+        
+        if(Yii::$app->request->referrer == Url::home(true)) {
+            return $this->renderPartial('category_items', [
+                'items' => $items,
+                'cats' => $cats,
+                //'referrer' => $referrer,
+                //'url' => $home_url
+            ]);
+        }
+
+        return $this->redirect(Url::toRoute('/'));
     }
 
     /**
@@ -96,7 +111,7 @@ class CategoryController extends Controller
     {
 
         if($model=$this->loadModel($id)->delete()){
-            $cats = Categories::find()->all();
+            $cats = Category::find()->all();
 
             return $this->render(['index', ['cats' => $cats]]);
         } else {
@@ -109,8 +124,9 @@ class CategoryController extends Controller
     public function actionItems($id){
 
         $items = RadioItem::find()->where(['cat_id' => $id])->all();
+        $referrer = Yii::$app->request->referrer;
 
-        return $this->renderPartial('category_items', ['items' => $items]);
+        return $this->renderPartial('category_items', ['items' => $items, 'referrer' => $referrer]);
 
     }
 
@@ -123,7 +139,7 @@ class CategoryController extends Controller
     public function loadModel($id)
     {
 
-        $model=Categories::findOne($id);
+        $model=Category::findOne($id);
 
         if($model===null)
             throw new \yii\web\HttpException(404,'The requested page does not exist.');

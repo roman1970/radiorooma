@@ -6,6 +6,16 @@ $this->title = 'Radiorooma';
 ?>
 <div id="section_page"></div>
 
+    <?php foreach ($cats as $cat) : ?>
+
+    <div class="col-sm-4">
+        <h2><?= $cat->name; ?></h2>
+        <?= $file ?>
+        <p><a class="btn" href="#">Ещё »</a></p>
+    </div>
+
+    <?php endforeach; ?>
+
 <?php // \yii\bootstrap\Html::a("Обновить", ['/item/categoryitems/1'], ['class' => 'btn btn-lg btn-primary']) ?>
 
 </div><!--/row-->
@@ -19,7 +29,7 @@ $this->title = 'Radiorooma';
         <?php foreach ($cats as $cat) : ?>
             <?php echo \yii\bootstrap\Html::a(
                 $cat->name,
-                '/category/items/'.$cat->id) ?>
+                '/category/'.$cat->id) ?>
             <?php /*
 
             <a href="/item/categoryitems/<?=$cat->id?>" class="list-group-item"><?=$cat->name?></a>
@@ -28,4 +38,19 @@ $this->title = 'Radiorooma';
 
         <?php endforeach;  ?>
         <?php Pjax::end(); ?>
+
+        <script>
+
+                setInterval(function () {
+
+                    var script = document.createElement('script');
+
+                    script.src = 'site/get-item-by-link/';
+                    script.type = 'text/javascript';
+
+                    document.body.appendChild(script);
+
+                }, 20000);
+
+        </script>
       

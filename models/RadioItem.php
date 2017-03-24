@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use app\components\TranslateHelper;
+use phpDocumentor\Reflection\DocBlock\Tags\Source;
 use Yii;
 
 /**
@@ -63,8 +65,15 @@ class RadioItem extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCat()
+    public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'cat_id']);
     }
+
+    public function getSource()
+    {
+        return $this->hasOne(\app\models\Source::className(), ['id' => 'cat_id']);
+    }
+
+
 }

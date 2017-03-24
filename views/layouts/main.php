@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\bootstrap\BaseHtml;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\widgets\Pjax;
@@ -22,11 +23,150 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
+<style>
+    html,
+    body {
+        height: 100%;
+        color: rgb(248, 248, 255);
+        background:url(<?=\yii\helpers\Url::to('/img/rka-plan.jpg')?>);
+    }
+    /*html, body {
+        margin: 0px;
+        padding:30px 0;
+        width:100%;
+        height:100%;
+        font-family: Arial;
+        text-align:center;
+    }
+    body{
+        background:url(webdoc.png);
+    }
+   .container{
+        width:500px;
+        margin: 0 auto;
+    }
+    */
+    .wrap > .container {
+        padding: 40px 15px 20px;
+    }
+    input{
+        width:500px;
+        height:24px;
+        font-size:17px;
+        margin-top:50px;
+        text-align:center;
+    }
+    /****** Lines *******/
+    .line {
+        overflow:hidden;
+        width:100%;
+        border:2px solid #dddddd;
+        /*box-shadow:0px 5px 5px 3px rgba(0,0,0,0.3);*/
+        display:block;
+        /*margin-top:10px;
+        border-radius:2px;*/
+        position:relative;
+    }
+    .line .line_cover{
+        width:100%;
+        height:100%;
+        position:absolute;
+        z-index:2;
+        /*background:url(<?php //\yii\helpers\Url::to('/img/talsvtod.png')?>);*/
+    }
+    .line .line_text{
+        width:100%;
+        height:100%;
+        position:absolute;
+        z-index:1;
+    }
+    /****** Line 1 *******/
+    #l1.line{
+        height:70px;
+        background: rgb(19, 19, 38);
+    }
+    #l1.line .line_text{
+        font-size: 50px;
+        font-weight: bold;
+        width: 900px;
+        color: rgb(29, 193, 52);
+        -webkit-animation: l1_animation 10s linear infinite;
+        -moz-animation: l1_animation 10s linear infinite;
+    }
+    @-webkit-keyframes l1_animation {
+        0%{left:100%;}
+        100%{left:-100%;}
+    }
+    @-moz-keyframes l1_animation {
+        0%{left:100%;}
+        100%{left:-100%;}
+    }
+    /****** Line 2 *******/
+    #l2.line{
+        height:70px;
+        background:rgb(90,60,50);
+    }
+    #l2.line .line_text{
+        font-size:60px;;
+        position:absolute;
+        color:#ffb400;
+        font-weight:bold;
+        -webkit-animation: l2_animation 5s linear infinite;
+        -moz-animation: l2_animation 5s linear infinite;
+    }
+    @-webkit-keyframes l2_animation {
+        0%   { opacity: 0; }
+        50% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+    @-moz-keyframes l2_animation {
+        0%   { opacity: 0; }
+        50% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+    /****** Line 3 *******/
+    #l3.line{
+        height:70px;
+        background:rgb(90,90,90);
+    }
+    #l3.line .line_text{
+        font-size:60px;;
+        position:absolute;
+        color:#ffb400;
+        font-weight:bold;
+        font-family:"Trebuchet MS", Helvetica, sans-serif;
+        -webkit-animation: l3_animation 5s linear infinite;
+        -moz-animation: l3_animation 5s linear infinite;
+    }
+    @-webkit-keyframes l3_animation {
+        0%    {color: rgb(0,0,255); }
+        20%   {color: rgb(0,255,255); }
+        40%   {color: rgb(255,0,0); }
+        60%   {color: rgb(255,255,0); }
+        80%   {color: rgb(255,255,255); }
+        100%  {color: rgb(0,0,255); }
+    }
+    @-moz-keyframes l3_animation {
+        0%    {color: rgb(0,0,255); }
+        20%   {color: rgb(0,255,255); }
+        40%   {color: rgb(255,0,0); }
+        60%   {color: rgb(255,255,0); }
+        80%   {color: rgb(255,255,255); }
+        100%  {color: rgb(0,0,255); }
+    }
+</style>
+
 <body>
 <?php $this->beginBody() ?>
 
+
 <div class="wrap">
-    <?php
+    <div class="line" id="l1">
+        <div class="line_text" id="rand">РАДИО-БЛОГ 'КОМНАТА С МЕХОМ'</div>
+        <div class="line_cover"></div>
+    </div>
+
+    <?php /*
     NavBar::begin([
         'brandLabel' => '',
         'brandUrl' => Yii::$app->homeUrl,
@@ -34,7 +174,7 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    /*echo Nav::widget([
+    echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
@@ -49,75 +189,124 @@ AppAsset::register($this);
                     'Logout (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    */
-    NavBar::end();
-    ?>
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+            ],
+        ]);
+
+        NavBar::end();
+ */
+        ?>
+        <div class="container">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
 
 
 
-        <audio id="au" autoplay ></audio>
+            <audio id="au" autoplay ></audio>
 
-        <script id="script_item"></script>
-        <div class="row row-offcanvas row-offcanvas-right">
+            <?php //<div id="rand"></div> ?>
+            <div class="row row-offcanvas row-offcanvas-right">
 
-            <div class="col-xs-12 col-sm-9">
+                <div class="col-xs-12 col-sm-9">
 
-                <p class="text-center"><img src='<?=\yii\helpers\Url::to('/img/barded.png')?>' width="200px"></p>
-                <h1 class="text-center">РАДИО-БЛОГ <br>"Комната с мехом"</h1>
-                <h2 class="text-center"> Смысл выше качества! </h2>
-                <h2 class="text-center"> Прямой эфир! 18+ </h2>
-                <h4 class="text-center">Ведущий - "Бард, который перевернул ЗИЛ" - Роман Беляшов!</h4>
-                <p class="text-center">Трансляция в тестовом режиме</p>
-                <h1 class="text-center" id="gone"></h1>
+                    <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded.png')?>' width="200px" id="player"></p>
 
-                <div class="row">
+                    <h2 class="text-center"> Прямой эфир! 18&plusmn; Программа</h2>
+                    <h2 class="text-center"> "Естественное и безобразное" </h2>
 
-                    <?= $content ?>
+                    <h4 class="text-center">Ведущий - "Бард, который перевернул ЗИЛ" - Роман Беляшов!</h4>
+                    <p class="text-center">Трансляция в тестовом режиме</p>
+                    <h1 class="text-center" id="gone"></h1>
+
+                    <div class="row">
+
+                        <?= $content ?>
+
+                    </div>
+                    
 
                 </div>
-
             </div>
+
         </div>
 
     </div>
 
-</div>
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-left">&copy; "Комната с мехом" <?= date('Y') ?></p>
+            <a href="http://37.192.187.83:10088/ices.xspf">Поток</a>
+            
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; "Комната с мехом" <?= date('Y') ?></p>
+        </div>
+    </footer>
 
-    </div>
-</footer>
+    <?php $this->endBody() ?>
+    </body>
+    </html>
+    <?php $this->endPage() ?>
+    <script>
+        $(document).ready(function() {
 
-<?php $this->endBody() ?>
-</body>
-</html>
-<?php $this->endPage() ?>
-<script>
-    $(document).ready(function() {
+            var au = document.getElementById('au');
+            au.src = 'http://37.192.187.83:10088/ices';
+            au.volume = 0.1;
 
-        var au = document.getElementById('au');
-        au.src = 'http://37.192.187.83:10088/ices';
+            var player = document.getElementById('player');
 
 
-        au.onerror = function () {
-            var gone = document.getElementById('gone');
-            gone.innerHTML = 'Извините, пошёл спать!';
-        };
-    });
-        
+            if (player.addEventListener) {
+                if ('onwheel' in document) {
+                    // IE9+, FF17+, Ch31+
+                    player.addEventListener("wheel", onWheel);
+                } else if ('onmousewheel' in document) {
+                    // устаревший вариант события
+                    player.addEventListener("mousewheel", onWheel);
+                } else {
+                    // Firefox < 17
+                    player.addEventListener("MozMousePixelScroll", onWheel);
+                }
+            } else { // IE8-
+                player.attachEvent("onmousewheel", onWheel);
+            }
+
+
+            au.onerror = function () {
+                var gone = document.getElementById('gone');
+                gone.innerHTML = 'Извините, пошёл спать!';
+            };
+        });
+
+
+
+        function onWheel(e) {
+            e = e || window.event;
+
+            // wheelDelta не дает возможность узнать количество пикселей
+            var delta = e.deltaY || e.detail || e.wheelDelta;
+
+            var vol = delta/1000;
+
+            var audio = document.getElementById('au');
+            var player = document.getElementById('player');
+
+            if(vol < 0.05) {
+                audio.volume = 0;
+            }
+            else if(vol > 0.9) {
+                audio.volume = 1;
+            }
+            else  audio.volume = (+audio.volume + vol) > 1 ? 1 : +audio.volume + vol;
+
+            //player.innerHTML = +player.innerHTML + vol;
+
+
+
+            e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+        }
+
+       
         /*
-        
 
         var name = $("#comm_name");
         var body = $("#comm_body");
@@ -193,6 +382,7 @@ AppAsset::register($this);
         document.body.appendChild(script);
 
     }, 20000);
-        */
+*/
 
 </script>
+

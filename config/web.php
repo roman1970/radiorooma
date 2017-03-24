@@ -14,6 +14,9 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'translater' => [
+            'class' => 'app\components\TranslateHelper'
+        ],
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
@@ -44,11 +47,12 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '<controller:\w+>/<id:\d+>'   => '<controller>/view',
+                '<controller:\w+>/<id:\d+>'   => '<controller>/index',
                 //'<module:\w+>/<controller:\w+>/<id:\d+>'   => '<module>/<controller>',
                 //'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'   => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'   => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/<alias:\w+>'   => '<controller>/<action>',
                 //'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
             ],
 
