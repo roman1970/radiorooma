@@ -63,6 +63,8 @@ AppAsset::register($this);
         background-size: 100%;
     }
 
+    @media(min-width:320px) and (max-width:767px){.latvia{width: 100%; background-size: 100%;}}
+
     .content{
         padding-top: 500px;
         /*background-image: url(<?=\yii\helpers\Url::to('/img/bg_content.jpg')?>);*/
