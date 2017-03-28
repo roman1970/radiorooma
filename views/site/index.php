@@ -9,7 +9,7 @@ $this->title = 'Radiorooma';
     <?php foreach ($cats as $cat) : ?>
 
     <div class="col-sm-4">
-        <h2><?= $cat->name; ?></h2>
+        <h3><?= $cat->name; ?></h3>
         <?= $file ?>
         <p><a class="btn" href="#">Ещё »</a></p>
     </div>
@@ -21,7 +21,7 @@ $this->title = 'Radiorooma';
 </div><!--/row-->
 </div><!--/span-->
 
-<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+<?php //<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation"> ?>
     <div class="list-group">
 
         <?php Pjax::begin(['id' => 'section_page']); ?>
@@ -39,18 +39,4 @@ $this->title = 'Radiorooma';
         <?php endforeach;  ?>
         <?php Pjax::end(); ?>
 
-        <script>
-
-                setInterval(function () {
-
-                    var script = document.createElement('script');
-
-                    script.src = 'site/get-item-by-link/';
-                    script.type = 'text/javascript';
-
-                    document.body.appendChild(script);
-
-                }, 20000);
-
-        </script>
       

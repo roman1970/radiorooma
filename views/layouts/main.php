@@ -28,7 +28,8 @@ AppAsset::register($this);
     body {
         height: 100%;
         color: rgb(248, 248, 255);
-        background:url(<?=\yii\helpers\Url::to('/img/rka-plan.jpg')?>);
+        /* background: <?=\yii\helpers\Url::to('/img/radio_latvia.jpg')?>, no-repeat; */
+
     }
     /*html, body {
         margin: 0px;
@@ -48,6 +49,29 @@ AppAsset::register($this);
     */
     .wrap > .container {
         padding: 40px 15px 20px;
+
+    }
+    .text-center{
+        padding-top: 10px;
+    }
+
+    .latvia{
+        background-image: url(<?=\yii\helpers\Url::to('/img/radio_latvia.jpg')?>); /* Путь к фоновому рисунку */
+        background-position: top; /* Положение фона */
+        background-repeat: no-repeat; /* Повторяем фон по горизонтали */
+        background-color: #2e2e2e;
+        background-size: 100%;
+    }
+
+    .content{
+        padding-top: 500px;
+        /*background-image: url(<?=\yii\helpers\Url::to('/img/bg_content.jpg')?>);*/
+    }
+
+    .bard_img{
+        vertical-align: middle;
+        width: 25%;
+        padding-top: 20px;
     }
     input{
         width:500px;
@@ -83,13 +107,13 @@ AppAsset::register($this);
     /****** Line 1 *******/
     #l1.line{
         height:70px;
-        background: rgb(19, 19, 38);
+        background: #2e2e2e;;
     }
     #l1.line .line_text{
         font-size: 50px;
         font-weight: bold;
         width: 900px;
-        color: rgb(29, 193, 52);
+        color: rgb(248, 249, 255);
         -webkit-animation: l1_animation 10s linear infinite;
         -moz-animation: l1_animation 10s linear infinite;
     }
@@ -161,10 +185,7 @@ AppAsset::register($this);
 
 
 <div class="wrap">
-    <div class="line" id="l1">
-        <div class="line_text" id="rand">РАДИО-БЛОГ 'КОМНАТА С МЕХОМ'</div>
-        <div class="line_cover"></div>
-    </div>
+
 
     <?php /*
     NavBar::begin([
@@ -207,25 +228,59 @@ AppAsset::register($this);
             <?php //<div id="rand"></div> ?>
             <div class="row row-offcanvas row-offcanvas-right">
 
-                <div class="col-xs-12 col-sm-9">
+                <div class="navbar-fixed-top">
+                    <div class="line" id="l1">
+                        <div class="line_text" id="rand">РАДИО-БЛОГ 'КОМНАТА С МЕХОМ'</div>
+                        <div class="line_cover"></div>
+                    </div>
 
-                    <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded.png')?>' width="200px" id="player"></p>
+                    <div class="latvia">
 
-                    <h2 class="text-center"> Прямой эфир! 18&plusmn; Программа</h2>
-                    <h2 class="text-center"> "Естественное и безобразное" </h2>
+                        <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
 
-                    <h4 class="text-center">Ведущий - "Бард, который перевернул ЗИЛ" - Роман Беляшов!</h4>
-                    <p class="text-center">Трансляция в тестовом режиме</p>
-                    <h1 class="text-center" id="gone"></h1>
+                        <h4 class="text-center">Ведущий - "Бард, который перевернул ЗИЛ" - Роман Беляшов!</h4>
+                        <h2 class="text-center">  В программе</h2>
+                        <h1 class="text-center"> "Естественное и безобразное" </h1>
 
-                    <div class="row">
+
+                        <p class="text-center">Трансляция в тестовом режиме</p>
+                        <h1 class="text-center" id="gone"></h1>
+
+                    </div>
+                </div>
+
+
+
+                    <div class="container content">
 
                         <?= $content ?>
+
+
+                        <script>
+
+                            setInterval(function () {
+
+                                var rand = document.getElementById('gggg');
+                                if(rand) rand.remove();
+
+                                var script = document.createElement('script');
+
+                                script.src = "<?=\yii\helpers\Url::to('/site/get-item-by-link/');?>";
+                                script.type = 'text/javascript';
+                                script.id = 'gggg';
+
+
+                                document.body.appendChild(script);
+
+                            }, 20000);
+
+                        </script>
 
                     </div>
                     
 
-                </div>
+
+
             </div>
 
         </div>
