@@ -138,15 +138,15 @@ class SiteController extends Controller
     function actionGetItemByLink(){
         $current_track = file("http://37.192.187.83:10088/ices.vclt") ?
             substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : 'Радио-блог Комната с мехом';
-       /*
-        $item_title = RadioItem::find()->where('" audio LIKE "%'.$current_track.'%"')->one();
 
-        if($item_title){
-            return "document.getElementById('rand').innerHTML = '".$item_title->title."';";
+        //$item_title = RadioItem::find()->where(' audio LIKE "%krepche-russkogo-ivana%"')->one();
+        $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
+        //return var_dump(substr($current_track, -10));
+
+        if($item){
+            return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".$item->title."';";
             //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
         };
-       */
-        
 
         if($current_track){
             return "document.getElementById('rand').innerHTML = '".trim($current_track)."';";

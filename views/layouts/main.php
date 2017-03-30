@@ -28,7 +28,9 @@ AppAsset::register($this);
     body {
         height: 100%;
         color: rgb(248, 248, 255);
-        /* background: <?=\yii\helpers\Url::to('/img/radio_latvia.jpg')?>, no-repeat; */
+
+        background-image: url(<?=\yii\helpers\Url::to('/img/fons_bg-530x180.jpg')?>);
+       /* background-color: #1a1a1a;*/
 
     }
     /*html, body {
@@ -61,13 +63,29 @@ AppAsset::register($this);
         background-repeat: no-repeat; /* Повторяем фон по горизонтали */
         background-color: #2e2e2e;
         background-size: 100%;
+        border: 2px solid rgb(158, 178, 177);;
+        border-radius: 5px;
+
     }
 
-    @media(min-width:320px) and (max-width:767px){.latvia{width: 100%; background-size: 100%;}}
+    @media(min-width:320px) and (max-width:767px){
+        .latvia{
+            width: 100%;
+            background-size: 100%;
+        }
+        .container .content{
+            padding-top: 50%;
+        }
+        .bard_img {
+            width: 40%;
+        }
+
+
+    }
 
     .content{
-        padding-top: 500px;
-        /*background-image: url(<?=\yii\helpers\Url::to('/img/bg_content.jpg')?>);*/
+        padding-top: 40%;
+
     }
 
     .bard_img{
@@ -86,7 +104,11 @@ AppAsset::register($this);
     .line {
         overflow:hidden;
         width:100%;
-        border:2px solid #dddddd;
+        border: 2px solid rgb(158, 178, 177);
+        border-radius: 5px;
+        box-shadow: inset 0 0 6px;
+
+        opacity: 0.8; /* Полупрозрачный фон */
         /*box-shadow:0px 5px 5px 3px rgba(0,0,0,0.3);*/
         display:block;
         /*margin-top:10px;
@@ -105,15 +127,17 @@ AppAsset::register($this);
         height:100%;
         position:absolute;
         z-index:1;
+        padding-top: 7px;
     }
     /****** Line 1 *******/
     #l1.line{
-        height:70px;
-        background: #2e2e2e;;
+        height: 50px;
+        background: #2e2e2e;
+        margin-top: 10px;
     }
     #l1.line .line_text{
-        font-size: 50px;
-        font-weight: bold;
+        font-size: 20px;
+        /*font-weight: bold;*/
         width: 900px;
         color: rgb(248, 249, 255);
         -webkit-animation: l1_animation 10s linear infinite;
@@ -154,15 +178,17 @@ AppAsset::register($this);
     #l3.line{
         height:70px;
         background:rgb(90,90,90);
+        margin-bottom: 10px;
     }
     #l3.line .line_text{
-        font-size:60px;;
+        font-size:15px;;
         position:absolute;
         color:#ffb400;
-        font-weight:bold;
+        padding-top: 0px;
+        /*font-weight:bold;*/
         font-family:"Trebuchet MS", Helvetica, sans-serif;
-        -webkit-animation: l3_animation 5s linear infinite;
-        -moz-animation: l3_animation 5s linear infinite;
+        -webkit-animation: l3_animation 20s linear infinite;
+        -moz-animation: l3_animation 20s linear infinite;
     }
     @-webkit-keyframes l3_animation {
         0%    {color: rgb(0,0,255); }
@@ -240,14 +266,16 @@ AppAsset::register($this);
 
                         <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
 
-                        <h4 class="text-center">Ведущий - "Бард, который перевернул ЗИЛ" - Роман Беляшов!</h4>
-                        <h2 class="text-center">  В программе</h2>
-                        <h1 class="text-center"> "Естественное и безобразное" </h1>
 
 
-                        <p class="text-center">Трансляция в тестовом режиме</p>
-                        <h1 class="text-center" id="gone"></h1>
+                    </div>
+                    <div class="line" id="l3">
+                        <div class="line_text">
+                            <p class="text-center">Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов!
+                                В программе "Естественное и безобразное" </p>
 
+                            <h1 class="text-center" id="gone"></h1></div>
+                        <div class="line_cover"></div>
                     </div>
                 </div>
 
@@ -274,7 +302,7 @@ AppAsset::register($this);
 
                                 document.body.appendChild(script);
 
-                            }, 20000);
+                            }, 10000);
 
                         </script>
 
