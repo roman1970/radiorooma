@@ -191,20 +191,20 @@ AppAsset::register($this);
         -moz-animation: l3_animation 20s linear infinite;
     }
     @-webkit-keyframes l3_animation {
-        0%    {color: rgb(0,0,255); }
-        20%   {color: rgb(0,255,255); }
-        40%   {color: rgb(255,0,0); }
-        60%   {color: rgb(255,255,0); }
+        0%    {color: rgb(189, 217, 233); }
+        20%   {color: rgb(139, 173, 196); }
+        40%   {color: rgb(90, 90, 90); }
+        60%   {color: rgb(218, 212, 195); }
         80%   {color: rgb(255,255,255); }
-        100%  {color: rgb(0,0,255); }
+        100%  {color: rgb(184, 180, 210); }
     }
     @-moz-keyframes l3_animation {
-        0%    {color: rgb(0,0,255); }
-        20%   {color: rgb(0,255,255); }
-        40%   {color: rgb(255,0,0); }
-        60%   {color: rgb(255,255,0); }
+        0%    {color: rgb(189, 217, 233); }
+        20%   {color: rgb(139, 173, 196); }
+        40%   {color: rgb(90, 90, 90); }
+        60%   {color: rgb(218, 212, 195); }
         80%   {color: rgb(255,255,255); }
-        100%  {color: rgb(0,0,255); }
+        100%  {color: rgb(184, 180, 210); }
     }
 </style>
 

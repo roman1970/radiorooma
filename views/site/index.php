@@ -9,7 +9,7 @@ $this->title = 'Radiorooma';
     <?php foreach ($cats as $cat) : ?>
 
     <div class="col-sm-4">
-        <h3><?= $cat->name; ?></h3>
+        <h3><?= $cat->name ?></h3>
         <?= $file ?>
         <p><a class="btn" href="#">Ещё »</a></p>
     </div>

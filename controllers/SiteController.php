@@ -144,7 +144,7 @@ class SiteController extends Controller
         //return var_dump(substr($current_track, -10));
 
         if($item){
-            return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".$item->title."';";
+            return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".$item->anons." :: ".$item->title."';";
             //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
         };
 
