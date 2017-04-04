@@ -47,12 +47,15 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'item/<alias>' => 'item/index',
                 '<controller:\w+>/<id:\d+>'   => '<controller>/index',
+                //'<controller:\w+>/<action:\w+>/<alias:[\w_\/-]+>'   => '<controller>/<action>/index',
+                //'/<alias:\w+>' => 'site/item',
                 //'<module:\w+>/<controller:\w+>/<id:\d+>'   => '<module>/<controller>',
                 //'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'   => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'   => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>/<alias:\w+>'   => '<controller>/<action>',
+
                 //'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
             ],
 

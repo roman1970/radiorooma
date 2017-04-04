@@ -4,8 +4,11 @@ namespace app\controllers;
 
 use app\models\Category;
 use app\models\RadioItem;
+use app\models\Theme;
+use app\models\ThemeItems;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -62,19 +65,25 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $theme_items = [];
         $cats = Category::find()->all();
-        $items = RadioItem::find()->all();
-        //$this->redirect(Yii::$app->request->referrer);
-        //$file = file("http://37.192.187.83:10088/ices.vclt");
-        //$file = file($file);
+        // $items = RadioItem::find()->all();
+        $themes = Theme::find()->all();
+        foreach ($themes as $theme) {
+            $theme_items[$theme->title] = ThemeItems::find()->where(['theme_id' => $theme->id])->all();
+        }
+       // echo Yii::$app->request->referrer; exit;
+        /*if(Yii::$app->request->referrer != Url::home(true)) {
+            return $this->renderPartial('index', ['cats' => $cats, 'theme_items' => $theme_items]);
+        }
+        else{*/
+            return $this->render('index', ['cats' => $cats, 'theme_items' => $theme_items]);
+      //  }
 
-      
-        return $this->render('index', ['cats' => $cats, 'items' => $items, 'file' => file("http://37.192.187.83:10088/ices.vclt") ?
-                              substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : '']);
-        //return $this->render('index');
+
     }
     
-    
+  
     /**
      * Login action.
      *
@@ -137,14 +146,14 @@ class SiteController extends Controller
 
     function actionGetItemByLink(){
         $current_track = file("http://37.192.187.83:10088/ices.vclt") ?
-            substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : 'Радио-блог Комната с мехом';
+            substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : "Скоро возобновление трансляции";
 
         //$item_title = RadioItem::find()->where(' audio LIKE "%krepche-russkogo-ivana%"')->one();
         $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
         //return var_dump(substr($current_track, -10));
 
         if($item){
-            return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".$item->anons." :: ".$item->title."';";
+            return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".addslashes($item->anons)." :: ".$item->title."';";
             //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
         };
 
@@ -154,6 +163,20 @@ class SiteController extends Controller
         };
         //return "document.getElementById('rand').innerHTML = 'Доброго Вам Времени!';";
         return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+    }
+
+    function actionGetItemText(){
+        $current_track = file("http://37.192.187.83:10088/ices.vclt") ?
+            substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : "Скоро возобновление трансляции";
+
+        //$item_title = RadioItem::find()->where(' audio LIKE "%krepche-russkogo-ivana%"')->one();
+        $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
+        //return var_dump(substr($current_track, -10));
+
+        if($item){
+            return "document.getElementById('section_page').innerHTML = '".nl2br(addslashes($item->text))."';";
+            //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+        };
     }
     
 }

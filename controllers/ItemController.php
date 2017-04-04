@@ -7,6 +7,7 @@ use app\models\RadioItem;
 use app\models\Source;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -46,11 +47,26 @@ class ItemController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($alias='')
     {
-        $cats = Category::find()->all();
+        //return var_dump($alias);
+        $item = RadioItem::find()
+            ->where(['alias' => $alias])
+            ->one();
 
-        return $this->render('index', ['cats' => $cats]);
+        //return var_dump($item);
+
+        if(Yii::$app->request->referrer == Url::home(true)) {
+            return $this->renderPartial('index', [
+                'item' => $item,
+                //'referrer' => $referrer,
+                //'url' => $home_url
+            ]);
+        }
+
+        //return $this->redirect(Url::toRoute('/'));
+
+        return $this->render('index', ['item' => $item]);
         //return $this->render('index');
     }
 

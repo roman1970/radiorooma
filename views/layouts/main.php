@@ -68,20 +68,6 @@ AppAsset::register($this);
 
     }
 
-    @media(min-width:320px) and (max-width:767px){
-        .latvia{
-            width: 100%;
-            background-size: 100%;
-        }
-        .container .content{
-            padding-top: 50%;
-        }
-        .bard_img {
-            width: 40%;
-        }
-
-
-    }
 
     .content{
         padding-top: 40%;
@@ -138,7 +124,9 @@ AppAsset::register($this);
     #l1.line .line_text{
         font-size: 20px;
         /*font-weight: bold;*/
-        width: 900px;
+        /* font-weight: bold; */
+        width: 1600px;
+        /*width: 900px;*/
         color: rgb(248, 249, 255);
         -webkit-animation: l1_animation 10s linear infinite;
         -moz-animation: l1_animation 10s linear infinite;
@@ -181,7 +169,7 @@ AppAsset::register($this);
         margin-bottom: 10px;
     }
     #l3.line .line_text{
-        font-size:15px;;
+        font-size:20px;;
         position:absolute;
         color:#ffb400;
         padding-top: 0px;
@@ -205,6 +193,27 @@ AppAsset::register($this);
         60%   {color: rgb(218, 212, 195); }
         80%   {color: rgb(255,255,255); }
         100%  {color: rgb(184, 180, 210); }
+    }
+    @media(min-width:220px) and (max-width:767px){
+        .latvia{
+            width: 100%;
+            background-size: 100%;
+        }
+        .container .content{
+            padding-top: 60%;
+            text-align: center;
+        }
+        .bard_img {
+            width: 30%;
+        }
+        #l3.line {
+            height: 80px;
+        }
+        #l3.line .line_text{
+            font-size:15px;;
+
+        }
+
     }
 </style>
 
@@ -271,17 +280,19 @@ AppAsset::register($this);
                     </div>
                     <div class="line" id="l3">
                         <div class="line_text">
-                            <p class="text-center">Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов!
-                                В программе "Естественное и безобразное" </p>
+                            <p class="text-center">Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
+                                в программе "Естественное и безобразное" </p>
 
-                            <h1 class="text-center" id="gone"></h1></div>
+                           </div>
+
                         <div class="line_cover"></div>
                     </div>
+                    <h1 class="text-center" id="gone"></h1>
                 </div>
 
 
-
                     <div class="container content">
+
 
                         <?= $content ?>
 
@@ -302,7 +313,23 @@ AppAsset::register($this);
 
                                 document.body.appendChild(script);
 
-                            }, 10000);
+                            }, 15000);
+
+                            setInterval(function () {
+
+                                var rand = document.getElementById('pppp');
+                                if(rand) rand.remove();
+                               
+                                var script = document.createElement('script');
+
+                                script.src = "<?=\yii\helpers\Url::to('/site/get-item-text/');?>";
+                                script.type = 'text/javascript';
+                                script.id = 'pppp';
+
+
+                                document.body.appendChild(script);
+
+                            }, 60000);
 
                         </script>
 

@@ -1,42 +1,84 @@
+<style>
+    .theme{
+        text-align: center;
+        box-shadow: inset 0 0 6px;
+       /* height: 200px;
+        overflow: auto;*/
+    }
+    #section_page{
+        text-align: center;
+       /* overflow: auto;
+        height: 200px;*/
+        background-color: rgb(72, 73, 74);
+        opacity: 0.8;
+    }
+</style>
+
 <?php
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 
 $this->title = 'Radiorooma';
 ?>
-<div id="section_page"></div>
+
+<?php /*
+<div class="col-sm-3">
+    <?php Pjax::begin(['id' => 'section_page_2']); ?>
+
 
     <?php foreach ($cats as $cat) : ?>
+        <?php echo \yii\bootstrap\Html::a(
+            $cat->name,
+            '/category/'.$cat->id) ?>
+        <?php /*
 
-    <div class="col-sm-4">
-        <h3><?= $cat->name ?></h3>
-        <?= $file ?>
-        <p><a class="btn" href="#">Ещё »</a></p>
-    </div>
+            <a href="/item/categoryitems/<?=$cat->id?>" class="list-group-item"><?=$cat->name?></a>
+            <?= \yii\bootstrap\Html::a("Обновить", ['/item/categoryitems/'.$cat->id], ['class' => 'btn btn-lg btn-primary']) ?>
+
+
+    <?php endforeach;  ?>
+    <?php Pjax::end();
+
+</div>
+ */ ?>
+
+<div class="col-sm-8 theme">
+    <div id="section_page"></div>
+</div>
+
+<div class="col-sm-4">
+
+    <?php foreach ($theme_items as $theme => $items) : ?>
+
+
+        <h6><?= $theme ?></h6>
+        <?php Pjax::begin(['id' => 'section_page']); ?>
+        <?php foreach ($items as $item) : $one = \app\models\RadioItem::findOne((int)$item->item_id); ?>
+
+            <p>
+                <?=\yii\bootstrap\Html::a(
+                    $one->title,
+                    '/item/'.$one->alias, ['cursor' => 'pointer']) ?>
+            </p>
+
+        <?php endforeach; ?>
+        <?php Pjax::end(); ?>
+
 
     <?php endforeach; ?>
+
+</div>
+
 
 <?php // \yii\bootstrap\Html::a("Обновить", ['/item/categoryitems/1'], ['class' => 'btn btn-lg btn-primary']) ?>
 
 </div><!--/row-->
 </div><!--/span-->
 
+
 <?php //<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation"> ?>
     <div class="list-group">
 
-        <?php Pjax::begin(['id' => 'section_page']); ?>
 
-        <?php foreach ($cats as $cat) : ?>
-            <?php echo \yii\bootstrap\Html::a(
-                $cat->name,
-                '/category/'.$cat->id) ?>
-            <?php /*
-
-            <a href="/item/categoryitems/<?=$cat->id?>" class="list-group-item"><?=$cat->name?></a>
-            <?= \yii\bootstrap\Html::a("Обновить", ['/item/categoryitems/'.$cat->id], ['class' => 'btn btn-lg btn-primary']) ?>
-            */?>
-
-        <?php endforeach;  ?>
-        <?php Pjax::end(); ?>
 
       
