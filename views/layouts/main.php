@@ -315,7 +315,7 @@ AppAsset::register($this);
 
                             }, 15000);
 
-                            setInterval(function () {
+                            /*setInterval(function () {
 
                                 var rand = document.getElementById('pppp');
                                 if(rand) rand.remove();
@@ -330,6 +330,7 @@ AppAsset::register($this);
                                 document.body.appendChild(script);
 
                             }, 60000);
+                            */
 
                         </script>
 
