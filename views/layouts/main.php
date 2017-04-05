@@ -263,9 +263,9 @@ AppAsset::register($this);
             <audio id="au" autoplay ></audio>
 
             <?php //<div id="rand"></div> ?>
-            <div class="row row-offcanvas row-offcanvas-right">
+            <div class="row row-offcanvas row-offcanvas-right ">
 
-                <div class="navbar-fixed-top">
+                <div class="navbar-fixed-top container">
                     <div class="line" id="l1">
                         <div class="line_text" id="rand">РАДИО-БЛОГ 'КОМНАТА С МЕХОМ'</div>
                         <div class="line_cover"></div>
@@ -388,6 +388,26 @@ AppAsset::register($this);
                 var gone = document.getElementById('gone');
                 gone.innerHTML = 'Извините, пошёл спать!';
             };
+
+
+
+
+
+                $(".accord h6:first").addClass("active");
+
+                $(".accord div").hide();
+
+                $(".accord h6").click(function() {
+
+                    $(this).next("div").slideToggle("slow").siblings("div:visible").slideUp("slow");
+
+
+                    $(this).toggleClass("active");
+
+                    $(this).siblings("h6").removeClass("active");
+                });
+
+
         });
 
 
@@ -416,6 +436,41 @@ AppAsset::register($this);
 
 
             e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+        }
+
+        function onAudio(link) {
+            var au = document.getElementById('au');
+            au.src = 'http://37.192.187.83:10080/'+link;
+            au.volume = 0.5;
+
+            var off_button = document.getElementById('off_button');
+            var on_button = document.getElementById('on_button');
+            on_button.style.display = 'none';
+            off_button.style.display = 'block';
+
+        }
+
+        function offAudio() {
+            var au = document.getElementById('au');
+            au.src = 'http://37.192.187.83:10088/ices';
+            au.volume = 0.5;
+            var off_button = document.getElementById('off_button');
+            var on_button = document.getElementById('on_button');
+            on_button.style.display = 'block';
+            off_button.style.display = 'none';
+        }
+        
+        function like(id) {
+            $.ajax({
+                type: "GET",
+                url: "add-like/"+id,
+                success: function(html){
+                    $("#summary").html(html);
+
+                }
+
+            });
+            
         }
 
        

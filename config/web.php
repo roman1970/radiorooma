@@ -47,6 +47,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'item/add-like/<id:\d+>'   => 'item/add-like',
                 'item/<alias>' => 'item/index',
                 '<controller:\w+>/<id:\d+>'   => '<controller>/index',
                 //'<controller:\w+>/<action:\w+>/<alias:[\w_\/-]+>'   => '<controller>/<action>/index',
@@ -54,7 +55,7 @@ $config = [
                 //'<module:\w+>/<controller:\w+>/<id:\d+>'   => '<module>/<controller>',
                 //'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'   => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>/<id:\d+>'   => '<controller>/<action>',
+
 
                 //'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
             ],

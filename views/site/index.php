@@ -1,3 +1,4 @@
+
 <style>
     .theme{
         text-align: center;
@@ -11,6 +12,10 @@
         height: 200px;*/
         background-color: rgb(72, 73, 74);
         opacity: 0.8;
+    }
+    .accord{
+        text-align: center;
+        cursor: pointer;
     }
 </style>
 
@@ -46,7 +51,7 @@ $this->title = 'Radiorooma';
     <div id="section_page"></div>
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-4 accord">
 
     <?php foreach ($theme_items as $theme => $items) : ?>
 

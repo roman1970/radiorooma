@@ -69,6 +69,15 @@ class ItemController extends Controller
         return $this->render('index', ['item' => $item]);
         //return $this->render('index');
     }
+    
+    public function actionAddLike(){
+        if($id = (int)Yii::$app->getRequest()->getQueryParam('id')) {
+            $item = RadioItem::findOne($id);
+            $item->likes++;
+            $item->update(false);
+            return 'Понравилось: '.$item->likes;
+        }
+    }
 
     
 

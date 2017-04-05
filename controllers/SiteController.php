@@ -69,9 +69,13 @@ class SiteController extends Controller
         $cats = Category::find()->all();
         // $items = RadioItem::find()->all();
         $themes = Theme::find()->all();
+
         foreach ($themes as $theme) {
             $theme_items[$theme->title] = ThemeItems::find()->where(['theme_id' => $theme->id])->all();
         }
+
+        //shuffle($theme_items);
+        //return var_dump($theme_items);
        // echo Yii::$app->request->referrer; exit;
         /*if(Yii::$app->request->referrer != Url::home(true)) {
             return $this->renderPartial('index', ['cats' => $cats, 'theme_items' => $theme_items]);
