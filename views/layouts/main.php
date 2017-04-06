@@ -463,7 +463,8 @@ AppAsset::register($this);
         function like(id) {
             $.ajax({
                 type: "GET",
-                url: "add-like/"+id,
+                url: 'http://37.192.187.83:10033/rockncontroll/default/add-radio-like/',
+                data: "id="+id,
                 success: function(html){
                     $("#summary").html(html);
 
