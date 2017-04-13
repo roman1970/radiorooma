@@ -3,6 +3,7 @@
     .theme{
         text-align: center;
         box-shadow: inset 0 0 6px;
+        border-radius: 5px;
        /* height: 200px;
         overflow: auto;*/
     }
@@ -48,7 +49,12 @@ $this->title = 'Radiorooma';
  */ ?>
 
 <div class="col-sm-8 theme">
-    <div id="section_page"></div>
+    <div id="section_page">
+        <h4>Добро пожаловать в ротацию нашего Радио</h4>
+        <input type="text" class="form-control" id="text"  placeholder="Ваша почта">
+        <button type="button" class="btn btn-success">Отправить письмо с инструкциями</button>
+
+    </div>
 </div>
 
 <div class="col-sm-4 accord">

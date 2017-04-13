@@ -156,6 +156,10 @@ class SiteController extends Controller
         $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
         //return var_dump(substr($current_track, -10));
 
+        if(trim($current_track) == 'oho' || substr($current_track, 0) == 'komnata_s_mehom') {
+            return "document.getElementById('rand').innerHTML = 'РАДИО-БЛОГ КОМНАТА С МЕХОМ - ВСЕГДА ЖИВОЙ ЗВУК';";
+        }
+
         if($item){
             return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".addslashes($item->anons)." :: ".$item->title."';";
             //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
@@ -165,6 +169,8 @@ class SiteController extends Controller
             return "document.getElementById('rand').innerHTML = '".trim($current_track)."';";
             //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
         };
+
+
         //return "document.getElementById('rand').innerHTML = 'Доброго Вам Времени!';";
         return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
     }

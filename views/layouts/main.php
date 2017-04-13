@@ -94,7 +94,7 @@ AppAsset::register($this);
         border-radius: 5px;
         box-shadow: inset 0 0 6px;
 
-        opacity: 0.8; /* Полупрозрачный фон */
+        /*opacity: 0.8; /* Полупрозрачный фон */
         /*box-shadow:0px 5px 5px 3px rgba(0,0,0,0.3);*/
         display:block;
         /*margin-top:10px;
@@ -194,15 +194,28 @@ AppAsset::register($this);
         80%   {color: rgb(255,255,255); }
         100%  {color: rgb(184, 180, 210); }
     }
+
+    @media (min-width: 1200px) {
+        .content {
+            padding-top: 35%;
+        }
+    }
+
+
     @media(min-width:220px) and (max-width:767px){
+        .container .content {
+            padding-top: 300px;
+            text-align: center;
+        }
         .latvia{
             width: 100%;
             background-size: 100%;
         }
-        .container .content{
+        /*.container .content{
             padding-top: 60%;
             text-align: center;
         }
+        */
         .bard_img {
             width: 30%;
         }
