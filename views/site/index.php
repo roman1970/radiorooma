@@ -50,9 +50,26 @@ $this->title = 'Radiorooma';
 
 <div class="col-sm-8 theme">
     <div id="section_page">
-        <h4>Добро пожаловать в ротацию нашего Радио</h4>
+        <?php /*<h4>Добро пожаловать в ротацию нашего Радио</h4>
         <input type="text" class="form-control" id="text"  placeholder="Ваша почта">
         <button type="button" class="btn btn-success">Отправить письмо с инструкциями</button>
+        */?>
+        <p id="all_nenor">
+            <button type="button" class="btn btn-success" onclick="onRadio('test_mp3')" >
+                Программа "МузЫки Без Границ" <br> Осторожно! Ненормативная лексика!
+            </button>
+        </p>
+        <p id="all_cenz">
+            <button type="button" class="btn btn-success" onclick="onRadio('second_mp3')" >
+                Программа "От Шуберта до Шнурова <br> не добираясь"
+            </button>
+        </p>
+        <p id="all_bard">
+            <button type="button" class="btn btn-success" onclick="onRadio('bard_mp3')" >
+                Программа "Естественное и безобразное" <br> с участием Барда, который перевернул ЗИЛ
+            </button>
+        </p>
+
 
     </div>
 </div>

@@ -73,6 +73,10 @@ AppAsset::register($this);
         padding-top: 40%;
 
     }
+    .btn-success {
+        width: 100%;
+        overflow: hidden;
+    }
 
     .bard_img{
         vertical-align: middle;
@@ -275,7 +279,7 @@ AppAsset::register($this);
 
             <audio id="au" autoplay ></audio>
 
-            <?php //<div id="rand"></div> ?>
+            <?php //echo phpinfo();//<div id="rand"></div> ?>
             <div class="row row-offcanvas row-offcanvas-right ">
 
                 <div class="navbar-fixed-top container">
@@ -294,7 +298,7 @@ AppAsset::register($this);
                     <div class="line" id="l3">
                         <div class="line_text">
                             <p class="text-center">Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
-                                в программе "Естественное и безобразное" </p>
+                                </p>
 
                            </div>
 
@@ -312,13 +316,15 @@ AppAsset::register($this);
 
                         <script>
 
+                            var pl = 1;
+
                             setInterval(function () {
 
                                 var rand = document.getElementById('gggg');
                                 if(rand) rand.remove();
 
                                 var script = document.createElement('script');
-
+                              
                                 script.src = "<?=\yii\helpers\Url::to('/site/get-item-by-link/');?>";
                                 script.type = 'text/javascript';
                                 script.id = 'gggg';
@@ -361,7 +367,7 @@ AppAsset::register($this);
     <footer class="footer">
         <div class="container">
             <p class="pull-left">&copy; "Комната с мехом" <?= date('Y') ?></p>
-            <a href="http://37.192.187.83:10088/ices.xspf">Поток</a>
+            <a href="http://37.192.187.83:10088/test_mp3">Поток</a>
             
 
         </div>
@@ -375,7 +381,7 @@ AppAsset::register($this);
         $(document).ready(function() {
 
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/ices';
+            au.src = 'http://37.192.187.83:10088/test_mp3';
             au.volume = 0.1;
 
             var player = document.getElementById('player');
@@ -465,13 +471,21 @@ AppAsset::register($this);
 
         function offAudio() {
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/ices';
+            au.src = 'http://37.192.187.83:10088/test_mp3';
             au.volume = 0.5;
             var off_button = document.getElementById('off_button');
             var on_button = document.getElementById('on_button');
             on_button.style.display = 'block';
             off_button.style.display = 'none';
         }
+
+        function onRadio(link) {
+            var au = document.getElementById('au');
+            au.src = 'http://37.192.187.83:10088/'+link;
+            au.volume = 0.5;
+        }
+        
+        
         
         function like(id) {
             $.ajax({
@@ -485,6 +499,20 @@ AppAsset::register($this);
 
             });
             
+        }
+
+        function getTrackN(id) {
+            $.ajax({
+                type: "GET",
+                url: 'http://37.192.187.83:10033/rockncontroll/default/add-radio-like/',
+                data: "id="+id,
+                success: function(html){
+                    $("#summary").html(html);
+
+                }
+
+            });
+
         }
 
        

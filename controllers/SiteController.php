@@ -4,9 +4,11 @@ namespace app\controllers;
 
 use app\models\Category;
 use app\models\RadioItem;
+use app\models\Songs;
 use app\models\Theme;
 use app\models\ThemeItems;
 use Yii;
+use yii\base\ErrorException;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -149,12 +151,107 @@ class SiteController extends Controller
     }
 
     function actionGetItemByLink(){
-        $current_track = file("http://37.192.187.83:10088/ices.vclt") ?
-            substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : "Скоро возобновление трансляции";
+        /*$current_track = file("http://37.192.187.83:10088/ices.vclt") ?
+            substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : "Скоро возобновление трансляции";*/
+      $current_track = strip_tags(addslashes(file("http://37.192.187.83:10088/status.xsl?mount=/test_mp3")[64]));
+     // return var_dump(file("http://37.192.187.83:10088/status.xsl?mount=/test_mp3"));
+        //http://radio.kraslan.ru:8000/status.xsl?mount=/radiobox отсюда не проще тянуть???
+
+        /*$result = [];
+
+        $handle = @fopen("http://37.192.187.83:10088/status.xsl","r");
+        if ($handle) {
+            $i=0;
+            while (($buffer = fgets($handle, 4096)) !== false) {
+                if ($i==68) {
+                    $d = preg_split("/<[^>]*[^\/]>/i",$buffer);
+                    array_push($result,"<a href=\"http://37.192.187.83:10088/1.m3u\">".$d[1]."</a>");
+                }
+                else if ($i==126) {
+                    $d = preg_split("/<[^>]*[^\/]>/i",$buffer);
+                    array_push($result,"<a href=\"http://37.192.187.83:10088/2.m3u\">".$d[1]."</a>");
+                }
+                else if ($i==184){
+                    $d = preg_split("/<[^>]*[^\/]>/i",$buffer);
+                    array_push($result,"<a href=\"http://37.192.187.83:10088/3.m3u\">".$d[1]."</a>");
+                }
+                else if ($i==242) {
+                    $d = preg_split("/<[^>]*[^\/]>/i",$buffer);
+                    array_push($result,"<a href=\"http://37.192.187.83:10088/4.m3u\">".$d[1]."</a>");
+                }
+                $i++;
+            }
+            fclose($handle);
+            foreach ($result as $link)
+                echo $link."\n";
+        }
+        return var_dump($result);
+        */
+        //http://90.151.96.164:8000/status.xsl
+
+        /*if(RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])){
+            try {
+                $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
+            } catch (ErrorException $e) {
+                return 12;
+            }
+            if($item){
+                return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".addslashes($item->anons)." :: ".$item->title."';";
+                //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+            };
+        }
+
+        if(Songs::find()->where(['like', 'link', trim(substr($current_track, -10))])){
+            try {
+                $item = Songs::find()->where(['like', 'link', trim(substr($current_track, -10))])->one();
+            } catch (ErrorException $e) {
+                return 12;
+            }
+            if($item){
+                return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".addslashes($item->anons)." :: ".$item->title."';";
+                //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+            };
+        }
+        */
+
+
+
+        /*if(mb_detect_encoding($current_track) != 'ASCII') {
+          //  return  /*mb_convert_encoding($current_track, "windows-1251", "UTF-8");
+            //return $out=iconv( mb_detect_encoding($current_track), 'UTF-8', $current_track);
+            return "document.getElementById('rand').innerHTML = '".addslashes(trim($current_track))."';";
+           // return mb_detect_encoding($current_track);
+        }
+    */
+/*
+
+        if($current_track){
+            if(RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])){
+                try {
+                    $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
+                } catch (ErrorException $e) {
+                    return 12;
+                }
+                if($item){
+                    return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".addslashes($item->anons)." :: ".$item->title."';";
+                    //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+                };
+            }
+            return "document.getElementById('rand').innerHTML = '".addslashes(trim($current_track))."';";
+            //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+        };
+
+
 
         //$item_title = RadioItem::find()->where(' audio LIKE "%krepche-russkogo-ivana%"')->one();
-        $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
-        //return var_dump(substr($current_track, -10));
+*/
+        try {
+            $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
+        } catch (ErrorException $e) {
+            return 12;
+        }
+       // return var_dump(substr($current_track, -10));
+
 
         if(trim($current_track) == 'oho' || substr($current_track, 0) == 'komnata_s_mehom') {
             return "document.getElementById('rand').innerHTML = 'РАДИО-БЛОГ КОМНАТА С МЕХОМ - ВСЕГДА ЖИВОЙ ЗВУК';";
