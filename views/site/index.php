@@ -53,7 +53,7 @@ $this->title = 'Radiorooma';
         <?php /*<h4>Добро пожаловать в ротацию нашего Радио</h4>
         <input type="text" class="form-control" id="text"  placeholder="Ваша почта">
         <button type="button" class="btn btn-success">Отправить письмо с инструкциями</button>
-        */?>
+
         <p id="all_nenor">
             <button type="button" class="btn btn-success" onclick="onRadio('test_mp3')" >
                 Программа "МузЫки Без Границ" <br> Осторожно! Ненормативная лексика!
@@ -69,6 +69,7 @@ $this->title = 'Radiorooma';
                 Программа "Естественное и безобразное" <br> с участием Барда, который перевернул ЗИЛ
             </button>
         </p>
+  */?>
 
 
     </div>

@@ -182,6 +182,13 @@ AppAsset::register($this);
         -webkit-animation: l3_animation 20s linear infinite;
         -moz-animation: l3_animation 20s linear infinite;
     }
+
+    .btn{
+        width: 32.5%;
+        color: #1c1c1c;
+        overflow: hidden;
+    }
+
     @-webkit-keyframes l3_animation {
         0%    {color: rgb(189, 217, 233); }
         20%   {color: rgb(139, 173, 196); }
@@ -291,16 +298,31 @@ AppAsset::register($this);
                     <div class="latvia">
 
                         <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
+                        <p class="text-center">
+                            <button type="button" class="btn" onclick="onRadio('test_mp3')" >
+                                18+
+                            </button>
+
+                            <button type="button" class="btn" onclick="onRadio('second_mp3')" >
+                                36+
+                            </button>
+
+                            <button type="button" class="btn" onclick="onRadio('bard_mp3')" >
+                                47+
+                            </button>
+                        </p>
+
 
 
 
                     </div>
                     <div class="line" id="l3">
                         <div class="line_text">
-                            <p class="text-center">Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
-                                </p>
+                            <p class="text-center">
+                                Выберите программу для прослушивания
+                            </p>
 
-                           </div>
+                       </div>
 
                         <div class="line_cover"></div>
                     </div>
@@ -482,6 +504,7 @@ AppAsset::register($this);
         function onRadio(link) {
             var au = document.getElementById('au');
             au.src = 'http://37.192.187.83:10088/'+link;
+            au.play();
             au.volume = 0.5;
         }
         
