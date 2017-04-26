@@ -151,9 +151,46 @@ class SiteController extends Controller
     }
 
     function actionGetItemByLink(){
+        if(Yii::$app->getRequest()->getQueryParam('u') && Yii::$app->getRequest()->getQueryParam('b')) {
+           // return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+            //return var_dump(Yii::$app->getRequest()->getQueryParam('u'));
+            $mount = Yii::$app->getRequest()->getQueryParam('u');
+            $block = Yii::$app->getRequest()->getQueryParam('b');
+            $current_track = strip_tags(addslashes(file("http://37.192.187.83:10088/status.xsl?mount=/$mount")[64]));
+            //var_dump(file("http://37.192.187.83:10088/status.xsl?mount=/$mount"));
+           try {
+                $item = RadioItem::find()->where(['like', 'audio', trim($current_track)])->one();
+                if($item){
+                    return "document.getElementById('".$block."').innerHTML = '".$item->category->name." :: ".addslashes($item->anons)." :: ".$item->title."';";
+                    //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+                };
+            } catch (ErrorException $e) {
+                return 12;
+            }
+
+            // return var_dump(substr($current_track, -10));
+
+
+            if(trim($current_track) == 'oho' || substr($current_track, 0) == 'komnata_s_mehom') {
+                return "document.getElementById('".$block."').innerHTML = 'РАДИО-БЛОГ КОМНАТА С МЕХОМ - ВСЕГДА ЖИВОЙ ЗВУК';";
+            }
+
+
+
+            if($current_track){
+                return "document.getElementById('".$block."').innerHTML = '".trim($current_track)."';";
+                //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+            };
+
+
+            return "document.getElementById('".$block."').innerHTML = 'Доброго Вам Времени!';";
+
+        }
+
+        return "document.getElementById('rand').innerHTML = 'Радио скрючилось!';";
         /*$current_track = file("http://37.192.187.83:10088/ices.vclt") ?
             substr(file("http://37.192.187.83:10088/ices.vclt")[1],6) : "Скоро возобновление трансляции";*/
-      $current_track = strip_tags(addslashes(file("http://37.192.187.83:10088/status.xsl?mount=/test_mp3")[64]));
+
      // return var_dump(file("http://37.192.187.83:10088/status.xsl?mount=/test_mp3"));
         //http://radio.kraslan.ru:8000/status.xsl?mount=/radiobox отсюда не проще тянуть???
 
@@ -245,31 +282,8 @@ class SiteController extends Controller
 
         //$item_title = RadioItem::find()->where(' audio LIKE "%krepche-russkogo-ivana%"')->one();
 */
-        try {
-            $item = RadioItem::find()->where(['like', 'audio', trim(substr($current_track, -10))])->one();
-        } catch (ErrorException $e) {
-            return 12;
-        }
-       // return var_dump(substr($current_track, -10));
 
-
-        if(trim($current_track) == 'oho' || substr($current_track, 0) == 'komnata_s_mehom') {
-            return "document.getElementById('rand').innerHTML = 'РАДИО-БЛОГ КОМНАТА С МЕХОМ - ВСЕГДА ЖИВОЙ ЗВУК';";
-        }
-
-        if($item){
-            return "document.getElementById('rand').innerHTML = '".$item->category->name." :: ".addslashes($item->anons)." :: ".$item->title."';";
-            //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
-        };
-
-        if($current_track){
-            return "document.getElementById('rand').innerHTML = '".trim($current_track)."';";
-            //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
-        };
-
-
-        //return "document.getElementById('rand').innerHTML = 'Доброго Вам Времени!';";
-        return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
+        //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
     }
 
     function actionGetItemText(){

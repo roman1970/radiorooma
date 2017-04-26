@@ -143,6 +143,41 @@ AppAsset::register($this);
         0%{left:100%;}
         100%{left:-100%;}
     }
+    /****** Line 11 *******/
+    #l11.line{
+        height: 50px;
+        background: #2e2e2e;
+        margin-top: 10px;
+    }
+    #l11.line .line_text{
+        font-size: 20px;
+        /*font-weight: bold;*/
+        /* font-weight: bold; */
+        width: 1600px;
+        /*width: 900px;*/
+        color: rgb(248, 249, 255);
+        -webkit-animation: l1_animation 8s linear infinite;
+        -moz-animation: l1_animation 8s linear infinite;
+    }
+    /****** Line 12 *******/
+    #l12.line{
+        height: 50px;
+        background: #2e2e2e;
+        margin-top: 10px;
+    }
+    #l12.line .line_text{
+        font-size: 20px;
+        /*font-weight: bold;*/
+        /* font-weight: bold; */
+        width: 1600px;
+        /*width: 900px;*/
+        color: rgb(248, 249, 255);
+        -webkit-animation: l1_animation 12s linear infinite;
+        -moz-animation: l1_animation 12s linear infinite;
+    }
+
+
+
     /****** Line 2 *******/
     #l2.line{
         height:70px;
@@ -184,9 +219,16 @@ AppAsset::register($this);
     }
 
     .btn{
-        width: 32.5%;
+        width: 100%;
         color: #1c1c1c;
         overflow: hidden;
+        margin-top: 10px;
+    }
+    .btn:hover{
+        color: grey;
+    }
+    .btn:active{
+        color: grey;
     }
 
     @-webkit-keyframes l3_animation {
@@ -290,35 +332,46 @@ AppAsset::register($this);
             <div class="row row-offcanvas row-offcanvas-right ">
 
                 <div class="navbar-fixed-top container">
-                    <div class="line" id="l1">
-                        <div class="line_text" id="rand">РАДИО-БЛОГ 'КОМНАТА С МЕХОМ'</div>
-                        <div class="line_cover"></div>
-                    </div>
 
                     <div class="latvia">
 
-                        <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
+                        <?php /*<p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
                         <p class="text-center">
-                            <button type="button" class="btn" onclick="onRadio('test_mp3')" >
-                                18+
-                            </button>
 
-                            <button type="button" class="btn" onclick="onRadio('second_mp3')" >
-                                36+
-                            </button>
 
-                            <button type="button" class="btn" onclick="onRadio('bard_mp3')" >
-                                47+
-                            </button>
-                        </p>
+
+                        </p> */ ?>
 
 
 
 
                     </div>
+                    <button type="button" class="btn" onclick="onRadio('test_mp3')" title="Первый канал">
+                        Канал ФИЗИКА ДЛЯ НАСТОЯЩИХ ПАНКОВ! Осторожно! Ненормативная лексика!
+                    </button>
+                    <div class="line" id="l11">
+                        <div class="line_text" id="rand">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
+                        <div class="line_cover"></div>
+                    </div>
+                    <button type="button" class="btn" onclick="onRadio('second_mp3')" title="Второй канал">
+                        Канал САМАЯ РАЗНАЯ МУЗЫКА
+                    </button>
+                    <div class="line" id="l12">
+                        <div class="line_text" id="rand1">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
+                        <div class="line_cover"></div>
+                    </div>
+
+                    <button type="button" class="btn" onclick="onRadio('bard_mp3')" title="Третий канал">
+                        Канал КОМНАТА С МЕХОМ Ведущий: Бард, который перевернул ЗИЛ"
+                    </button>
+                    <div class="line" id="l1">
+                        <div class="line_text" id="rand2">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
+                        <div class="line_cover"></div>
+                    </div>
+
                     <div class="line" id="l3">
                         <div class="line_text">
-                            <p class="text-center">
+                            <p class="text-center" >
                                 Выберите программу для прослушивания
                             </p>
 
@@ -341,20 +394,24 @@ AppAsset::register($this);
                             var pl = 1;
 
                             setInterval(function () {
+                                getBlockForMeta('gggg', 'test_mp3', 'rand');
+                                getBlockForMeta('gggg', 'second_mp3', 'rand1');
+                                getBlockForMeta('gggg', 'bard_mp3', 'rand2');
 
-                                var rand = document.getElementById('gggg');
+                            }, 15000);
+
+                            function getBlockForMeta(trackId, mounting_point, blockId) {
+                                var rand = document.getElementById(trackId);
                                 if(rand) rand.remove();
 
                                 var script = document.createElement('script');
-                              
-                                script.src = "<?=\yii\helpers\Url::to('/site/get-item-by-link/');?>";
-                                script.type = 'text/javascript';
-                                script.id = 'gggg';
 
+                                script.src = '/site/get-item-by-link/?u=' + mounting_point + '&b=' + blockId;
+                                script.type = 'text/javascript';
+                                script.id = trackId;
 
                                 document.body.appendChild(script);
-
-                            }, 15000);
+                            }
 
                             /*setInterval(function () {
 
@@ -406,7 +463,7 @@ AppAsset::register($this);
             au.src = 'http://37.192.187.83:10088/test_mp3';
             au.volume = 0.1;
 
-            var player = document.getElementById('player');
+            var player = document.getElementById('l3');
 
 
             if (player.addEventListener) {
@@ -462,7 +519,7 @@ AppAsset::register($this);
             var vol = delta/1000;
 
             var audio = document.getElementById('au');
-            var player = document.getElementById('player');
+            var player = document.getElementById('l3');
 
             if(vol < 0.05) {
                 audio.volume = 0;
