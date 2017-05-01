@@ -334,7 +334,7 @@ AppAsset::register($this);
                 <div class="navbar-fixed-top container">
 
                     <div class="line" id="l1">
-                        <div class="line_text" id="rand">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
+                        <div class="line_text" id="rand">РАДИО 'КОМНАТА С МЕХОМ'</div>
                         <div class="line_cover"></div>
                     </div>
 
@@ -378,7 +378,7 @@ AppAsset::register($this);
                     <div class="line" id="l3">
                         <div class="line_text">
                             <p class="text-center" >
-                                Выберите программу для прослушивания
+                                Ведущий: Бард, который перевернул ЗИЛ"
                             </p>
 
                        </div>
