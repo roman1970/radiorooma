@@ -156,7 +156,14 @@ class SiteController extends Controller
             //return var_dump(Yii::$app->getRequest()->getQueryParam('u'));
             $mount = Yii::$app->getRequest()->getQueryParam('u');
             $block = Yii::$app->getRequest()->getQueryParam('b');
-            $current_track = strip_tags(addslashes(file("http://37.192.187.83:10088/status.xsl?mount=/$mount")[64]));
+            /*if(mb_detect_encoding($current_track) != 'ASCII') {
+
+            }
+            iconv( "utf-8", "windows-1251", addslashes(file("http://37.192.187.83:10088/status.xsl?mount=/$mount")[64])) );
+            */
+            $current_track = strip_tags(html_entity_decode(addslashes(file("http://37.192.187.83:10088/status.xsl?mount=/$mount")[64])));
+
+           // $current_track = strip_tags(addslashes(file("http://37.192.187.83:10088/status.xsl?mount=/$mount")[64]));
             //var_dump(file("http://37.192.187.83:10088/status.xsl?mount=/$mount"));
            try {
                 $item = RadioItem::find()->where(['like', 'audio', trim($current_track)])->one();

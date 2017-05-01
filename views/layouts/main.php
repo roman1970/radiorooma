@@ -333,19 +333,24 @@ AppAsset::register($this);
 
                 <div class="navbar-fixed-top container">
 
+                    <div class="line" id="l1">
+                        <div class="line_text" id="rand">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
+                        <div class="line_cover"></div>
+                    </div>
+
                     <div class="latvia">
 
-                        <?php /*<p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
+
+                        <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
                         <p class="text-center">
 
 
 
-                        </p> */ ?>
-
-
+                        </p>
 
 
                     </div>
+                    <?php /*
                     <button type="button" class="btn" onclick="onRadio('test_mp3')" title="Первый канал">
                         Канал ФИЗИКА ДЛЯ НАСТОЯЩИХ ПАНКОВ! Осторожно! Ненормативная лексика!
                     </button>
@@ -368,6 +373,7 @@ AppAsset::register($this);
                         <div class="line_text" id="rand2">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
                         <div class="line_cover"></div>
                     </div>
+                    */?>
 
                     <div class="line" id="l3">
                         <div class="line_text">
@@ -394,9 +400,9 @@ AppAsset::register($this);
                             var pl = 1;
 
                             setInterval(function () {
-                                getBlockForMeta('gggg', 'test_mp3', 'rand');
-                                getBlockForMeta('gggg', 'second_mp3', 'rand1');
-                                getBlockForMeta('gggg', 'bard_mp3', 'rand2');
+                               // getBlockForMeta('gggg', 'test_mp3', 'rand');
+                                //getBlockForMeta('gggg', 'second_mp3', 'rand1');
+                                getBlockForMeta('gggg', 'bard_mp3', 'rand');
 
                             }, 15000);
 
@@ -460,7 +466,7 @@ AppAsset::register($this);
         $(document).ready(function() {
 
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/test_mp3';
+            au.src = 'http://37.192.187.83:10088/bard_mp3';
             au.volume = 0.1;
 
             var player = document.getElementById('l3');
