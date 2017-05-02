@@ -21,6 +21,8 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+       // 'js/MooToolsCore.js',
+       // 'js/rheostat.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

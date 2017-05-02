@@ -21,6 +21,8 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+
+
     <?php $this->head() ?>
 </head>
 <style>
@@ -231,6 +233,37 @@ AppAsset::register($this);
         color: grey;
     }
 
+    /*регулятор громкости*****/
+    #Panel{
+        position: absolute;
+        top: 30%;
+        left: 10%;
+    }
+    #Container
+    {
+        position: relative;
+        background-image: url(<?=\yii\helpers\Url::to('/img/rheostat.png')?>);
+        width: 64px;
+        height: 64px;
+    }
+
+    #Indicator
+    {
+        position: absolute;
+        background-image: url(<?=\yii\helpers\Url::to('/img/indicator.png')?>);
+        width: 4px;
+        height: 4px;
+        visibility: hidden;
+    }
+    #Text{
+        position: absolute;
+        top: 20px;
+        left: 22px;
+        color: rgb(0, 0, 0);
+    }
+    }
+    /************************/
+
     @-webkit-keyframes l3_animation {
         0%    {color: rgb(189, 217, 233); }
         20%   {color: rgb(139, 173, 196); }
@@ -251,6 +284,11 @@ AppAsset::register($this);
     @media (min-width: 1200px) {
         .content {
             padding-top: 35%;
+        }
+        #Panel{
+            position: absolute;
+            top: 33%;
+            left: 11%;
         }
     }
 
@@ -342,6 +380,14 @@ AppAsset::register($this);
 
 
                         <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
+                        <div id="Panel">
+                            <div id="Container">
+                                <span id="Text"></span>
+                                <div id="Indicator" style="left: 57px; top: 28px; visibility: visible; zoom: 1; opacity: 1;">
+
+                                </div>
+                            </div>
+                        </div>
                         <p class="text-center">
 
 
@@ -349,7 +395,10 @@ AppAsset::register($this);
                         </p>
 
 
+
                     </div>
+
+
                     <?php /*
                     <button type="button" class="btn" onclick="onRadio('test_mp3')" title="Первый канал">
                         Канал ФИЗИКА ДЛЯ НАСТОЯЩИХ ПАНКОВ! Осторожно! Ненормативная лексика!
@@ -377,8 +426,8 @@ AppAsset::register($this);
 
                     <div class="line" id="l3">
                         <div class="line_text">
-                            <p class="text-center" >
-                                Ведущий: Бард, который перевернул ЗИЛ"
+                            <p class="text-center">
+                                Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
                             </p>
 
                        </div>
@@ -461,7 +510,10 @@ AppAsset::register($this);
     <?php $this->endBody() ?>
     </body>
     </html>
+
+
     <?php $this->endPage() ?>
+
     <script>
         $(document).ready(function() {
 
@@ -469,7 +521,7 @@ AppAsset::register($this);
             au.src = 'http://37.192.187.83:10088/bard_mp3';
             au.volume = 0.1;
 
-            var player = document.getElementById('l3');
+            /*var player = document.getElementById('l3');
 
 
             if (player.addEventListener) {
@@ -486,6 +538,7 @@ AppAsset::register($this);
             } else { // IE8-
                 player.attachEvent("onmousewheel", onWheel);
             }
+            */
 
 
             au.onerror = function () {
@@ -497,19 +550,21 @@ AppAsset::register($this);
 
 
 
-                $(".accord h6:first").addClass("active");
+                jQuery(".accord h6:first").addClass("active");
 
-                $(".accord div").hide();
+                jQuery(".accord div").hide();
 
-                $(".accord h6").click(function() {
+                jQuery(".accord h6").click(function() {
 
-                    $(this).next("div").slideToggle("slow").siblings("div:visible").slideUp("slow");
+                    jQuery(this).next("div").slideToggle("slow").siblings("div:visible").slideUp("slow");
 
 
-                    $(this).toggleClass("active");
+                    jQuery(this).toggleClass("active");
 
-                    $(this).siblings("h6").removeClass("active");
+                    jQuery(this).siblings("h6").removeClass("active");
                 });
+
+
 
 
         });
@@ -556,7 +611,7 @@ AppAsset::register($this);
 
         function offAudio() {
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/test_mp3';
+            au.src = 'http://37.192.187.83:10088/bard_mp3';
             au.volume = 0.5;
             var off_button = document.getElementById('off_button');
             var on_button = document.getElementById('on_button');
@@ -574,7 +629,7 @@ AppAsset::register($this);
         
         
         function like(id) {
-            $.ajax({
+            jQuery.ajax({
                 type: "GET",
                 url: 'http://37.192.187.83:10033/rockncontroll/default/add-radio-like/',
                 data: "id="+id,
@@ -588,7 +643,7 @@ AppAsset::register($this);
         }
 
         function getTrackN(id) {
-            $.ajax({
+            jQuery.ajax({
                 type: "GET",
                 url: 'http://37.192.187.83:10033/rockncontroll/default/add-radio-like/',
                 data: "id="+id,
@@ -600,6 +655,8 @@ AppAsset::register($this);
             });
 
         }
+
+
 
        
         /*
@@ -680,5 +737,30 @@ AppAsset::register($this);
     }, 20000);
 */
 
+</script>
+<script type="text/javascript" src="js/MooToolsCore.js"></script>
+<script type="text/javascript" src="js/rheostat.js"></script>
+<script type="text/javascript">
+    //[CDATA[
+    //$.noConflict();
+    jQuery(document).ready(function() {
+        window.addEvent('domready', function () {
+            var rheostat = new Rheostat('Container', 'Indicator', {minValue: 1, maxValue: 100});
+            var text = $('Text');
+            var audio = document.getElementById('au');
+            var volume = 72;
+
+            rheostat.addEvent('valueChanged', function (value) {
+                //alert(value);
+                volume = value / 100;
+                audio.volume = volume;
+                text.innerHTML = value + '%';
+                // var size = value + 'pt';
+                // text.set('text', size);
+                // text.setStyle('font-size', size);
+            })
+        });
+    });
+    //]]
 </script>
 
