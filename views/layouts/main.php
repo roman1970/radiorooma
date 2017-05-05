@@ -32,7 +32,14 @@ AppAsset::register($this);
         color: rgb(248, 248, 255);
 
         background-image: url(<?=\yii\helpers\Url::to('/img/fons_bg-530x180.jpg')?>);
-       /* background-color: #1a1a1a;*/
+        scrollbar-face-color:#5997CA;
+        scrollbar-shadow-color: #ffffff;
+        scrollbar-highlight-color: #ffffff;
+        scrollbar-3dlight-color: #5997CA;
+        scrollbar-darkshadow-color: #5997CA;
+        scrollbar-track-color: #F6F6F6;
+        scrollbar-arrow-color: #F6F6F6;
+        /* background-color: #1a1a1a;*/
 
     }
     /*html, body {
@@ -212,7 +219,7 @@ AppAsset::register($this);
     #l3.line .line_text{
         font-size:20px;;
         position:absolute;
-        color:#ffb400;
+        color: rgb(86, 186, 89);
         padding-top: 0px;
         /*font-weight:bold;*/
         font-family:"Trebuchet MS", Helvetica, sans-serif;
@@ -382,7 +389,7 @@ AppAsset::register($this);
                         <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
                         <div id="Panel">
                             <div id="Container">
-                                <span id="Text"></span>
+                                <span id="Text">Vol</span>
                                 <div id="Indicator" style="left: 57px; top: 28px; visibility: visible; zoom: 1; opacity: 1;">
 
                                 </div>
@@ -516,6 +523,8 @@ AppAsset::register($this);
 
     <script>
         $(document).ready(function() {
+            
+            height = 200;
 
             var au = document.getElementById('au');
             au.src = 'http://37.192.187.83:10088/bard_mp3';
@@ -626,7 +635,9 @@ AppAsset::register($this);
             au.volume = 0.5;
         }
         
-        
+        function home() {
+            window.location.reload();
+        }
         
         function like(id) {
             jQuery.ajax({
@@ -738,12 +749,15 @@ AppAsset::register($this);
 */
 
 </script>
-<script type="text/javascript" src="js/MooToolsCore.js"></script>
-<script type="text/javascript" src="js/rheostat.js"></script>
+<script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/MooToolsCore.js')?>"></script>
+<script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/rheostat.js')?>"></script>
 <script type="text/javascript">
     //[CDATA[
     //$.noConflict();
     jQuery(document).ready(function() {
+
+       
+
         window.addEvent('domready', function () {
             var rheostat = new Rheostat('Container', 'Indicator', {minValue: 1, maxValue: 100});
             var text = $('Text');

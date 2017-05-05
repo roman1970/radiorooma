@@ -5,6 +5,8 @@ namespace app\controllers;
 use app\models\Category;
 use app\models\RadioItem;
 use app\models\Source;
+use app\models\Theme;
+use app\models\ThemeItems;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
@@ -54,9 +56,9 @@ class ItemController extends Controller
             ->where(['alias' => $alias])
             ->one();
 
-        //return var_dump($item);
+       // return var_dump(strstr(Yii::$app->request->referrer, Url::home(true).'item'));
 
-        if(Yii::$app->request->referrer == Url::home(true)) {
+        if(Yii::$app->request->referrer == Url::home(true) ||  strstr(Yii::$app->request->referrer, Url::home(true).'item')) {
             return $this->renderPartial('index', [
                 'item' => $item,
                 //'referrer' => $referrer,
@@ -64,9 +66,31 @@ class ItemController extends Controller
             ]);
         }
 
+        else{
+            $theme_items = [];
+            $cats = Category::find()->all();
+            // $items = RadioItem::find()->all();
+            $themes = Theme::find()->all();
+
+            foreach ($themes as $theme) {
+                $theme_items[$theme->title] = ThemeItems::find()->where(['theme_id' => $theme->id])->all();
+            }
+
+            //shuffle($theme_items);
+            //return var_dump($theme_items);
+            // echo Yii::$app->request->referrer; exit;
+            /*if(Yii::$app->request->referrer != Url::home(true)) {
+                return $this->renderPartial('index', ['cats' => $cats, 'theme_items' => $theme_items]);
+            }
+            else{*/
+            return $this->render('/site/index', ['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item,]);
+            //  }
+
+        }
+
         //return $this->redirect(Url::toRoute('/'));
 
-        return $this->render('index', ['item' => $item]);
+        //return $this->render('index', ['item' => $item]);
         //return $this->render('index');
     }
     

@@ -17,6 +17,8 @@
     .accord{
         text-align: center;
         cursor: pointer;
+        height: 700px;
+        overflow: scroll;
     }
 </style>
 
@@ -70,12 +72,30 @@ $this->title = 'Radiorooma';
             </button>
         </p>
   */?>
+    <?php if(isset($cur_item)) : ?>
+        <div id="page">
+            <h3><?=$cur_item->title?></h3>
+            <?php /*
+            <form action="<?=Yii::$app->homeUrl?>">
+                <button type="submit" class="btn btn-success">На главную</button>
+            </form>
+            */ ?>
+
+            <p id="on_button"><button type="button" class="btn btn-success" onclick="onAudio('<?=$cur_item->audio?>')" >Воспроизвести</button></p>
+            <p style="display: none" id="off_button"><button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио</button></p>
+            <p id="like_button"><button type="button" class="btn btn-success" onclick="like('<?=$cur_item->id?>')" >Понравилось</button></p>
+            <?php //<p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p> ?>
+            <p id="summary">Понравилось: <?=$cur_item->likes?></p>
+            <p class="txt"><?php echo nl2br($cur_item->text)?></p>
+        </div>
+
+    <?php endif; ?>
 
 
     </div>
 </div>
 
-<div class="col-sm-4 accord">
+<div class="col-sm-4 accord" id="acc">
 
     <?php foreach ($theme_items as $theme => $items) : ?>
 

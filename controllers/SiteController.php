@@ -67,6 +67,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $max_id = (int)RadioItem::find()
+            ->select('MAX(id)')
+            ->scalar();
+
+        $item = RadioItem::findOne(rand(0, $max_id));
+
         $theme_items = [];
         $cats = Category::find()->all();
         // $items = RadioItem::find()->all();
@@ -83,7 +89,7 @@ class SiteController extends Controller
             return $this->renderPartial('index', ['cats' => $cats, 'theme_items' => $theme_items]);
         }
         else{*/
-            return $this->render('index', ['cats' => $cats, 'theme_items' => $theme_items]);
+            return $this->render('index', ['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item]);
       //  }
 
 
