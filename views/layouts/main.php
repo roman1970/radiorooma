@@ -477,7 +477,11 @@ AppAsset::register($this);
 
                         <div class="line_cover"></div>
                     </div>
-                    <audio id="au" autoplay controls></audio>
+                   <audio id="au"  autoplay ></audio>
+                   <?php /*<audio id="au">
+                        <source src="http://37.192.187.83:10088/bard_mp3" type="audio/mpeg" />
+                    </audio>
+                    */ ?>
                     <h1 class="text-center" id="gone"></h1>
                 </div>
 
