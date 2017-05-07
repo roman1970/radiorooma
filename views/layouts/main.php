@@ -523,6 +523,9 @@ AppAsset::register($this);
 
             var au = document.getElementById('au');
             au.src = 'http://37.192.187.83:10088/bard_mp3';
+
+            var panel = document.getElementById('Panel');
+            panel.click(function () { audio.play(); });
             au.volume = 0.1;
 
             /*var player = document.getElementById('l3');
@@ -775,7 +778,7 @@ AppAsset::register($this);
             var text = $('Text');
             var panel = $('Panel');
             var audio = document.getElementById('au');
-            panel.click(function () { audio.play(); });
+
             
             
             var volume = 72;
