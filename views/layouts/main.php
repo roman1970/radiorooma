@@ -773,8 +773,10 @@ AppAsset::register($this);
         window.addEvent('domready', function () {
             var rheostat = new Rheostat('Container', 'Indicator', {minValue: 1, maxValue: 100});
             var text = $('Text');
+            var panel = $('Panel');
             var audio = document.getElementById('au');
-            audio.play();
+            panel.click(function () { audio.play(); });
+            
             
             var volume = 72;
 
