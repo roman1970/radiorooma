@@ -407,7 +407,7 @@ AppAsset::register($this);
 
 
 
-            <audio id="au" autoplay ></audio>
+
 
             <?php //echo phpinfo();//<div id="rand"></div> ?>
             <div class="row row-offcanvas row-offcanvas-right ">
@@ -477,6 +477,7 @@ AppAsset::register($this);
 
                         <div class="line_cover"></div>
                     </div>
+                    <audio id="au" autoplay controls></audio>
                     <h1 class="text-center" id="gone"></h1>
                 </div>
 
