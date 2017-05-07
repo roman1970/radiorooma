@@ -16,9 +16,12 @@
 <?php \yii\widgets\Pjax::begin(['id' => 'section_page']); ?>
 <div id="page">
     <h3><?=$item->title?></h3>
+    <p>(<?= $item->source->title ?> - <?= $item->source->author->name ?>)</p>
+    <?php /*
     <form action="<?=Yii::$app->homeUrl?>">
         <button type="submit" class="btn btn-success">На главную</button>
     </form>
+ */ ?>
 
     <p id="on_button"><button type="button" class="btn btn-success" onclick="onAudio('<?=$item->audio?>')" >Воспроизвести</button></p>
     <p style="display: none" id="off_button"><button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио</button></p>

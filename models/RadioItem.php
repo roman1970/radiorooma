@@ -72,7 +72,7 @@ class RadioItem extends \yii\db\ActiveRecord
 
     public function getSource()
     {
-        return $this->hasOne(\app\models\Source::className(), ['id' => 'cat_id']);
+        return $this->hasOne(\app\models\Source::className(), ['id' => 'source_id']);
     }
 
 

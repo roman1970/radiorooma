@@ -32,16 +32,34 @@ AppAsset::register($this);
         color: rgb(248, 248, 255);
 
         background-image: url(<?=\yii\helpers\Url::to('/img/fons_bg-530x180.jpg')?>);
-        scrollbar-face-color:#5997CA;
-        scrollbar-shadow-color: #ffffff;
-        scrollbar-highlight-color: #ffffff;
-        scrollbar-3dlight-color: #5997CA;
-        scrollbar-darkshadow-color: #5997CA;
-        scrollbar-track-color: #F6F6F6;
-        scrollbar-arrow-color: #F6F6F6;
-        /* background-color: #1a1a1a;*/
+
+    /* background-color: #1a1a1a;*/
 
     }
+
+    a {
+        color: rgb(19, 238, 25);
+    }
+
+    a:hover {
+        color: rgb(76, 238, 208);
+    }
+
+    a:active {
+        color: rgb(76, 238, 208);
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: rgb(53, 238, 44);
+        text-decoration: none;
+    }
+
+    .grad {
+        height: 200px;
+        background: linear-gradient(to top, #E4AF9D 20%, #E4E4D8 50%, #A19887 80%);
+    }
+  
     /*html, body {
         margin: 0px;
         padding:30px 0;
@@ -61,6 +79,9 @@ AppAsset::register($this);
     .wrap > .container {
         padding: 40px 15px 20px;
 
+        /*box-shadow: 0 6px 4px -4px rgba(0, 0, 0, .2);*/
+        /*box-shadow: 0 6px 4px -4px rgba(189, 217, 233, 0.99);*/
+
     }
     .text-center{
         padding-top: 10px;
@@ -74,9 +95,7 @@ AppAsset::register($this);
         background-size: 100%;
         border: 2px solid rgb(158, 178, 177);;
         border-radius: 5px;
-
     }
-
 
     .content{
         padding-top: 40%;
@@ -92,6 +111,7 @@ AppAsset::register($this);
         width: 25%;
         padding-top: 20px;
     }
+
     input{
         width:500px;
         height:24px;
@@ -233,11 +253,12 @@ AppAsset::register($this);
         overflow: hidden;
         margin-top: 10px;
     }
-    .btn:hover{
-        color: grey;
+    .btn:hover {
+        color: #fcf8e3;
     }
+
     .btn:active{
-        color: grey;
+        color: #fcf8e3;
     }
 
     /*регулятор громкости*****/
@@ -322,6 +343,21 @@ AppAsset::register($this);
         }
         #l3.line .line_text{
             font-size:15px;;
+
+        }
+
+        #Container {
+            width: 44px;
+            height: 44px;
+            background-size: 44px 44px;
+        }
+        #Panel{
+            top: 27%;
+            left: 11%;
+        }
+        #Text{
+            top: 13px;
+            left: 11px;
 
         }
 
@@ -451,48 +487,7 @@ AppAsset::register($this);
                         <?= $content ?>
 
 
-                        <script>
-
-                            var pl = 1;
-
-                            setInterval(function () {
-                               // getBlockForMeta('gggg', 'test_mp3', 'rand');
-                                //getBlockForMeta('gggg', 'second_mp3', 'rand1');
-                                getBlockForMeta('gggg', 'bard_mp3', 'rand');
-
-                            }, 15000);
-
-                            function getBlockForMeta(trackId, mounting_point, blockId) {
-                                var rand = document.getElementById(trackId);
-                                if(rand) rand.remove();
-
-                                var script = document.createElement('script');
-
-                                script.src = '/site/get-item-by-link/?u=' + mounting_point + '&b=' + blockId;
-                                script.type = 'text/javascript';
-                                script.id = trackId;
-
-                                document.body.appendChild(script);
-                            }
-
-                            /*setInterval(function () {
-
-                                var rand = document.getElementById('pppp');
-                                if(rand) rand.remove();
-                               
-                                var script = document.createElement('script');
-
-                                script.src = "<?=\yii\helpers\Url::to('/site/get-item-text/');?>";
-                                script.type = 'text/javascript';
-                                script.id = 'pppp';
-
-
-                                document.body.appendChild(script);
-
-                            }, 60000);
-                            */
-
-                        </script>
+                     
 
                     </div>
                     
@@ -628,11 +623,16 @@ AppAsset::register($this);
             off_button.style.display = 'none';
         }
 
-        function onRadio(link) {
+        function onRadio(link, button_id, replace_button) {
             var au = document.getElementById('au');
+            var hide = document.getElementById(button_id);
+            var show = document.getElementById(replace_button);
             au.src = 'http://37.192.187.83:10088/'+link;
             au.play();
             au.volume = 0.5;
+            hide.style.display = 'none';
+            show.style.display = 'block';
+            
         }
         
         function home() {
@@ -749,6 +749,19 @@ AppAsset::register($this);
 */
 
 </script>
+<script>
+    /*Выравнивание колонок*/
+    jQuery(document).ready(function() {
+        var page = document.getElementById('page');
+        //console.log(height);
+        height = page.clientHeight;
+        var acc = document.getElementById('acc');
+        //console.log(acc);
+        var new_height = height + 25;
+        acc.style.height = new_height+"px";
+        //console.log(acc.style.height);
+    });
+</script>
 <script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/MooToolsCore.js')?>"></script>
 <script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/rheostat.js')?>"></script>
 <script type="text/javascript">
@@ -756,12 +769,13 @@ AppAsset::register($this);
     //$.noConflict();
     jQuery(document).ready(function() {
 
-       
 
         window.addEvent('domready', function () {
             var rheostat = new Rheostat('Container', 'Indicator', {minValue: 1, maxValue: 100});
             var text = $('Text');
             var audio = document.getElementById('au');
+            audio.play();
+            
             var volume = 72;
 
             rheostat.addEvent('valueChanged', function (value) {

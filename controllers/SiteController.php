@@ -155,7 +155,29 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    public function actionForAntoha()
+    {
+        $max_id = (int)RadioItem::find()
+            ->select('MAX(id)')
+            ->scalar();
 
+        $item = RadioItem::findOne(rand(0, $max_id));
+
+        $theme_items = [];
+        $cats = Category::find()->all();
+        // $items = RadioItem::find()->all();
+        $themes = Theme::find()->all();
+
+        foreach ($themes as $theme) {
+            $theme_items[$theme->title] = ThemeItems::find()->where(['theme_id' => $theme->id])->all();
+        }
+        
+        return $this->render('antoha', ['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item]);
+       
+        
+    }
+    
     function actionGetItemByLink(){
         if(Yii::$app->getRequest()->getQueryParam('u') && Yii::$app->getRequest()->getQueryParam('b')) {
            // return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
