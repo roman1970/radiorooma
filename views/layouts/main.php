@@ -384,7 +384,7 @@ AppAsset::register($this);
             background-size: 44px 44px;
         }
         #Panel{
-            top: 27%;
+            top: 25%;
             left: 11%;
         }
         #Text{
