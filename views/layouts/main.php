@@ -98,7 +98,7 @@ AppAsset::register($this);
     }
 
     .content{
-        padding-top: 40%;
+        padding-top: 45%;
 
     }
     .btn-success {
@@ -298,16 +298,25 @@ AppAsset::register($this);
     }
 
     #play{
-        position: absolute;
-        top: 20%;
-        left: 85%;
+
+        display: none;
     }
 
     .on_button {
-        width: 45px;
-        height: 45px;
-        border-radius: 50px;
+        width: 35px;
+        height: 35px;
+        border-radius: 7px;
         color: #0a0a0a;
+        margin: 0;
+    }
+
+    #buttons{
+        /*display: none;*/
+        margin-left: 30%;
+    }
+
+    #Panel2{
+        display: none;
     }
 
     @-webkit-keyframes l3_animation {
@@ -329,7 +338,7 @@ AppAsset::register($this);
 
     @media (min-width: 1200px) {
         .content {
-            padding-top: 35%;
+            padding-top: 38%;
         }
         #Panel{
             position: absolute;
@@ -383,52 +392,20 @@ AppAsset::register($this);
             left: 11px;
 
         }
-/*
+
         @media(min-width:220px) and (max-width:500px){
-            .container .content {
-                padding-top: 300px;
-                text-align: center;
-            }
-            .latvia{
-                width: 100%;
-                background-size: 100%;
-                height: 170px;
-            }
-            /*.container .content{
-                padding-top: 60%;
-                text-align: center;
+            #play{
+
+                display: block;
             }
 
-            .bard_img {
-                width: 30%;
-            }
-            #l3.line {
-                height: 80px;
-            }
-            #l3.line .line_text{
-                font-size:15px;;
-
+            #buttons{
+                display: block;
             }
 
-            .bard_img {
-                padding-top: 0;
-            }
 
-            #Container {
-                width: 44px;
-                height: 44px;
-                background-size: 44px 44px;
-            }
-            #Panel{
-                top: 27%;
-                left: 11%;
-            }
-            #Text{
-                top: 13px;
-                left: 11px;
+        }
 
-            }
-            */
 
     }
 </style>
@@ -500,8 +477,15 @@ AppAsset::register($this);
                                 </div>
                             </div>
                         </div>
-                        <div id="play">
-                            <input type="button" id="play_btn" value="On" class="on_button"/>
+
+
+                        <div id="buttons">
+
+                                <button id="play_btn" value="On" class="on_button"><span class="glyphicon glyphicon-play"></button>
+
+                                <button id="stop_btn" value="stop" class="on_button"><span class="glyphicon glyphicon-pause"></button>
+
+
                         </div>
 
 
@@ -604,6 +588,15 @@ AppAsset::register($this);
 
             var au = document.getElementById('au');
             au.src = 'http://37.192.187.83:10088/bard_mp3';
+
+
+            jQuery(document).ready(function() {
+                jQuery('#stop_btn').on('click',function(){
+                    jQuery("#au")[0].pause();
+                });
+                jQuery('#stop_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
+
+            });
 
             jQuery(document).ready(function() {
                 jQuery('#play_btn').on('click',function(){
