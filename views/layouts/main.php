@@ -91,7 +91,7 @@ AppAsset::register($this);
         background-image: url(<?=\yii\helpers\Url::to('/img/radio_latvia.jpg')?>); /* Путь к фоновому рисунку */
         background-position: top; /* Положение фона */
         background-repeat: no-repeat; /* Повторяем фон по горизонтали */
-        background-color: #2e2e2e;
+        background-color: #080808;
         background-size: 100%;
         border: 2px solid rgb(158, 178, 177);;
         border-radius: 5px;
@@ -292,6 +292,24 @@ AppAsset::register($this);
     }
     /************************/
 
+    #play_btn{
+        position: relative;
+
+    }
+
+    #play{
+        position: absolute;
+        top: 20%;
+        left: 85%;
+    }
+
+    .on_button {
+        width: 45px;
+        height: 45px;
+        border-radius: 50px;
+        color: #0a0a0a;
+    }
+
     @-webkit-keyframes l3_animation {
         0%    {color: rgb(189, 217, 233); }
         20%   {color: rgb(139, 173, 196); }
@@ -329,6 +347,7 @@ AppAsset::register($this);
         .latvia{
             width: 100%;
             background-size: 100%;
+            height: 170px;
         }
         /*.container .content{
             padding-top: 60%;
@@ -346,6 +365,10 @@ AppAsset::register($this);
 
         }
 
+        .bard_img {
+            padding-top: 0;
+        }
+
         #Container {
             width: 44px;
             height: 44px;
@@ -360,6 +383,52 @@ AppAsset::register($this);
             left: 11px;
 
         }
+/*
+        @media(min-width:220px) and (max-width:500px){
+            .container .content {
+                padding-top: 300px;
+                text-align: center;
+            }
+            .latvia{
+                width: 100%;
+                background-size: 100%;
+                height: 170px;
+            }
+            /*.container .content{
+                padding-top: 60%;
+                text-align: center;
+            }
+
+            .bard_img {
+                width: 30%;
+            }
+            #l3.line {
+                height: 80px;
+            }
+            #l3.line .line_text{
+                font-size:15px;;
+
+            }
+
+            .bard_img {
+                padding-top: 0;
+            }
+
+            #Container {
+                width: 44px;
+                height: 44px;
+                background-size: 44px 44px;
+            }
+            #Panel{
+                top: 27%;
+                left: 11%;
+            }
+            #Text{
+                top: 13px;
+                left: 11px;
+
+            }
+            */
 
     }
 </style>
@@ -431,6 +500,13 @@ AppAsset::register($this);
                                 </div>
                             </div>
                         </div>
+                        <div id="play">
+                            <input type="button" id="play_btn" value="On" class="on_button"/>
+                        </div>
+
+
+
+
                         <p class="text-center">
 
 
@@ -529,8 +605,14 @@ AppAsset::register($this);
             var au = document.getElementById('au');
             au.src = 'http://37.192.187.83:10088/bard_mp3';
 
-            var panel = document.getElementById('l3');
-            panel.click(function () { au.play(); });
+            jQuery(document).ready(function() {
+                jQuery('#play_btn').on('click',function(){
+                    jQuery("#au")[0].play();
+                });
+                jQuery('#play_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
+
+            });
+
             au.volume = 0.1;
 
             /*var player = document.getElementById('l3');
