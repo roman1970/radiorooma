@@ -481,8 +481,6 @@ AppAsset::register($this);
 
 
 
-
-
             <?php //echo phpinfo();//<div id="rand"></div> ?>
             <div class="row row-offcanvas row-offcanvas-right ">
 
@@ -596,7 +594,7 @@ AppAsset::register($this);
     <footer class="footer">
         <div class="container">
             <p class="pull-left">&copy; "Комната с мехом" <?= date('Y') ?></p>
-            <a href="http://37.192.187.83:10088/test_mp3">Поток</a>
+           <?php // <a href="http://37.192.187.83:10088/test_mp3">Поток</a> ?>
             
 
         </div>
@@ -615,7 +613,7 @@ AppAsset::register($this);
             height = 200;
 
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/bard_mp3';
+            au.src = 'http://37.192.187.83:10088/test_mp3';
 
 
             jQuery(document).ready(function() {
@@ -726,7 +724,7 @@ AppAsset::register($this);
 
         function offAudio() {
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/bard_mp3';
+            au.src = 'http://37.192.187.83:10088/test_mp3';
             au.volume = 0.5;
             var off_button = document.getElementById('off_button');
             var on_button = document.getElementById('on_button');
