@@ -232,12 +232,12 @@ AppAsset::register($this);
     }
     /****** Line 3 *******/
     #l3.line{
-        height:70px;
+        height:105px;
         background:rgb(90,90,90);
         margin-bottom: 10px;
     }
     #l3.line .line_text{
-        font-size:20px;;
+        font-size:15px;
         position:absolute;
         color: rgb(86, 186, 89);
         padding-top: 0px;
@@ -273,6 +273,7 @@ AppAsset::register($this);
         background-image: url(<?=\yii\helpers\Url::to('/img/rheostat.png')?>);
         width: 64px;
         height: 64px;
+        top: -20px;
     }
 
     #Indicator
@@ -348,16 +349,18 @@ AppAsset::register($this);
     }
 
 
-    @media(min-width:220px) and (max-width:767px){
+    @media(min-width:220px) and (max-width:991px) {
         .container .content {
             padding-top: 300px;
             text-align: center;
         }
-        .latvia{
+
+        .latvia {
             width: 100%;
             background-size: 100%;
             height: 170px;
         }
+
         /*.container .content{
             padding-top: 60%;
             text-align: center;
@@ -366,13 +369,14 @@ AppAsset::register($this);
         .bard_img {
             width: 30%;
         }
-        #l3.line {
-            height: 80px;
-        }
-        #l3.line .line_text{
-            font-size:15px;;
 
-        }
+        #l3.line {
+             height: 90px;
+         }
+         #l3.line .line_text{
+             font-size:13px;
+
+         }
 
         .bard_img {
             padding-top: 0;
@@ -382,16 +386,21 @@ AppAsset::register($this);
             width: 44px;
             height: 44px;
             background-size: 44px 44px;
+            top: 10px;
         }
-        #Panel{
+
+        #Panel {
             top: 25%;
             left: 11%;
         }
-        #Text{
+
+        #Text {
             top: 13px;
             left: 11px;
 
         }
+
+    }
 
         @media(min-width:220px) and (max-width:500px){
             #play{
@@ -556,7 +565,9 @@ AppAsset::register($this);
                     <div class="line" id="l3">
                         <div class="line_text">
                             <p class="text-center">
-                                Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
+                                Первое неориентированное радио от Шуберта до Шнурова "Комната с мехом"!
+                                <br>Осторожно! Некоторые исполнители используют мат и обыгрывают ситуации, описание которых недопустимо в приличном обществе!
+                                <br>Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
                             </p>
 
                        </div>
