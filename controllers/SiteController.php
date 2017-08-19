@@ -71,7 +71,12 @@ class SiteController extends Controller
             ->select('MAX(id)')
             ->scalar();
 
-        $item = RadioItem::findOne(rand(0, $max_id));
+        //$item = RadioItem::findOne(rand(0, $max_id));
+
+        $items = RadioItem::find()->where('cat_id <> 13')->all();
+        
+        $item = $items[rand(0,count($items)-1)];
+
 
         $theme_items = [];
         $cats = Category::find()->all();

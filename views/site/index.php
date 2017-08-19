@@ -137,9 +137,9 @@ $this->title = 'Radiorooma';
     var pl = 1;
 
     setInterval(function () {
-        getBlockForMeta('gggg', 'test_mp3', 'rand');
+        //getBlockForMeta('gggg', 'test_mp3', 'rand');
         //getBlockForMeta('gggg', 'second_mp3', 'rand1');
-        //getBlockForMeta('gggg', 'bard_mp3', 'rand');
+        getBlockForMeta('gggg', 'bard_mp3', 'rand');
 
     }, 15000);
 

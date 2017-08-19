@@ -564,11 +564,10 @@ AppAsset::register($this);
 
                     <div class="line" id="l3">
                         <div class="line_text">
-                            <p class="text-center">
-                                Первое неориентированное радио от Шуберта до Шнурова "Комната с мехом"!
-                                <br>Осторожно! Некоторые исполнители используют мат и обыгрывают ситуации, описание которых недопустимо в приличном обществе!
+                            <h4 class="text-center">
+                                Авторское радио "Комната с мехом"!
                                 <br>Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
-                            </p>
+                            </h4>
 
                        </div>
 
@@ -624,7 +623,7 @@ AppAsset::register($this);
             height = 200;
 
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/test_mp3';
+            au.src = 'http://37.192.187.83:10088/bard_mp3';
 
 
             jQuery(document).ready(function() {
@@ -669,9 +668,6 @@ AppAsset::register($this);
                 var gone = document.getElementById('gone');
                 gone.innerHTML = 'Извините, пошёл спать!';
             };
-
-
-
 
 
                 jQuery(".accord h6:first").addClass("active");
@@ -735,7 +731,7 @@ AppAsset::register($this);
 
         function offAudio() {
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/test_mp3';
+            au.src = 'http://37.192.187.83:10088/bard_mp3';
             au.volume = 0.5;
             var off_button = document.getElementById('off_button');
             var on_button = document.getElementById('on_button');
