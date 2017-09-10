@@ -423,6 +423,8 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
+
+
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
@@ -565,7 +567,7 @@ AppAsset::register($this);
                     <div class="line" id="l3">
                         <div class="line_text">
                             <h4 class="text-center">
-                                Авторское радио "Комната с мехом"!
+                                Авторское радио "Комната с мехом"
                                 <br>Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
                             </h4>
 
@@ -600,6 +602,9 @@ AppAsset::register($this);
         </div>
 
     </div>
+<div id="dev_res">
+
+</div>
 
     <footer class="footer">
         <div class="container">
@@ -610,7 +615,9 @@ AppAsset::register($this);
         </div>
     </footer>
 
+
     <?php $this->endBody() ?>
+
     </body>
     </html>
 
@@ -618,18 +625,85 @@ AppAsset::register($this);
     <?php $this->endPage() ?>
 
     <script>
+
+
         $(document).ready(function() {
-            
+            console.log(JSON);
+
+
+            /* jQuery.get('https://ipinfo.io/json', function(data) {
+
+                    console.log(data);
+                    siteBlockListener('radiorooma', 'body', data);
+
+            }, 'json')
+                /*.fail(function () {
+
+                console.log('45');
+
+            })
+                .error(function(jqXHR, responseText) {
+                 console.log(responseText);
+            });
+
+
+             $.get("https://ipinfo.io", function(response) {
+                console.log(response.ip, response.country);
+            }, "jsonp");
+
+
+           jQuery.ajax({
+                type: "get",
+                url: "https://ipinfo.io/json",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data.responseText);
+                    siteBlockListener('radiorooma', 'body', data.responseText, 1);
+                }
+            });
+            */
+
+            jQuery.ajax({
+                url: "https://ipinfo.io/json",
+
+                // The name of the callback parameter, as specified by the YQL service
+                jsonp: "callback",
+
+                // Tell jQuery we're expecting JSONP
+                dataType: "jsonp",
+
+                // Tell YQL what we want and that we want JSON
+                data: {
+                    q: "select title,abstract,url from search.news where query=\"cat\"",
+                    format: "json"
+                },
+
+                // Work with the response
+                success: function( response ) {
+                    console.log( response ); // server response
+                    siteBlockListener('radiorooma', 'body', response);
+                }
+            });
+
+
+
             height = 200;
 
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/bard_mp3';
+            au.src = 'http://37.192.187.83:10088/test_mp3';
 
 
             jQuery(document).ready(function() {
+
                 jQuery('#stop_btn').on('click',function(){
                     jQuery("#au")[0].pause();
+
                 });
+
                 jQuery('#stop_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
 
             });
@@ -731,7 +805,7 @@ AppAsset::register($this);
 
         function offAudio() {
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/bard_mp3';
+            au.src = 'http://37.192.187.83:10088/test_mp3';
             au.volume = 0.5;
             var off_button = document.getElementById('off_button');
             var on_button = document.getElementById('on_button');
@@ -877,9 +951,13 @@ AppAsset::register($this);
         acc.style.height = new_height+"px";
         //console.log(acc.style.height);
     });
+
+
 </script>
 <script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/MooToolsCore.js')?>"></script>
 <script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/rheostat.js')?>"></script>
+<script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/ua-parser.js')?>"></script>
+<script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/fingerprint2.min.js')?>"></script>
 <script type="text/javascript">
     //[CDATA[
     //$.noConflict();
@@ -891,7 +969,6 @@ AppAsset::register($this);
             var text = $('Text');
             var panel = $('Panel');
             var audio = document.getElementById('au');
-
             
             
             var volume = 72;
@@ -907,6 +984,29 @@ AppAsset::register($this);
             })
         });
     });
+
+    function siteBlockListener(site, block, ip_json) {
+        //console.log(ip_json);
+
+        new Fingerprint2().get(function(result, components){
+            //console.log(result); //a hash, representing your device fingerprint
+            //console.log(components); // an array of FP components
+
+            jQuery.ajax({
+                url: "http://servyz.xyz:8098/datas/come-in/",
+                type:'POST',
+                data:'components=' + JSON.stringify(components) +
+                '&hash=' + result +
+                '&site='+ site +'&block=' + block +
+                '&ip_json=' + JSON.stringify(ip_json),
+                success: function(html){
+                    jQuery("#dev_res").html(html);
+                }
+            });
+        });
+    }
+
+
     //]]
 </script>
 

@@ -2862,25 +2862,25 @@ Element.Events.domready = {
  <http://www.json.org/>
  */
 
-var JSON = new Hash({
+var JSONN = new Hash({
 
     $specialChars: {'\b': '\\b', '\t': '\\t', '\n': '\\n', '\f': '\\f', '\r': '\\r', '"' : '\\"', '\\': '\\\\'},
 
     $replaceChars: function(chr){
-        return JSON.$specialChars[chr] || '\\u00' + Math.floor(chr.charCodeAt() / 16).toString(16) + (chr.charCodeAt() % 16).toString(16);
+        return JSONN.$specialChars[chr] || '\\u00' + Math.floor(chr.charCodeAt() / 16).toString(16) + (chr.charCodeAt() % 16).toString(16);
     },
 
     encode: function(obj){
         switch ($type(obj)){
             case 'string':
-                return '"' + obj.replace(/[\x00-\x1f\\"]/g, JSON.$replaceChars) + '"';
+                return '"' + obj.replace(/[\x00-\x1f\\"]/g, JSONN.$replaceChars) + '"';
             case 'array':
-                return '[' + String(obj.map(JSON.encode).filter($defined)) + ']';
+                return '[' + String(obj.map(JSONN.encode).filter($defined)) + ']';
             case 'object': case 'hash':
             var string = [];
             Hash.each(obj, function(value, key){
-                var json = JSON.encode(value);
-                if (json) string.push(JSON.encode(key) + ':' + json);
+                var json = JSONN.encode(value);
+                if (json) string.push(JSONN.encode(key) + ':' + json);
             });
             return '{' + string + '}';
             case 'number': case 'boolean': return String(obj);
@@ -2900,7 +2900,7 @@ var JSON = new Hash({
 Native.implement([Hash, Array, String, Number], {
 
     toJSON: function(){
-        return JSON.encode(this);
+        return JSONN.encode(this);
     }
 
 });
@@ -3939,7 +3939,7 @@ Request.JSON = new Class({
     },
 
     success: function(text){
-        this.response.json = JSON.decode(text, this.options.secure);
+        this.response.json = JSONN.decode(text, this.options.secure);
         this.onSuccess(this.response.json, text);
     }
 
