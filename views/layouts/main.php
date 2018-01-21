@@ -694,7 +694,7 @@ AppAsset::register($this);
             height = 200;
 
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/test_mp3';
+            au.src = 'http://37.192.187.83:10088/bard_mp3';
 
 
             jQuery(document).ready(function() {
