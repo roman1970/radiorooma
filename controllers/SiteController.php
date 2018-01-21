@@ -73,7 +73,7 @@ class SiteController extends Controller
 
         //$item = RadioItem::findOne(rand(0, $max_id));
 
-        $items = RadioItem::find()->where('cat_id <> 13')->all();
+        $items = RadioItem::find()->where('cat_id <> 13 and cat_id <> 17 and cat_id <> 18 and cat_id <> 19 ')->all();
         
         $item = $items[rand(0,count($items)-1)];
 
