@@ -88,7 +88,7 @@ AppAsset::register($this);
     }
 
     .latvia{
-        background-image: url(<?=\yii\helpers\Url::to('/img/radio_latvia.jpg')?>); /* Путь к фоновому рисунку */
+        /*background-image: url(<?=\yii\helpers\Url::to('/img/radio_latvia.jpg')?>); Путь к фоновому рисунку */
         background-position: top; /* Положение фона */
         background-repeat: no-repeat; /* Повторяем фон по горизонтали */
         background-color: #080808;
@@ -505,7 +505,9 @@ AppAsset::register($this);
                     <div class="latvia">
 
 
-                        <p class="text-center" ><img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img"></p>
+                        <p class="text-center" >
+                           <img src='<?php /*\yii\helpers\Url::to('/img/barded2.png')*/?>' width="200px" id="player" class="bard_img">
+                        </p>
                         <div id="Panel">
                             <div id="Container">
                                 <span id="Text">Vol</span>
