@@ -31,7 +31,7 @@ AppAsset::register($this);
         height: 100%;
         color: rgb(248, 248, 255);
 
-        background-image: url(<?=\yii\helpers\Url::to('/img/fons_bg-530x180.jpg')?>);
+     /*   background-image: url(<?=\yii\helpers\Url::to('/img/fons_bg-530x180.jpg')?>);*/
 
     /* background-color: #1a1a1a;*/
 
@@ -88,7 +88,7 @@ AppAsset::register($this);
     }
 
     .latvia{
-        /*background-image: url(<?=\yii\helpers\Url::to('/img/radio_latvia.jpg')?>); Путь к фоновому рисунку */
+
         background-position: top; /* Положение фона */
         background-repeat: no-repeat; /* Повторяем фон по горизонтали */
         background-color: #080808;
