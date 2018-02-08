@@ -7,6 +7,7 @@
 
 namespace app\commands;
 
+use app\models\RadioItem;
 use yii\console\Controller;
 
 /**
@@ -26,5 +27,26 @@ class HelloController extends Controller
     public function actionIndex($message = 'hello world')
     {
         echo $message . "\n";
+    }
+
+
+    public function actionRoomPlayList(){
+        //echo \Yii::getAlias('@webroot').PHP_EOL; exit;
+        $f = fopen(\Yii::getAlias('@webroot')."/uploads/radio.txt", 'w');
+
+        $recs = RadioItem::find()
+            ->where('cat_id NOT IN (13,17,18)')
+            ->all();
+
+        shuffle($recs);
+        $n = 0;
+
+        foreach ($recs as $rec){
+            fwrite($f, $rec->audio . PHP_EOL);
+            fwrite($f, "mp3/oho.mp3" . PHP_EOL);
+            if ($n % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
+            $n++;
+        }
+        fclose($f);
     }
 }

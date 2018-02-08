@@ -68,6 +68,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        /*
         $max_id = (int)RadioItem::find()
             ->select('MAX(id)')
             ->scalar();
@@ -95,7 +96,9 @@ class SiteController extends Controller
             return $this->renderPartial('index', ['cats' => $cats, 'theme_items' => $theme_items]);
         }
         else{*/
-            return $this->render('index', ['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item]);
+            return $this->render('index'
+                //['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item]
+            );
       //  }
 
 
@@ -339,6 +342,10 @@ class SiteController extends Controller
             return "document.getElementById('section_page').innerHTML = '".nl2br(addslashes($item->text))."';";
             //return var_dump(file_get_contents("http://37.192.187.83:10088/ices.vclt"));
         };
+    }
+
+    function actionRoom(){
+        return $this->render('room');
     }
     
 }
