@@ -33,6 +33,9 @@ class HelloController extends Controller
     public function actionRoomPlayList(){
         //echo \Yii::getAlias('@webroot').PHP_EOL; exit;
         $f = fopen(\Yii::getAlias('@webroot')."/uploads/radio.txt", 'w');
+        if(!$f) {
+            echo 'can not open';
+        }
 
         $recs = RadioItem::find()
             ->where('cat_id NOT IN (13,17,18)')
