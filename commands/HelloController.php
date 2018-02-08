@@ -42,7 +42,7 @@ class HelloController extends Controller
         $n = 0;
 
         foreach ($recs as $rec){
-            fwrite($f, $rec->audio . PHP_EOL);
+            if(!fwrite($f, $rec->audio . PHP_EOL)) echo 'no write';
             fwrite($f, "mp3/oho.mp3" . PHP_EOL);
             if ($n % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
             $n++;
