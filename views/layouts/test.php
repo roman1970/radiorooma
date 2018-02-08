@@ -30,7 +30,6 @@ AppAsset::register($this);
 <div class="wrap">
 
     <div class="container">
-        <?= phpinfo() ?>
         <?= $content ?>
     </div>
 </div>
