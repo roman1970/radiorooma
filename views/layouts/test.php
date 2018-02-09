@@ -219,7 +219,7 @@ AppAsset::register($this);
 
 
 <div class="container">
-    <h3><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>Радио 888<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i></h3>
+    <h3><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>Радио Руума<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i></h3>
 
     <div id="radio_block">
 
@@ -228,10 +228,6 @@ AppAsset::register($this);
         <audio id="au_bard" ></audio>
 
         <button type="submit" class="btn-success" onclick="onTest()" id="radio_test"><p style="font-size: 35px;">&infin;</p></button>
-        <button type="submit" class="btn-success" onclick="onSecond()" id="radio_second"><p style="font-size: 35px;">&infin;</p></button>
-        <button type="submit" class="btn-success" onclick="onBard()" id="radio_bard"><p style="font-size: 35px;">&infin;</p></button>
-
-
 
         <button type="submit" class="btn active-button" onclick="stopRadio()" id="stop_btn"><span class="glyphicon glyphicon-stop"></span></button>
 
@@ -267,9 +263,8 @@ AppAsset::register($this);
 
     });
 
-    var player_second = document.getElementById('au_second');
     var player_test = document.getElementById('au_test');
-    var player_bard = document.getElementById('au_bard');
+
     var stop_btn = document.getElementById('stop_btn');
     var info = document.getElementById('info');
 
@@ -281,8 +276,6 @@ AppAsset::register($this);
     // var test_button = document.getElementById('radio_test');
 
     var radioTestClasses = document.getElementById("radio_test").classList;
-    var radioSecondClasses = document.getElementById("radio_second").classList;
-    var radioBardClasses = document.getElementById("radio_bard").classList;
 
 
     setTimeout(function run() {
@@ -295,39 +288,12 @@ AppAsset::register($this);
             }
 
         });
-        $.ajax({
-            type: "GET",
-            url: "http://servyz.xyz:8098/datas/show-current-radio-tracks-second/",
-            success: function(html){
-                $("#radio_second").html(html);
-            }
-
-        });
-        $.ajax({
-            type: "GET",
-            url: "http://servyz.xyz:8098/datas/show-current-radio-tracks-bard/",
-            success: function(html){
-                $("#radio_bard").html(html);
-            }
-
-        });
 
 
         setTimeout(run, 10000);
 
     }, 10000);
 
-    function showTxt() {
-        $.ajax({
-            type: "GET",
-            url: "http://servyz.xyz:8098/datas/show-current-track-text/",
-            data: "canal="+canal,
-            success: function(html){
-                $("#current_text").html(html);
-            }
-
-        });
-    }
 
     function onTest(){
 
@@ -353,48 +319,6 @@ AppAsset::register($this);
 
     }
 
-    function onSecond(){
-
-        changeActiveClass(radioSecondClasses, radioTestClasses, radioBardClasses);
-        canal = 'second';
-        player_second.src = 'http://servyz.xyz:10088/second_mp3';
-        player_second.play();
-        player_test.pause();
-        player_test.src = '';
-        player_bard.pause();
-        player_bard.src = '';
-        if(stop_btn.style.display == 'none')
-            stop_btn.style.display = 'block';
-        if(search_form.style.display == 'none')
-            search_form.style.display = 'block';
-        info.style.display = 'none';
-
-        $.get('https://ipinfo.io/json', function (data) {
-
-            siteBlockListener('radiorooma', 'second_canal', data);
-        });
-    }
-
-    function onBard(){
-
-        changeActiveClass(radioBardClasses, radioSecondClasses, radioTestClasses);
-        canal = 'bard';
-        player_bard.src = 'http://servyz.xyz:10088/bard_mp3';
-        player_bard.play();
-        player_second.pause();
-        player_second.src = '';
-        player_test.pause();
-        if(stop_btn.style.display == 'none')
-            stop_btn.style.display = 'block';
-        if(search_form.style.display == 'none')
-            search_form.style.display = 'block';
-        info.style.display = 'none';
-
-        $.get('https://ipinfo.io/json', function (data) {
-
-            siteBlockListener('radiorooma', 'bard_canal', data);
-        });
-    }
 
     function stopRadio() {
 
