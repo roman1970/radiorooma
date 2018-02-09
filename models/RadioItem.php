@@ -65,7 +65,7 @@ class RadioItem extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCategory()
+    public function getCat()
     {
         return $this->hasOne(Category::className(), ['id' => 'cat_id']);
     }

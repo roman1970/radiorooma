@@ -22,10 +22,13 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
        // 'js/MooToolsCore.js',
-       // 'js/rheostat.js'
+        'js/fingerprint2.min.js',
+        '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
+
 }

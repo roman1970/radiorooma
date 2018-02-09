@@ -347,5 +347,20 @@ class SiteController extends Controller
     function actionRoom(){
         return $this->render('room');
     }
+
+    function actionShowCurrentRadioTracksTest(){
+        //return var_dump(file("http://88.212.253.193:8000/status.xsl?mount=/test")[68]);
+        return '<p>'.$this->getAudioTags(html_entity_decode(strip_tags(file("http://88.212.253.193:8000/status.xsl?mount=/test")[68]))).'</p>';
+    }
+
+    function getAudioTags($api_string){
+        $item = RadioItem::find()->where(['like', 'audio', trim($api_string)])->one();
+        //return var_dump($item);
+
+        if($item) return $item->cat->name. " :: ".$item->anons." :: ".$item->title;
+
+        return trim($api_string);
+
+    }
     
 }
