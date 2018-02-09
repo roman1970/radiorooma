@@ -297,18 +297,15 @@ AppAsset::register($this);
 
     function onTest(){
 
-        changeActiveClass(radioTestClasses, radioSecondClasses, radioBardClasses);
+        changeActiveClass(radioTestClasses);
         canal = 'test';
         player_test.src = 'http://88.212.253.193:8000/test';
         player_test.play();
-        player_second.pause();
-        player_second.src = '';
-        player_bard.pause();
-        player_bard.src = '';
+
+
         if(stop_btn.style.display == 'none')
             stop_btn.style.display = 'block';
-        if(search_form.style.display == 'none')
-            search_form.style.display = 'block';
+
         info.style.display = 'none';
 
         $.get('https://ipinfo.io/json', function (data) {
@@ -323,17 +320,14 @@ AppAsset::register($this);
     function stopRadio() {
 
         canal = '';
-        player_second.pause();
-        player_second.src = '';
+
         player_test.pause();
         player_test.src = '';
-        player_bard.pause();
-        player_bard.src = '';
+
         info.style.display = 'block';
         stop_btn.style.display = 'none';
         if(radioTestClasses.contains('active-button')) radioTestClasses.remove('active-button');
-        if(radioSecondClasses.contains('active-button')) radioSecondClasses.remove('active-button');
-        if(radioBardClasses.contains('active-button')) radioBardClasses.remove('active-button');
+
 
         $.get('https://ipinfo.io/json', function (data) {
 
@@ -342,11 +336,11 @@ AppAsset::register($this);
 
     }
 
-    function changeActiveClass(elAddClass, elRemClass_1, elRemClass_2) {
+    function changeActiveClass(elAddClass, elRemClass_1='', elRemClass_2='') {
         if(elAddClass.contains('active-button')) return;
         else elAddClass.add('active-button');
-        if(elRemClass_1.contains('active-button')) elRemClass_1.remove('active-button');
-        if(elRemClass_2.contains('active-button')) elRemClass_2.remove('active-button');
+       // if(elRemClass_1.contains('active-button')) elRemClass_1.remove('active-button');
+       // if(elRemClass_2.contains('active-button')) elRemClass_2.remove('active-button');
     }
 
     function siteBlockListener(site, block, ip_json) {
