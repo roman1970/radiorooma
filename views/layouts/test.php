@@ -76,7 +76,7 @@ AppAsset::register($this);
     }
     button{
         width: 100%;
-        height: 60px;
+        height: 70px;
         border: 1px solid rgba(0, 0, 0, 0);
         border-radius: 4px;
         margin-bottom: 5px;
@@ -90,7 +90,7 @@ AppAsset::register($this);
     button p{
         overflow: hidden; /* Обрезаем все, что не помещается в область */
         text-overflow: ellipsis; /* Добавляем многоточие */
-        height: 55px;
+        height: 60px;
     }
 
     .btn{
@@ -138,6 +138,10 @@ AppAsset::register($this);
 
         font-size: 1.3em;
 
+    }
+
+    h3 span{
+        font-size: 10px;
     }
 
     .jp-details, .jp-playlist {
@@ -219,7 +223,8 @@ AppAsset::register($this);
 
 
 <div class="container">
-    <h3><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>Радио Руума<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i></h3>
+    <h3><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>Радио Руума<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
+    <br><span>задУмайся и Улыбнись</span></h3>
 
     <div id="radio_block">
 
