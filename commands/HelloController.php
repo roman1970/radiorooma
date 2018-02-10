@@ -38,7 +38,7 @@ class HelloController extends Controller
         }
 
         $recs = RadioItem::find()
-            ->where('cat_id NOT IN (13,17,18)')
+            ->where('cat_id NOT IN (13,17,18,19)')
             ->all();
 
         shuffle($recs);
