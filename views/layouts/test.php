@@ -259,7 +259,7 @@ AppAsset::register($this);
 
 <script>
 
-    $(document).ready(function() {
+   /* $(document).ready(function() {
 
         $.get('https://ipinfo.io/json', function (data) {
 
@@ -267,6 +267,7 @@ AppAsset::register($this);
         });
 
     });
+    */
 
     var player_test = document.getElementById('au_test');
 
@@ -313,10 +314,11 @@ AppAsset::register($this);
 
         info.style.display = 'none';
 
-        $.get('https://ipinfo.io/json', function (data) {
+        /*$.get('https://ipinfo.io/json', function (data) {
 
             siteBlockListener('radiorooma', 'test_canal', data);
         });
+        */
 
 
     }
@@ -334,10 +336,11 @@ AppAsset::register($this);
         if(radioTestClasses.contains('active-button')) radioTestClasses.remove('active-button');
 
 
-        $.get('https://ipinfo.io/json', function (data) {
+       /* $.get('https://ipinfo.io/json', function (data) {
 
             siteBlockListener('radiorooma', 'stop_canal', data);
         });
+        */
 
     }
 
