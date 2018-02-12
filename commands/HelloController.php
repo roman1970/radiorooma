@@ -37,19 +37,27 @@ class HelloController extends Controller
             echo 'can not open';
         }
 
-        $recs = RadioItem::find()
-            ->where('cat_id NOT IN (13,17,18,19)')
+        $shot = RadioItem::find()
+            ->where('cat_id IN (1,3,4,6,9,14,15,16,12)')
             ->all();
 
-        shuffle($recs);
-        $n = 0;
+        $long = RadioItem::find()
+            ->where('cat_id IN (2,5,7,8,10)')
+            ->all();
 
-        foreach ($recs as $rec){
-            if(!fwrite($f, $rec->audio . PHP_EOL)) echo 'no write';
-            fwrite($f, "mp3/oho.mp3" . PHP_EOL);
-            if ($n % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
-            $n++;
+        shuffle($shot);
+        shuffle($long);
+        echo 'shot '.count($shot).PHP_EOL;
+        echo 'long '.count($long).PHP_EOL;
+
+        for($i=0;$i<count($shot);$i++){
+            fwrite($f, $shot[$i]->audio . PHP_EOL);
+            fwrite($f, $long[$i]->audio . PHP_EOL);
+            if ($i % 6 == 0) fwrite($f, "mp3/oho.mp3" . PHP_EOL);
+            if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
         }
+
+
         fclose($f);
     }
 }
