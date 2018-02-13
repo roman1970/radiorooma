@@ -144,6 +144,10 @@ AppAsset::register($this);
         font-size: 10px;
     }
 
+    .an{
+        font-size: 15px;
+    }
+
     .jp-details, .jp-playlist {
         width: 100%;
     //background-color: rgb(46, 46, 46);
@@ -182,6 +186,16 @@ AppAsset::register($this);
             display: inline-block;
             width: 100%;
             vertical-align: middle;
+        }
+
+    }
+
+    @media (max-width: 400px) {
+        h3{
+            font-size: 18px;
+        }
+        .an{
+            font-size: 12px;
         }
     }
 
@@ -223,8 +237,11 @@ AppAsset::register($this);
 
 
 <div class="container">
-    <h3><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>Радио Руума<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
-    <br><span>задУмайся и Улыбнись</span></h3>
+    <h3><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>Радио Комната С Мехом<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
+    <br><hr><p class="an">Ведущий - Бард, который перевернул ЗИЛ - неортодоксальный круглогодичный Дед Мороз с гитарой и пулей в голове,
+            поёт песни сам, а не заставляет клиентов исполнять стихи за еду сомнительного происхождения в праздничной упаковке,
+            5000р - это только первая минута, потом - бесплатно и фиг выгоните.
+            Приходит как к детям, так и ко взрослым (по VIP-цене - в виде белочки).</p></h3>
 
     <div id="radio_block">
 
