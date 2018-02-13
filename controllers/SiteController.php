@@ -362,5 +362,12 @@ class SiteController extends Controller
         return trim($api_string);
 
     }
+
+    function actionShowTrackInfo(){
+        $track = html_entity_decode(strip_tags(file("http://88.212.253.193:8000/status.xsl?mount=/test")[68]));
+        $item = RadioItem::find()->where(['like', 'audio', trim($track)])->one();
+        if($item) return $this->renderPartial('room', ['item' => $item]);
+
+    }
     
 }

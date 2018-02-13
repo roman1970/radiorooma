@@ -249,9 +249,15 @@ AppAsset::register($this);
         <audio id="au_second" ></audio>
         <audio id="au_bard" ></audio>
 
-        <button type="submit" class="btn-success" onclick="onTest()" id="radio_test"><p style="font-size: 35px;">&infin;</p></button>
+        <button type="submit" class="btn-success" onclick="showInfo()" id="radio_test"><p style="font-size: 35px;">&infin;</p></button>
 
-        <button type="submit" class="btn active-button" onclick="stopRadio()" id="stop_btn"><span class="glyphicon glyphicon-stop"></span></button>
+        <button type="submit" class="btn active-button" onclick="onTest()" id="play_btn">
+            <span class="glyphicon glyphicon-play"></span>
+        </button>
+
+        <button type="submit" class="btn active-button" onclick="stopRadio()" id="stop_btn">
+            <span class="glyphicon glyphicon-stop"></span>
+        </button>
 
         <div id="info">
 
@@ -289,6 +295,7 @@ AppAsset::register($this);
     var player_test = document.getElementById('au_test');
 
     var stop_btn = document.getElementById('stop_btn');
+    var play_btn = document.getElementById('play_btn');
     var info = document.getElementById('info');
 
     var radio_back = document.getElementById('radio_back');
@@ -324,12 +331,13 @@ AppAsset::register($this);
         canal = 'test';
         player_test.src = 'http://88.212.253.193:8000/test';
         player_test.play();
+        play_btn.style.display = 'none';
 
 
         if(stop_btn.style.display == 'none')
             stop_btn.style.display = 'block';
 
-        info.style.display = 'none';
+        //info.style.display = 'none';
 
         /*$.get('https://ipinfo.io/json', function (data) {
 
@@ -348,7 +356,7 @@ AppAsset::register($this);
         player_test.pause();
         player_test.src = '';
 
-        info.style.display = 'block';
+        play_btn.style.display = 'block';
         stop_btn.style.display = 'none';
         if(radioTestClasses.contains('active-button')) radioTestClasses.remove('active-button');
 
@@ -359,6 +367,17 @@ AppAsset::register($this);
         });
         */
 
+    }
+    
+    function showInfo() {
+        $.ajax({
+            type: "GET",
+            url: "site/show-track-info/",
+            success: function(html){
+                $("#info").html(html);
+            }
+
+        });
     }
 
     function changeActiveClass(elAddClass, elRemClass_1='', elRemClass_2='') {

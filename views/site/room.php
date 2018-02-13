@@ -1,4 +1,4 @@
-
-<audio id="au" controls >
-    <source src="http://88.212.253.193:8000/test" type="audio/mpeg" />
-</audio>
+<h3><?=$item->title?></h3>
+<h4><p><?=$item->cat->name?></p></h4>
+<p><a href="/uploads/<?=$item->audio?>" download>Скачать файл</a>
+<p><?=nl2br($item->text)?></p>
