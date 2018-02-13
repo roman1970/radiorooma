@@ -53,7 +53,7 @@ class HelloController extends Controller
         for($i=0;$i<count($shot);$i++){
             fwrite($f, $shot[$i]->audio . PHP_EOL);
             fwrite($f, $long[$i]->audio . PHP_EOL);
-            if ($i % 6 == 0) fwrite($f, "mp3/oho.mp3" . PHP_EOL);
+            fwrite($f, "mp3/oho.mp3" . PHP_EOL);
             if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
         }
 

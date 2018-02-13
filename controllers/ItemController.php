@@ -56,10 +56,14 @@ class ItemController extends Controller
             ->where(['alias' => $alias])
             ->one();
 
-       // return var_dump(strstr(Yii::$app->request->referrer, Url::home(true).'item'));
+        return $this->renderPartial('/site/room', [
+            'item' => $item,
+            //'referrer' => $referrer,
+            //'url' => $home_url
+        ]);
 
         if(Yii::$app->request->referrer == Url::home(true) ||  strstr(Yii::$app->request->referrer, Url::home(true).'item')) {
-            return $this->renderPartial('index', [
+            return $this->renderPartial('/site/room', [
                 'item' => $item,
                 //'referrer' => $referrer,
                 //'url' => $home_url
