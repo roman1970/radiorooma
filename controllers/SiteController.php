@@ -344,13 +344,10 @@ class SiteController extends Controller
         };
     }
 
-    function actionRoom(){
-        return $this->render('room');
-    }
 
     function actionShowCurrentRadioTracksTest(){
         //return var_dump(file("http://88.212.253.193:8000/status.xsl?mount=/test")[68]);
-        return '<p>'.$this->getAudioTags(html_entity_decode(strip_tags(file("http://88.212.253.193:8000/status.xsl?mount=/test")[68]))).'</p>';
+        return '<p>'.$this->getAudioTags($this->getTrackInfo()).'</p>';
     }
 
     function getAudioTags($api_string){
@@ -364,10 +361,17 @@ class SiteController extends Controller
     }
 
     function actionShowTrackInfo(){
-        $track = html_entity_decode(strip_tags(file("http://88.212.253.193:8000/status.xsl?mount=/test")[68]));
-        $item = RadioItem::find()->where(['like', 'audio', trim($track)])->one();
-        if($item) return $this->renderPartial('room', ['item' => $item]);
+        $item = RadioItem::find()->where(['like', 'audio', trim($this->getTrackInfo())])->one();
+        if($item) return $this->render('room', ['item' => $item]);
+    }
 
+    function actionShowInfoIcon(){
+        $item = RadioItem::find()->where(['like', 'audio', trim($this->getTrackInfo())])->one();
+        return '<a href="item/'.$item->alias .'" target="_blank" title="Словарь" class="icc"><i class="fa fa-language"></i></a>';
+    }
+
+    private function getTrackInfo(){
+        return html_entity_decode(strip_tags(file("http://88.212.253.193:8000/status.xsl?mount=/test")[68]));
     }
     
 }

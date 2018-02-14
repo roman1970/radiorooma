@@ -17,6 +17,7 @@ use app\models\ContactForm;
 
 class ItemController extends Controller
 {
+    public $layout = 'test';
     /**
      * @inheritdoc
      */
@@ -56,7 +57,7 @@ class ItemController extends Controller
             ->where(['alias' => $alias])
             ->one();
 
-        return $this->renderPartial('/site/room', [
+        return $this->render('/site/room', [
             'item' => $item,
             //'referrer' => $referrer,
             //'url' => $home_url
