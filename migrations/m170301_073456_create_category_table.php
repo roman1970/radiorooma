@@ -12,7 +12,7 @@ class m170301_073456_create_category_table extends Migration
      */
     public function up()
     {
-        $this->createTable('category', [
+       /* $this->createTable('category', [
             'id' => $this->primaryKey(),
             'tree' => $this->integer()->notNull(),
             'lft' => $this->integer()->notNull(),
@@ -20,6 +20,7 @@ class m170301_073456_create_category_table extends Migration
             'depth' => $this->integer()->notNull(),
             'name' => $this->string()->notNull(),
         ]);
+       */
     }
 
     /**

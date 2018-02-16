@@ -6,7 +6,7 @@ class m170313_023130_table_items extends Migration
 {
     public function up()
     {
-       $this->createTable('items', [
+       /*$this->createTable('items', [
             'id' => 'SERIAL NOT NULL PRIMARY KEY',
             'cat_id' => 'integer NOT NULL references "category"(id) on UPDATE CASCADE on DELETE CASCADE',
             'text' => 'TEXT NOT NULL',
@@ -19,6 +19,7 @@ class m170313_023130_table_items extends Migration
         );
 
         $this->createIndex("ux_items_cat_id", 'items', "cat_id", false);
+       */
 
 
     }
