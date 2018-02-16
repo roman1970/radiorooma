@@ -41,6 +41,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'my_db' => require(__DIR__ . '/my_db.php'),
         
         'urlManager' => [
             'class' => 'yii\web\UrlManager',

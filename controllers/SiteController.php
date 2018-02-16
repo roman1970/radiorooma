@@ -7,6 +7,10 @@ use app\models\RadioItem;
 use app\models\Songs;
 use app\models\Theme;
 use app\models\ThemeItems;
+use app\models\VisitBlock;
+use app\models\VisitError;
+use app\models\Visitor;
+use app\models\VisitorCount;
 use Yii;
 use yii\base\ErrorException;
 use yii\filters\AccessControl;
@@ -367,7 +371,175 @@ class SiteController extends Controller
 
     function actionShowInfoIcon(){
         $item = RadioItem::find()->where(['like', 'audio', trim($this->getTrackInfo())])->one();
-        return '<a href="item/'.$item->alias .'" target="_blank" title="Словарь" class="icc"><i class="fa fa-language"></i></a>';
+        return '<a href="item/'.$item->alias .'" target="_blank" title="Информация о текущем треке" class="icc"><i class="fa fa-language"></i></a>';
+    }
+
+    /**
+     * Логирование входов на сервисы
+     * @throws \Exception
+     */
+    function actionComeIn()
+    {
+        //print_r($_POST); exit;
+
+        if(isset($_POST['hash']) && isset($_POST['components']) && isset($_POST['site']) && isset($_POST['block'])) {
+
+
+            $json_string = $_POST['components'];
+            $obj = json_decode($json_string);
+            //var_dump($obj); exit;
+
+            if($visitor = VisitorCount::findOne(['hash' => $_POST['hash']])){
+                $visitor->count++;
+                $visitor->update(false);
+
+                $block = new VisitBlock();
+                $block->visitor_id = $visitor->id;
+                $block->time = time();
+                $block->site = $_POST['site'];
+                $block->block = $_POST['block'];
+
+
+
+
+                if(isset($_POST['ip_json'])){
+
+                    $ip_obj = json_decode($_POST['ip_json']);
+
+                    //var_dump($ip_obj); exit;
+                    if(isset($ip_obj->ip))$block->ip = $ip_obj->ip;
+                    if(isset($ip_obj->hostname))$block->hostname = $ip_obj->hostname;
+                    if(isset($ip_obj->city))$block->city = $ip_obj->city;
+                    if(isset($ip_obj->region))$block->region = $ip_obj->region;
+                    if(isset($ip_obj->country))$block->country = $ip_obj->country;
+                    if(isset($ip_obj->loc))$block->loc = $ip_obj->loc;
+                    if(isset($ip_obj->org))$block->org = $ip_obj->org;
+                    if(isset($ip_obj->postal))$block->postal = $ip_obj->postal;
+                    //var_dump($ip_obj); exit;
+
+                }
+
+
+
+                if(!$block->save(false)){
+
+                    $error = new VisitError();
+                    $error->time = time();
+                    $error->text = 'ошибка сохранения блока на '. $_POST['site'] . ' в блок '. $_POST['block'] . ' hash ' . $_POST['hash'];
+                    $error->save(false);
+                }
+            }
+            else{
+
+                try {
+                    $visitor = new VisitorCount();
+                    $visitor->hash = $_POST['hash'];
+                    $visitor->count = 0;
+                } catch (ErrorException $e) {
+
+                    $error = new VisitError();
+                    $error->time = time();
+                    $error->text = $e->getMessage();
+                    $error->save(false);
+                }
+
+
+                if($visitor->save(false)) {
+                    $visit = new Visitor();
+
+                    $visit->time = time();
+
+                    $visit->visitor_id = $visitor->id;
+
+                    $visit->site = $_POST['site'];
+                    $visit->block = $_POST['block'];
+
+
+                    for ($i = 0; $i < count($obj); $i++) {
+                        if ($obj[$i]->key == 'user_agent') $visit->user_agent = $obj[$i]->value;
+                        if ($obj[$i]->key == 'language') $visit->language = $obj[$i]->value;
+                        if ($obj[$i]->key == 'color_depth') $visit->color_depth = $obj[$i]->value;
+                        if ($obj[$i]->key == 'pixel_ratio') $visit->pixel_ratio = $obj[$i]->value;
+                        if ($obj[$i]->key == 'hardware_concurrency') $visit->hardware_concurrency = $obj[$i]->value;
+
+                        if ($obj[$i]->key == 'resolution') {
+                            $visit->resolution_x = $obj[$i]->value[0];
+                            $visit->resolution_y = $obj[$i]->value[1];
+                        }
+
+                        if ($obj[$i]->key == 'available_resolution') {
+                            $visit->available_resolution_x = $obj[$i]->value[0];
+                            $visit->available_resolution_y = $obj[$i]->value[1];
+                        }
+
+
+                        if ($obj[$i]->key == 'timezone_offset') $visit->timezone_offset = $obj[$i]->value;
+                        if ($obj[$i]->key == 'session_storage') $visit->session_storage = $obj[$i]->value;
+                        if ($obj[$i]->key == 'local_storage') $visit->local_storage = $obj[$i]->value;
+
+                        if ($obj[$i]->key == 'indexed_db') $visit->indexed_db = $obj[$i]->value;
+                        if ($obj[$i]->key == 'open_database') $visit->open_database = $obj[$i]->value;
+                        if ($obj[$i]->key == 'cpu_class') $visit->cpu_class = $obj[$i]->value;
+
+                        if ($obj[$i]->key == 'navigator_platform') $visit->navigator_platform = $obj[$i]->value;
+                        if ($obj[$i]->key == 'do_not_track') $visit->do_not_track = $obj[$i]->value;
+                        if ($obj[$i]->key == 'regular_plugins') $visit->regular_plugins = implode('; ', $obj[$i]->value);
+
+                        if ($obj[$i]->key == 'canvas') $visit->canvas = $obj[$i]->value;
+                        if ($obj[$i]->key == 'webgl') $visit->webgl = $obj[$i]->value;
+                        if ($obj[$i]->key == 'adblock') $visit->adblock = $obj[$i]->value ? 1 : 0;
+
+                        if ($obj[$i]->key == 'has_lied_languages') $visit->has_lied_languages = $obj[$i]->value ? 1 : 0;
+                        if ($obj[$i]->key == 'has_lied_resolution') $visit->has_lied_resolution = $obj[$i]->value ? 1 : 0;
+                        if ($obj[$i]->key == 'has_lied_os') $visit->has_lied_os = $obj[$i]->value ? 1 : 0;
+
+                        if ($obj[$i]->key == 'has_lied_browser') $visit->has_lied_browser = $obj[$i]->value ? 1 : 0;
+                        if ($obj[$i]->key == 'touch_support') $visit->touch_support = $obj[$i]->value[0] ? 1 : 0;
+                        if ($obj[$i]->key == 'js_fonts') $visit->js_fonts = implode('; ', $obj[$i]->value);
+
+                    }
+
+                    //var_dump($visit); exit;
+
+                    if(!$visit->save(false)) {
+                        $error = new VisitError();
+                        $error->time = time();
+                        $error->text = 'ошибка сохранения входа на '. $_POST['site'] . ' в блок '. $_POST['block'] . ' hash ' . $_POST['hash'];
+                        $error->save(false);
+
+                    }
+                    else{
+                        $block = new VisitBlock();
+                        $block->visitor_id = $visitor->id;
+                        $block->time = time();
+                        $block->site = $_POST['site'];
+                        $block->block = $_POST['block'];
+                        if(!$block->save(false)){
+                            $error = new VisitError();
+                            $error->time = time();
+                            $error->text = 'ошибка сохранения блока на '. $_POST['site'] . ' в блок '. $_POST['block'] . ' hash ' . $_POST['hash'];
+                            $error->save(false);
+                        }
+                    }
+                }
+
+                else{
+                    $error = new VisitError();
+                    $error->time = time();
+                    $error->text = 'ошибка сохранения пользователя - hash: '. $_POST['hash'] . 'на сайте '. $_POST['site'] . ' в блок '. $_POST['block'] . ' hash ' . $_POST['hash'];
+                    $error->save(false);
+                }
+            }
+        }
+
+        else{
+            $error = new VisitError();
+            $error->time = time();
+            $error->text = 'Вход без данных';
+            $error->save(false);
+        }
+
+
     }
 
     private function getTrackInfo(){

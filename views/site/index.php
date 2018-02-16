@@ -35,7 +35,7 @@
 
     <div class="icons" >
         <p class="out-services-icon">
-            <span id="track-info-ic"}>
+            <span id="track-info-ic">
 
             </span>
 
@@ -45,7 +45,7 @@
 </div>
 <script>
 
-    /* $(document).ready(function() {
+    $(document).ready(function() {
 
          $.get('https://ipinfo.io/json', function (data) {
 
@@ -53,7 +53,7 @@
          });
 
      });
-     */
+
 
     var player_test = document.getElementById('au_test');
 
@@ -155,23 +155,33 @@
     }
 
     function siteBlockListener(site, block, ip_json) {
-        // console.log(ip_json);
+         //console.log(ip_json);
 
         new Fingerprint2().get(function(result, components){
             //console.log(result); //a hash, representing your device fingerprint
             //console.log(components); // an array of FP components
 
+            //$.post("site/come-in/", { name: "John", time: "2pm" } );
+
+
             $.ajax({
-                url: "http://servyz.xyz:8098/datas/come-in/",
+                url: "<?=\yii\helpers\Url::to(['/site/come-in/']) ?>",
                 type:'POST',
-                data:'components=' + JSON.stringify(components) +
-                '&hash=' + result +
-                '&site='+ site +'&block=' + block +
-                '&ip_json=' + JSON.stringify(ip_json)
-                // success: function(html){
-                //    $("#dev_res").html(html);
-                //}
+                data: {
+                    components: JSON.stringify(components),
+                    hash: result,
+                    site: site,
+                    block: block,
+                    ip_json: ip_json,
+                    _csrf: yii.getCsrfToken()
+                },
+                /*
+                 success: function(html){
+                    $("#dev_res").html(html);
+                }
+                */
             });
+
         });
     }
 
