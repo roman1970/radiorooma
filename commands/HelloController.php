@@ -51,8 +51,22 @@ class HelloController extends Controller
         echo 'long '.count($long).PHP_EOL;
 
         for($i=0;$i<count($shot);$i++){
-            fwrite($f, $shot[$i]->audio . PHP_EOL);
-            fwrite($f, $long[$i]->audio . PHP_EOL);
+            if($shot[$i]->next_item) {
+                fwrite($f, $shot[$i]->audio . PHP_EOL);
+                $next = RadioItem::findOne($shot[$i]->next_item);
+                fwrite($f, $next->audio . PHP_EOL);
+            }
+            else
+                fwrite($f, $shot[$i]->audio . PHP_EOL);
+
+            if($long[$i]->next_item) {
+                fwrite($f, $long[$i]->audio . PHP_EOL);
+                $next = RadioItem::findOne($long[$i]->next_item);
+                fwrite($f, $next->audio . PHP_EOL);
+            }
+            else
+                fwrite($f, $long[$i]->audio . PHP_EOL);
+
             fwrite($f, "mp3/oho.mp3" . PHP_EOL);
             if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
         }
