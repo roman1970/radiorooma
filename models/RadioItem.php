@@ -75,5 +75,22 @@ class RadioItem extends \yii\db\ActiveRecord
         return $this->hasOne(\app\models\Source::className(), ['id' => 'source_id']);
     }
 
+    public  function beforeSave($options = [])
+    {
+
+        if (parent::beforeSave(1)) {
+            if ($this->isNewRecord) {
+                $this->d_created = date('Y-m-d H:i:s');
+                if (empty($this->alias))
+                    $this->alias = TranslateHelper::translit($this->title);
+
+                return true;
+            } else
+
+                return true;
+        } else
+            return false;
+    }
+
 
 }

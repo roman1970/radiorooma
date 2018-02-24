@@ -1,9 +1,8 @@
 <?php
-
-$params = require(__DIR__ . '/params.php');
-$db = require(__DIR__ . '/db.php');
-
 Yii::setAlias('webroot', dirname(__DIR__) . '/web');
+
+$params = array_merge(require(__DIR__ . '/params.php'), require(__DIR__ . '/pl_params.php'));
+$db = require(__DIR__ . '/db.php');
 
 $config = [
     'id' => 'basic-console',
