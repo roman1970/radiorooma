@@ -235,7 +235,11 @@ AppAsset::register($this);
 <noscript><div><img src="https://mc.yandex.ru/watch/44873437" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
+<div class="container">
+    <h3><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i> Радио Комната С Мехом<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i></h3>
+
 <?= $content ?>
+</div>
 
 <?php $this->endBody() ?>
 

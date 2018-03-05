@@ -81,7 +81,7 @@ class HelloController extends Controller
             else
                 fwrite($f, $long[$i]->audio . PHP_EOL);
 
-            fwrite($f, "mp3/oho.mp3" . PHP_EOL);
+            fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
             if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
         }
 
