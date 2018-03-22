@@ -1,58 +1,58 @@
 
 
-    <hr>
-    <p class="an">Ведущий - Бард, который перевернул ЗИЛ - неортодоксальный круглогодичный Дед Мороз с гитарой и пулей в голове,
-        поёт песни сам, а не заставляет клиентов исполнять стихи за еду сомнительного происхождения в праздничной упаковке,
-        5000р - это только первая минута, потом - бесплатно и фиг выгоните.
-        Приходит как к детям, так и ко взрослым (по VIP-цене - в виде белочки).</p>
+<hr>
+<p class="an">Ведущий - Бард, который перевернул ЗИЛ - неортодоксальный круглогодичный Дед Мороз с гитарой и пулей в голове,
+    поёт песни сам, а не заставляет клиентов исполнять стихи за еду сомнительного происхождения в праздничной упаковке,
+    5000р - это только первая минута, потом - бесплатно и фиг выгоните.
+    Приходит как к детям, так и ко взрослым (по VIP-цене - в виде белочки).</p>
 
-    <div id="radio_block">
+<div id="radio_block">
 
-        <audio id="au_test" ></audio>
-        <audio id="au_second" ></audio>
-        <audio id="au_bard" ></audio>
+    <audio id="au_test" ></audio>
+    <audio id="au_second" ></audio>
+    <audio id="au_bard" ></audio>
 
-        <button type="submit" class="btn-success" id="radio_test"><p style="font-size: 35px;">&infin;</p></button>
+    <button type="submit" class="btn-success" id="radio_test"><p style="font-size: 35px;">&infin;</p></button>
 
-        <button type="submit" class="btn active-button" onclick="onTest()" id="play_btn">
-            <span class="glyphicon glyphicon-play"></span>
-        </button>
+    <button type="submit" class="btn active-button" onclick="onTest()" id="play_btn">
+        <span class="glyphicon glyphicon-play"></span>
+    </button>
 
-        <button type="submit" class="btn active-button" onclick="stopRadio()" id="stop_btn">
-            <span class="glyphicon glyphicon-stop"></span>
-        </button>
+    <button type="submit" class="btn active-button" onclick="stopRadio()" id="stop_btn">
+        <span class="glyphicon glyphicon-stop"></span>
+    </button>
 
-        <div id="info">
-
-        </div>
-
-        <div id="current_text"></div>
-
-
-        <div id="dev_res"></div>
-
+    <div id="info">
 
     </div>
 
-    <div class="icons" >
-        <p class="out-services-icon">
+    <div id="current_text"></div>
+
+
+    <div id="dev_res"></div>
+
+
+</div>
+
+<div class="icons" >
+    <p class="out-services-icon">
             <span id="track-info-ic">
 
             </span>
 
-        </p>
-    </div>
+    </p>
+</div>
 
 <script>
 
     $(document).ready(function() {
 
-         $.get('https://ipinfo.io/json', function (data) {
+        $.get('https://ipinfo.io/json', function (data) {
 
-             siteBlockListener('radiorooma', 'body', data);
-         });
+            siteBlockListener('radiorooma', 'body', data);
+        });
 
-     });
+    });
 
 
     var player_test = document.getElementById('au_test');
@@ -155,7 +155,7 @@
     }
 
     function siteBlockListener(site, block, ip_json) {
-         //console.log(ip_json);
+        //console.log(ip_json);
 
         new Fingerprint2().get(function(result, components){
             //console.log(result); //a hash, representing your device fingerprint
