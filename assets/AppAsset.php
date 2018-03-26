@@ -17,19 +17,24 @@ class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
+
     public $css = [
-        'css/site.css',
+        'css/jquery.auto-complete.css',
         'css/font-awesome.css'
     ];
+
     public $js = [
-       // 'js/MooToolsCore.js',
+        '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js',
+        'js/jquery.auto-complete.min.js',
         'js/fingerprint2.min.js',
-        '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'
+        'js/jquery.cookie.js'
     ];
+
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+
     public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
 
 }

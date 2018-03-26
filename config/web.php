@@ -10,6 +10,12 @@ $config = [
         'radio' => [
             'class' => 'app\modules\radio\Module',
         ],
+        'deutsch' => [
+            'class' => 'app\modules\deutsch\Module',
+        ],
+    ],
+    'aliases' => [
+        '@moduleDeutsch' => '@app/modules/deutsch',
     ],
     'components' => [
         'request' => [
@@ -18,6 +24,9 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'assetManager' => [
+            'forceCopy' => YII_DEBUG,
         ],
         'translater' => [
             'class' => 'app\components\TranslateHelper'
@@ -45,8 +54,13 @@ $config = [
                 ],
             ],
         ],
+
+        // DB components ***************************************
         'db' => require(__DIR__ . '/db.php'),
         'my_db' => require(__DIR__ . '/my_db.php'),
+        'deutsch_db' => require(__DIR__ . '/deutsch_db.php'),
+
+        // ******************************************************
         
         'urlManager' => [
             'class' => 'yii\web\UrlManager',

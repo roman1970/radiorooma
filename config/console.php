@@ -23,6 +23,7 @@ $config = [
         ],
         'db' => $db,
         'my_db' => require(__DIR__ . '/my_db.php'),
+        'deutsch_db' => require(__DIR__ . '/deutsch_db.php'),
     ],
     'params' => $params,
     /*
