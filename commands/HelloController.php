@@ -43,14 +43,17 @@ class HelloController extends Controller
 
         $shot = RadioItem::find()
             ->where('cat_id IN (1,3,4,6,9,14,15,16,12)')
+            ->andWhere(['published' => 1])
             ->all();
 
         $long = RadioItem::find()
             ->where('cat_id IN (2,5,7,8,10)')
+            ->andWhere(['published' => 1])
             ->all();
 
         $guests = RadioItem::find()
             ->where('cat_id IN (20)')
+            ->andWhere(['published' => 1])
             ->all();
 
         shuffle($shot);
