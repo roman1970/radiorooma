@@ -374,22 +374,22 @@ class SiteController extends Controller
         return '<a href="item/'.$item->alias .'" target="_blank" title="Информация о текущем треке" class="icc"><i class="fa fa-language"></i></a>';
     }
 
-    /**
-     * Логирование входов на сервисы
-     * @throws \Exception
-     */
+
     function actionComeIn()
     {
-        //print_r($_POST); exit;
+        //print_r($_POST['ip_json']); exit;
 
         if(isset($_POST['hash']) && isset($_POST['components']) && isset($_POST['site']) && isset($_POST['block'])) {
-
-
+            
             $json_string = $_POST['components'];
             $obj = json_decode($json_string);
-            //var_dump($obj); exit;
 
-            if($visitor = VisitorCount::findOne(['hash' => $_POST['hash']])){
+            $visitor = VisitorCount::find()
+                ->where(['hash' => $_POST['hash']])
+                ->one();
+
+            if($visitor){
+
                 $visitor->count++;
                 $visitor->update(false);
 
@@ -400,34 +400,28 @@ class SiteController extends Controller
                 $block->block = $_POST['block'];
 
 
-
-
                 if(isset($_POST['ip_json'])){
+                    $ip = $_POST['ip_json'];
 
-                    $ip_obj = json_decode($_POST['ip_json']);
-
-                    //var_dump($ip_obj); exit;
-                    if(isset($ip_obj->ip))$block->ip = $ip_obj->ip;
-                    if(isset($ip_obj->hostname))$block->hostname = $ip_obj->hostname;
-                    if(isset($ip_obj->city))$block->city = $ip_obj->city;
-                    if(isset($ip_obj->region))$block->region = $ip_obj->region;
-                    if(isset($ip_obj->country))$block->country = $ip_obj->country;
-                    if(isset($ip_obj->loc))$block->loc = $ip_obj->loc;
-                    if(isset($ip_obj->org))$block->org = $ip_obj->org;
-                    if(isset($ip_obj->postal))$block->postal = $ip_obj->postal;
+                    if(isset($ip['ip']))$block->ip = $ip['ip'];
+                    if(isset($ip['hostname']))$block->hostname = $ip['hostname'];
+                    if(isset($ip['city']))$block->city = $ip['city'];
+                    if(isset($ip['block']))$block->region = $ip['block'];
+                    if(isset($ip['country']))$block->country = $ip['country'];
+                    if(isset($ip['loc']))$block->loc = $ip['loc'];
+                    if(isset($ip['org']))$block->org = $ip['org'];
+                    if(isset($ip['postal']))$block->postal = $ip['postal'];
                     //var_dump($ip_obj); exit;
 
                 }
 
-
-
                 if(!$block->save(false)){
-
                     $error = new VisitError();
                     $error->time = time();
                     $error->text = 'ошибка сохранения блока на '. $_POST['site'] . ' в блок '. $_POST['block'] . ' hash ' . $_POST['hash'];
                     $error->save(false);
                 }
+
             }
             else{
 
@@ -499,8 +493,6 @@ class SiteController extends Controller
 
                     }
 
-                    //var_dump($visit); exit;
-
                     if(!$visit->save(false)) {
                         $error = new VisitError();
                         $error->time = time();
@@ -514,6 +506,24 @@ class SiteController extends Controller
                         $block->time = time();
                         $block->site = $_POST['site'];
                         $block->block = $_POST['block'];
+                        if(isset($_POST['ip_json'])){
+
+                            $ip_obj = json_decode($_POST['ip_json']);
+
+                            //var_dump($ip_obj); exit;
+                            if(isset($ip_obj->ip))$block->ip = $ip_obj->ip;
+                            if(isset($ip_obj->hostname))$block->hostname = $ip_obj->hostname;
+                            if(isset($ip_obj->city))$block->city = $ip_obj->city;
+                            if(isset($ip_obj->region))$block->region = $ip_obj->region;
+                            if(isset($ip_obj->country))$block->country = $ip_obj->country;
+                            if(isset($ip_obj->loc))$block->loc = $ip_obj->loc;
+                            if(isset($ip_obj->org))$block->org = $ip_obj->org;
+                            if(isset($ip_obj->postal))$block->postal = $ip_obj->postal;
+                            //var_dump($ip_obj); exit;
+
+                        }
+
+
                         if(!$block->save(false)){
                             $error = new VisitError();
                             $error->time = time();
