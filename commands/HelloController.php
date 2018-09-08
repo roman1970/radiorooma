@@ -64,25 +64,30 @@ class HelloController extends Controller
 
         $little_length_arr = ($shot<=$long) ? $shot : $long;
 
+        $got_ids = [];
+
         for($i=0;$i<count($little_length_arr);$i++){
             if($i%12 == 0) {
                 fwrite($f, $guests[rand(0, count($guests)-1)]->audio . PHP_EOL);
             }
             if($shot[$i]->next_item) {
-                fwrite($f, $shot[$i]->audio . PHP_EOL);
+                //var_dump($got_ids);
+                if(!in_array($shot[$i]->id, $got_ids))fwrite($f, $shot[$i]->audio . PHP_EOL);
                 $next = RadioItem::findOne($shot[$i]->next_item);
-                fwrite($f, $next->audio . PHP_EOL);
+                if(!in_array($next->id, $got_ids))fwrite($f, $next->audio . PHP_EOL);
+                array_push($got_ids, $next->id);
             }
             else
-                fwrite($f, $shot[$i]->audio . PHP_EOL);
+                if(!in_array($shot[$i]->id, $got_ids)) fwrite($f, $shot[$i]->audio . PHP_EOL);
 
             if($long[$i]->next_item) {
-                fwrite($f, $long[$i]->audio . PHP_EOL);
+                if(!in_array($long[$i]->id, $got_ids))fwrite($f, $long[$i]->audio . PHP_EOL);
                 $next = RadioItem::findOne($long[$i]->next_item);
-                fwrite($f, $next->audio . PHP_EOL);
+                if(!in_array($next->id, $got_ids))fwrite($f, $next->audio . PHP_EOL);
+                array_push($got_ids, $next->id);
             }
             else
-                fwrite($f, $long[$i]->audio . PHP_EOL);
+                if(!in_array($long[$i]->id, $got_ids))fwrite($f, $long[$i]->audio . PHP_EOL);
 
             fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
             if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
