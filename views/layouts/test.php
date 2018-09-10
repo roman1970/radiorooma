@@ -207,7 +207,7 @@ AppAsset::register($this);
             font-size: 20px;
         }
         p, p.an{
-            font-size: 17px;
+            font-size: 15px;
         }
     }
 
