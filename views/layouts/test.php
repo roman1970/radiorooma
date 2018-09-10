@@ -46,11 +46,13 @@ AppAsset::register($this);
         background-color: rgb(8, 10, 12);
         color: white;
     }
-    h4,p, #silent{
+    h4,p, #silent, p.an{
         color: white;
         text-align: center;
         line-height: 1.5;
+        font-size: 20px;
     }
+
     .container{
         background-color:rgb(30, 29, 29);
         /*background: rgb(30, 29, 29) url(img/col_pattern.jpg) repeat;*/
@@ -204,7 +206,7 @@ AppAsset::register($this);
         h3{
             font-size: 18px;
         }
-        .an{
+        p, p.an{
             font-size: 12px;
         }
     }

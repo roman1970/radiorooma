@@ -1,7 +1,5 @@
 <style>
-    p, p.an{
-        font-size: 20px;
-    }
+
 </style>
 
     <hr>
@@ -18,13 +16,13 @@
         <button type="submit" class="btn-success" id="radio_test"><p style="font-size: 35px;">&infin;</p></button>
 
         <button type="submit" class="btn active-button" onclick="onTest()" id="play_btn">
-            <span class="glyphicon glyphicon-play"></span>
+            <p>Включите радио этой кнопкой</p>
         </button>
 
         <button type="submit" class="btn active-button" onclick="stopRadio()" id="stop_btn">
-            <span class="glyphicon glyphicon-stop"></span>
+            <span class="glyphicon glyphicon-stop an"></span>
         </button>
-        <p>Включите радио этой кнопкой. <br> Прослушайте текущий трек снова, нажав иконку внизу.</p>
+        <p>Прослушайте текущий трек снова, нажав иконку внизу.</p>
 
 
         <div id="info">
