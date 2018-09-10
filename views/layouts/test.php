@@ -204,10 +204,10 @@ AppAsset::register($this);
 
     @media (max-width: 400px) {
         h3{
-            font-size: 18px;
+            font-size: 20px;
         }
         p, p.an{
-            font-size: 12px;
+            font-size: 17px;
         }
     }
 
