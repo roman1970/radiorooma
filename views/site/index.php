@@ -22,7 +22,7 @@
         <button type="submit" class="btn active-button" onclick="stopRadio()" id="stop_btn">
             <span class="glyphicon glyphicon-stop an"></span>
         </button>
-        <p>Прослушайте текущий трек снова, нажав иконку внизу.</p>
+        <p>Прослушайте текущий трек, нажав иконку внизу.</p>
 
 
         <div id="info">
@@ -49,6 +49,26 @@
 <script>
 
     $(document).ready(function() {
+
+        onTest();
+
+        $.ajax({
+            type: "GET",
+            url: "site/show-current-radio-tracks-test/",
+            success: function(html){
+                $("#radio_test").html(html);
+            }
+
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "site/show-info-icon/",
+            success: function(html){
+                $("#track-info-ic").html(html);
+            }
+
+        });
 
          $.get('https://ipinfo.io/json', function (data) {
 
@@ -107,7 +127,7 @@
         changeActiveClass(radioTestClasses);
         canal = 'test';
         player_test.src = 'http://88.212.253.193:8000/test';
-        player_test.play();
+        player_test.autoplay = true;
         play_btn.style.display = 'none';
 
 
