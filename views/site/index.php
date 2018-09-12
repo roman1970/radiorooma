@@ -9,7 +9,7 @@
 
     <div id="radio_block">
 
-        <audio id="au_test" ></audio>
+        <audio id="au_test" autoplay></audio>
         <audio id="au_second" ></audio>
         <audio id="au_bard" ></audio>
 
@@ -127,9 +127,8 @@
         changeActiveClass(radioTestClasses);
         canal = 'test';
         player_test.src = 'http://88.212.253.193:8000/test';
-        player_test.autoplay = true;
+        //player_test.autoplay = true;
         play_btn.style.display = 'none';
-
 
         if(stop_btn.style.display == 'none')
             stop_btn.style.display = 'block';
