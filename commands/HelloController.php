@@ -36,6 +36,15 @@ class HelloController extends Controller
      */
     public function actionRoomPlayList(){
         //echo \Yii::getAlias('@webroot').PHP_EOL; exit;
+
+        $site_map = fopen(\Yii::getAlias('@webroot')."/sitemap.xml", 'w');
+
+
+        $content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+            <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"> 
+           ";
+
+
         $f = fopen(\Yii::getAlias('@webroot')."/uploads/radio.txt", 'w');
         if(!$f) {
             echo 'can not open';
@@ -68,33 +77,62 @@ class HelloController extends Controller
 
         for($i=0;$i<count($little_length_arr);$i++){
             if($i%12 == 0) {
-                fwrite($f, $guests[rand(0, count($guests)-1)]->audio . PHP_EOL);
+                $guest = $guests[rand(0, count($guests)-1)];
+                $content .= $this->getInSiteMapItemXml($guest->alias, $guest->d_created);
+                fwrite($f, $guest->audio . PHP_EOL);
             }
             if($shot[$i]->next_item) {
                 //var_dump($got_ids);
-                if(!in_array($shot[$i]->id, $got_ids))fwrite($f, $shot[$i]->audio . PHP_EOL);
+                if(!in_array($shot[$i]->id, $got_ids)){
+                    $content .= $this->getInSiteMapItemXml($shot[$i]->alias, $shot[$i]->d_created);
+                    fwrite($f, $shot[$i]->audio . PHP_EOL);
+                }
                 $next = RadioItem::findOne($shot[$i]->next_item);
-                if(!in_array($next->id, $got_ids))fwrite($f, $next->audio . PHP_EOL);
+                if(!in_array($next->id, $got_ids)){
+                    $content .= $this->getInSiteMapItemXml($next->alias, $next->d_created);
+                    fwrite($f, $next->audio . PHP_EOL);
+                }
                 array_push($got_ids, $next->id);
             }
             else
-                if(!in_array($shot[$i]->id, $got_ids)) fwrite($f, $shot[$i]->audio . PHP_EOL);
+                if(!in_array($shot[$i]->id, $got_ids)) {
+                    $content .= $this->getInSiteMapItemXml($shot[$i]->alias, $shot[$i]->d_created);
+                    fwrite($f, $shot[$i]->audio . PHP_EOL);
+                }
 
             if($long[$i]->next_item) {
-                if(!in_array($long[$i]->id, $got_ids))fwrite($f, $long[$i]->audio . PHP_EOL);
+                if(!in_array($long[$i]->id, $got_ids)){
+                    $content .= $this->getInSiteMapItemXml($long[$i]->alias, $long[$i]->d_created);
+                    fwrite($f, $long[$i]->audio . PHP_EOL);
+                }
                 $next = RadioItem::findOne($long[$i]->next_item);
-                if(!in_array($next->id, $got_ids))fwrite($f, $next->audio . PHP_EOL);
+                if(!in_array($next->id, $got_ids)){
+                    $content .= $this->getInSiteMapItemXml($next->alias, $next->d_created);
+                    fwrite($f, $next->audio . PHP_EOL);
+                }
                 array_push($got_ids, $next->id);
             }
             else
-                if(!in_array($long[$i]->id, $got_ids))fwrite($f, $long[$i]->audio . PHP_EOL);
+                if(!in_array($long[$i]->id, $got_ids)){
+                    $content .= $this->getInSiteMapItemXml($long[$i]->alias, $long[$i]->d_created);
+                    fwrite($f, $long[$i]->audio . PHP_EOL);
+                }
 
             fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
             if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
+
         }
+
+        $content .=  "</urlset>";
 
 
         fclose($f);
+        var_dump(fwrite($site_map, $content));
+        fclose($site_map);
+    }
+
+    function getInSiteMapItemXml($item, $data){
+        return "<url><loc>https://radiorooma.ru/".$item.".html</loc><lastmod>".$data."</lastmod></url>";
     }
 
     /**

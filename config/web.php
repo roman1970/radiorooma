@@ -66,9 +66,15 @@ $config = [
             'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            //'suffix' => '.html',
             'rules' => [
                 'item/add-like/<id:\d+>'   => 'item/add-like',
-                'item/<alias>' => 'item/index',
+                [
+                    'pattern'=>'<alias>',
+                    'route' => 'item/index',
+                    'suffix' => '.html',
+                ],
+                //'<alias>' => 'item/index',
                 '<controller:\w+>/<id:\d+>'   => '<controller>/index',
                 //'<controller:\w+>/<action:\w+>/<alias:[\w_\/-]+>'   => '<controller>/<action>/index',
                 //'/<alias:\w+>' => 'site/item',

@@ -371,7 +371,7 @@ class SiteController extends Controller
 
     function actionShowInfoIcon(){
         $item = RadioItem::find()->where(['like', 'audio', trim($this->getTrackInfo())])->one();
-        return '<a href="item/'.$item->alias .'" target="_blank" title="Информация о текущем треке" class="icc"><i class="fa fa-language"></i></a>';
+        return '<a href="'.$item->alias .'.html" target="_blank" title="Информация о текущем треке" class="icc"><i class="fa fa-language"></i></a>';
     }
 
 
