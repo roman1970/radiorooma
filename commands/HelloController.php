@@ -132,7 +132,10 @@ class HelloController extends Controller
     }
 
     function getInSiteMapItemXml($item, $data){
-        return "<url><loc>https://radiorooma.ru/".$item.".html</loc><lastmod>".$data."</lastmod></url>";
+
+        if($data) $cut_data = explode(' ',$data)[0];
+        else  $cut_data = '2018-09-09';
+        return "<url><loc>https://radiorooma.ru/".$item.".html</loc><lastmod>".$cut_data."</lastmod></url>";
     }
 
     /**
