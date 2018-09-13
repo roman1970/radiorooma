@@ -9,7 +9,10 @@
 
     <div id="radio_block">
 
-        <audio id="au_test" autoplay><source src="http://88.212.253.193:8000/test"></audio>
+        <iframe src="http://88.212.253.193:8000/test" allow="autoplay" style="display:none" id="iframeAudio">
+        </iframe>
+
+        <!--<audio id="au_test" autoplay><source src="http://88.212.253.193:8000/test"></audio> -->
         <audio id="au_second" ></audio>
         <audio id="au_bard" ></audio>
 
