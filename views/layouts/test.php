@@ -226,7 +226,6 @@ AppAsset::register($this);
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
 
-
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
@@ -250,6 +249,9 @@ AppAsset::register($this);
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
+
+    
+
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/44873437" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->

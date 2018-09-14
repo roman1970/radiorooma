@@ -12,7 +12,7 @@
         <!--<iframe src="http://88.212.253.193:8000/test" allow="autoplay" style="display:none" id="iframeAudio">
         </iframe> -->
 
-        <audio id="au_test" autoplay><source src="http://88.212.253.193:8000/test"></audio>
+        <audio id="au_test"></audio>
         <audio id="au_second" ></audio>
         <audio id="au_bard" ></audio>
 
@@ -52,14 +52,18 @@
 <script>
 
     // Existing code unchanged.
-    window.onload = function() {
+    /*window.onload = function() {
         var context = new AudioContext();
+        console.log(context);
+        context.src = 'http://88.212.253.193:8000/test';
+        player_test.autoplay = true;
 
     };
+    */
 
     $(document).ready(function() {
 
-        onTest();
+        //onTest();
 
         $.ajax({
             type: "GET",
@@ -79,12 +83,12 @@
 
         });
 
-         $.get('https://ipinfo.io/json', function (data) {
+        $.get('https://ipinfo.io/json', function (data) {
+            siteBlockListener('radiorooma', 'body', data);
+        });
 
-             siteBlockListener('radiorooma', 'body', data);
-         });
+    });
 
-     });
 
 
     var player_test = document.getElementById('au_test');
@@ -96,7 +100,6 @@
     var radio_back = document.getElementById('radio_back');
     var canal = '';
     stop_btn.style.display = 'none';
-
 
     // var test_button = document.getElementById('radio_test');
 
@@ -129,18 +132,18 @@
     }, 10000);
 
 
-
-
     function onTest(){
 
         changeActiveClass(radioTestClasses);
         canal = 'test';
         player_test.src = 'http://88.212.253.193:8000/test';
+        player_test.play();
         //player_test.autoplay = true;
-        play_btn.style.display = 'none';
+        stop_btn.style.display = 'block';
 
-        if(stop_btn.style.display == 'none')
-            stop_btn.style.display = 'block';
+        //if(stop_btn.style.display == 'none')
+           // stop_btn.style.display = 'block';
+        play_btn.style.display = 'none';
 
         //info.style.display = 'none';
 
@@ -186,9 +189,9 @@
     }
 
     function siteBlockListener(site, block, ip_json) {
-         //console.log(ip_json);
+        //console.log(ip_json);
 
-        new Fingerprint2().get(function(result, components){
+        new Fingerprint2().get(function (result, components) {
             //console.log(result); //a hash, representing your device fingerprint
             //console.log(components); // an array of FP components
 
@@ -197,7 +200,7 @@
 
             $.ajax({
                 url: "<?=\yii\helpers\Url::to(['/site/come-in/']) ?>",
-                type:'POST',
+                type: 'POST',
                 data: {
                     components: JSON.stringify(components),
                     hash: result,
@@ -215,6 +218,9 @@
 
         });
     }
+
+
+
 
 
 
