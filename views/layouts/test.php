@@ -20,6 +20,7 @@ AppAsset::register($this);
         gtag('js', new Date());
 
         gtag('config', 'UA-80881607-1');
+        gtag('config', 'AW-789523727');
     </script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
@@ -27,6 +28,23 @@ AppAsset::register($this);
             google_ad_client: "ca-pub-9346242100753678",
             enable_page_level_ads: true
         });
+    </script>
+
+    <!-- Event snippet for включение трансляции conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-789523727/f6Z2CM6TvIkBEI_avPgC',
+                'event_callback': callback
+            });
+            return false;
+        }
     </script>
 
     <meta charset="<?= Yii::$app->charset ?>">

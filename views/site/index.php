@@ -133,7 +133,7 @@
 
 
     function onTest(){
-
+        gtag_report_conversion();
         changeActiveClass(radioTestClasses);
         canal = 'test';
         player_test.src = 'http://88.212.253.193:8000/test';
@@ -152,7 +152,6 @@
             siteBlockListener('radiorooma', 'test_canal', data);
         });
         */
-
 
     }
 
