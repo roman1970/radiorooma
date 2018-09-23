@@ -1,27 +1,10 @@
-<style>
-    h3,p{
-        text-align: center;
-    }
-    .btn-success:hover {
-        color: rgb(255, 255, 255);
-        background-color: rgb(46, 46, 46);
-        border-color: rgb(73, 73, 74);
-    }
-    .btn-success {
-        color: rgb(255, 255, 255);
-        background-color: rgb(57, 60, 57);
-        border-color: rgb(27, 31, 27);
-    }
-</style>
-<?php \yii\widgets\Pjax::begin(['id' => 'section_page']); ?>
+
 <div id="page">
     <h3><?=$item->title?></h3>
     <p>(<?= $item->source->title ?> - <?= $item->source->author->name ?>)</p>
-    <?php /*
-    <form action="<?=Yii::$app->homeUrl?>">
-        <button type="submit" class="btn btn-success">На главную</button>
-    </form>
- */ ?>
+    <?=\yii\bootstrap\Html::a(
+        'Поделиться',
+        '/'.$item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
 
     <p id="on_button"><button type="button" class="btn btn-success" onclick="onAudio('<?=$item->audio?>')" >Воспроизвести</button></p>
     <p style="display: none" id="off_button"><button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио</button></p>
@@ -36,13 +19,15 @@
         //console.log(height);
         height = page.clientHeight;
         var acc = document.getElementById('acc');
+        var cats = document.getElementById('cats');
         //console.log(acc);
         var new_height = height + 25;
         acc.style.height = new_height+"px";
+        cats.style.height = new_height+"px";
         //console.log(acc.style.height);
     });
 </script>
-<?php \yii\widgets\Pjax::end(); ?>
+
 
 
 

@@ -17,6 +17,41 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80881607-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-80881607-1');
+        gtag('config', 'AW-789523727');
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9346242100753678",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    <!-- Event snippet for включение трансляции conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-789523727/f6Z2CM6TvIkBEI_avPgC',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
@@ -31,7 +66,7 @@ AppAsset::register($this);
         height: 100%;
         color: rgb(248, 248, 255);
 
-     /*   background-image: url(<?=\yii\helpers\Url::to('/img/fons_bg-530x180.jpg')?>);*/
+        background-image: url(<?=\yii\helpers\Url::to('/img/fons_bg-530x180.jpg')?>);
 
     /* background-color: #1a1a1a;*/
 
@@ -88,6 +123,7 @@ AppAsset::register($this);
     }
 
     .latvia{
+        background-image: url(<?=\yii\helpers\Url::to('/img/radio_latvia.jpg')?>);
 
         background-position: top; /* Положение фона */
         background-repeat: no-repeat; /* Повторяем фон по горизонтали */
@@ -402,20 +438,18 @@ AppAsset::register($this);
 
     }
 
-        @media(min-width:220px) and (max-width:500px){
-            #play{
-
-                display: block;
-            }
-
-            #buttons{
-                display: block;
-            }
-
-
+    @media(min-width:220px) and (max-width:767px){
+        #play{
+            display: block;
         }
 
+        #buttons{
+            display: block;
+        }
 
+        #cats{
+            display: none;
+        }
     }
 </style>
 
@@ -452,320 +486,264 @@ AppAsset::register($this);
 <noscript><div><img src="https://mc.yandex.ru/watch/44873437" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
-
 <div class="wrap">
-
-
-    <?php /*
-    NavBar::begin([
-        'brandLabel' => '',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-            ],
-        ]);
-
-        NavBar::end();
- */
-        ?>
-        <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-
-
-
-            <?php //echo phpinfo();//<div id="rand"></div> ?>
-            <div class="row row-offcanvas row-offcanvas-right ">
-
-                <div class="navbar-fixed-top container">
-
-                    <div class="line" id="l1">
-                        <div class="line_text" id="rand">РАДИО 'КОМНАТА С МЕХОМ'</div>
-                        <div class="line_cover"></div>
-                    </div>
-
-                    <div class="latvia">
-
-
-                        <p class="text-center" >
-                           <img src='<?php /*\yii\helpers\Url::to('/img/barded2.png')*/?>' width="200px" id="player" class="bard_img">
-                        </p>
-                        <div id="Panel">
-                            <div id="Container">
-                                <span id="Text">Vol</span>
-                                <div id="Indicator" style="left: 57px; top: 28px; visibility: visible; zoom: 1; opacity: 1;">
-
-                                </div>
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right ">
+            <div class="navbar-fixed-top container">
+                <div class="line" id="l1">
+                    <div class="line_text" id="radio_test">РАДИО 'КОМНАТА С МЕХОМ'</div>
+                </div>
+                <div class="latvia">
+                    <p class="text-center" >
+                       <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img">
+                    </p>
+                    <div id="Panel">
+                        <div id="Container">
+                            <span id="Text">Vol</span>
+                            <div id="Indicator" style="left: 57px; top: 28px; visibility: visible; zoom: 1; opacity: 1;">
                             </div>
                         </div>
-
-
-                        <div id="buttons">
-
-                                <button id="play_btn" value="On" class="on_button"><span class="glyphicon glyphicon-play"></button>
-
-                                <button id="stop_btn" value="stop" class="on_button"><span class="glyphicon glyphicon-pause"></button>
-
-
-                        </div>
-
-
-
-
-                        <p class="text-center">
-
-
-
-                        </p>
-
-
-
                     </div>
-
-
-                    <?php /*
-                    <button type="button" class="btn" onclick="onRadio('test_mp3')" title="Первый канал">
-                        Канал ФИЗИКА ДЛЯ НАСТОЯЩИХ ПАНКОВ! Осторожно! Ненормативная лексика!
-                    </button>
-                    <div class="line" id="l11">
-                        <div class="line_text" id="rand">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
-                        <div class="line_cover"></div>
+                    <div id="buttons">
+                        <button id="play_btn" value="On" class="on_button"><span class="glyphicon glyphicon-play"></button>
+                        <button id="stop_btn" value="stop" class="on_button"><span class="glyphicon glyphicon-pause"></button>
                     </div>
-                    <button type="button" class="btn" onclick="onRadio('second_mp3')" title="Второй канал">
-                        Канал САМАЯ РАЗНАЯ МУЗЫКА
-                    </button>
-                    <div class="line" id="l12">
-                        <div class="line_text" id="rand1">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
-                        <div class="line_cover"></div>
-                    </div>
-
-                    <button type="button" class="btn" onclick="onRadio('bard_mp3')" title="Третий канал">
-                        Канал КОМНАТА С МЕХОМ Ведущий: Бард, который перевернул ЗИЛ"
-                    </button>
-                    <div class="line" id="l1">
-                        <div class="line_text" id="rand2">РАДИО 'ОТ ШУБЕРТА ДО ШНУРОВА'</div>
-                        <div class="line_cover"></div>
-                    </div>
-                    */?>
-
-                    <div class="line" id="l3">
-                        <div class="line_text">
-                            <h4 class="text-center">
-                                Авторское радио "Комната с мехом"
-                                <br>Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
-                            </h4>
-
-                       </div>
-
-                        <div class="line_cover"></div>
-                    </div>
-                   <audio id="au"  autoplay ></audio>
-                   <?php /*<audio id="au">
-                        <source src="http://37.192.187.83:10088/bard_mp3" type="audio/mpeg" />
-                    </audio>
-                    */ ?>
-                    <h1 class="text-center" id="gone"></h1>
+                    <p class="text-center"></p>
                 </div>
-
-
-                    <div class="container content">
-
-
-                        <?= $content ?>
-
-
-                     
-
+                <div class="line" id="l3">
+                    <div class="line_text">
+                        <h4 class="text-center"> Авторское радио "Комната с мехом"
+                            <br>Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
+                        </h4>
                     </div>
-                    
-
-
-
+                    <div class="line_cover"></div>
+                </div>
+                <audio id="au"  autoplay ></audio>
+                <h1 class="text-center" id="gone"></h1>
             </div>
 
+            <div class="container content">
+                <?= $content ?>
+            </div>
+                    
         </div>
-
     </div>
-<div id="dev_res">
-
 </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p class="pull-left">&copy; "Комната с мехом" <?= date('Y') ?></p>
-           <?php // <a href="http://37.192.187.83:10088/test_mp3">Поток</a> ?>
-            
+<div id="dev_res"></div>
 
-        </div>
-    </footer>
+<footer class="footer">
+    <div class="container">
+        <p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>
+    </div>
+</footer>
 
+<script>
+    $(document).ready(function() {
 
-    <?php $this->endBody() ?>
+        height = 200;
+        var au = document.getElementById('au');
+        au.src = 'http://88.212.253.193:8000/test';
 
-    </body>
-    </html>
-
-
-    <?php $this->endPage() ?>
-
-    <script>
-
-
-        $(document).ready(function() {
-            console.log(JSON);
-
-
-            /* jQuery.get('https://ipinfo.io/json', function(data) {
-
-                    console.log(data);
-                    siteBlockListener('radiorooma', 'body', data);
-
-            }, 'json')
-                /*.fail(function () {
-
-                console.log('45');
-
-            })
-                .error(function(jqXHR, responseText) {
-                 console.log(responseText);
+        jQuery(document).ready(function() {
+            jQuery('#stop_btn').on('click',function(){
+                jQuery("#au")[0].pause();
             });
+            jQuery('#stop_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
+        });
 
-
-             $.get("https://ipinfo.io", function(response) {
-                console.log(response.ip, response.country);
-            }, "jsonp");
-
-
-           jQuery.ajax({
-                type: "get",
-                url: "https://ipinfo.io/json",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    console.log(data);
-                },
-                error: function (data) {
-                    console.log(data.responseText);
-                    siteBlockListener('radiorooma', 'body', data.responseText, 1);
-                }
+        jQuery(document).ready(function() {
+            jQuery('#play_btn').on('click',function(){
+                jQuery("#au")[0].play();
             });
-            */
+            jQuery('#play_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
+        });
 
-            jQuery.ajax({
-                url: "https://ipinfo.io/json",
-
-                // The name of the callback parameter, as specified by the YQL service
-                jsonp: "callback",
-
-                // Tell jQuery we're expecting JSONP
-                dataType: "jsonp",
-
-                // Tell YQL what we want and that we want JSON
-                data: {
-                    q: "select title,abstract,url from search.news where query=\"cat\"",
-                    format: "json"
-                },
-
-                // Work with the response
-                success: function( response ) {
-                    console.log( response ); // server response
-                    siteBlockListener('radiorooma', 'body', response);
-                }
-            });
-
-
-
-            height = 200;
-
-            var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/bard_mp3';
-
-
-            jQuery(document).ready(function() {
-
-                jQuery('#stop_btn').on('click',function(){
-                    jQuery("#au")[0].pause();
-
-                });
-
-                jQuery('#stop_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
-
-            });
-
-            jQuery(document).ready(function() {
-                jQuery('#play_btn').on('click',function(){
-                    jQuery("#au")[0].play();
-                });
-                jQuery('#play_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
-
-            });
-
-            au.volume = 0.1;
-
-            /*var player = document.getElementById('l3');
-
-
-            if (player.addEventListener) {
-                if ('onwheel' in document) {
-                    // IE9+, FF17+, Ch31+
-                    player.addEventListener("wheel", onWheel);
-                } else if ('onmousewheel' in document) {
-                    // устаревший вариант события
-                    player.addEventListener("mousewheel", onWheel);
-                } else {
-                    // Firefox < 17
-                    player.addEventListener("MozMousePixelScroll", onWheel);
-                }
-            } else { // IE8-
-                player.attachEvent("onmousewheel", onWheel);
+        au.volume = 0.1;
+        jQuery.ajax({
+            type: "GET",
+            //url: "site/show-current-radio-tracks-test/",
+            url: '<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>',
+            success: function(html){
+                console.log(html);
+                jQuery("#radio_test").html(html);
             }
-            */
-
-
-            au.onerror = function () {
-                var gone = document.getElementById('gone');
-                gone.innerHTML = 'Извините, пошёл спать!';
-            };
-
-
-                jQuery(".accord h6:first").addClass("active");
-
-                jQuery(".accord div").hide();
-
-                jQuery(".accord h6").click(function() {
-
-                    jQuery(this).next("div").slideToggle("slow").siblings("div:visible").slideUp("slow");
-
-
-                    jQuery(this).toggleClass("active");
-
-                    jQuery(this).siblings("h6").removeClass("active");
-                });
-
-
-
 
         });
 
+        jQuery.get('https://ipinfo.io/json', function (data) {
+            siteBlockListener('radiorooma', 'body', data);
+        });
 
+        var player = document.getElementById('l3');
+
+        if (player.addEventListener) {
+            if ('onwheel' in document) {
+                // IE9+, FF17+, Ch31+
+                player.addEventListener("wheel", onWheel);
+            } else if ('onmousewheel' in document) {
+                // устаревший вариант события
+                player.addEventListener("mousewheel", onWheel);
+            } else {
+                // Firefox < 17
+                player.addEventListener("MozMousePixelScroll", onWheel);
+            }
+        } else { // IE8-
+            player.attachEvent("onmousewheel", onWheel);
+        }
+
+
+
+        au.onerror = function () {
+            var gone = document.getElementById('gone');
+            gone.innerHTML = 'Извините, пошёл спать!';
+        };
+
+
+            jQuery(".accord h6:first").addClass("active");
+
+            jQuery(".accord div").hide();
+
+            jQuery(".accord h6").click(function() {
+
+                jQuery(this).next("div").slideToggle("slow").siblings("div:visible").slideUp("slow");
+
+
+                jQuery(this).toggleClass("active");
+
+                jQuery(this).siblings("h6").removeClass("active");
+            });
+
+    });
+
+
+    var player_test = document.getElementById('au_test');
+
+    var stop_btn = document.getElementById('stop_btn');
+    var play_btn = document.getElementById('play_btn');
+    var info = document.getElementById('info');
+
+    var radio_back = document.getElementById('radio_back');
+    var canal = '';
+    //stop_btn.style.display = 'none';
+
+    // var test_button = document.getElementById('radio_test');
+
+    var radioTestClasses = document.getElementById("radio_test").classList;
+
+
+    setTimeout(function run() {
+
+        jQuery.ajax({
+            type: "GET",
+            url: "site/show-current-radio-tracks-test/",
+            success: function(html){
+                jQuery("#radio_test").html(html);
+            }
+
+        });
+
+        /*jQuery.ajax({
+            type: "GET",
+            url: "site/show-info-icon/",
+            success: function(html){
+                $("#track-info-ic").html(html);
+            }
+
+        });
+        */
+
+
+        setTimeout(run, 10000);
+
+    }, 10000);
+
+
+    function onTest(){
+        gtag_report_conversion();
+        changeActiveClass(radioTestClasses);
+        canal = 'test';
+        player_test.src = 'http://88.212.253.193:8000/test';
+        player_test.play();
+        //player_test.autoplay = true;
+        stop_btn.style.display = 'block';
+
+        //if(stop_btn.style.display == 'none')
+        // stop_btn.style.display = 'block';
+        play_btn.style.display = 'none';
+
+        //info.style.display = 'none';
+
+        /*$.get('https://ipinfo.io/json', function (data) {
+
+            siteBlockListener('radiorooma', 'test_canal', data);
+        });
+        */
+
+    }
+
+
+    function stopRadio() {
+
+        canal = '';
+
+        player_test.pause();
+        player_test.src = '';
+
+        play_btn.style.display = 'block';
+        stop_btn.style.display = 'none';
+        if(radioTestClasses.contains('active-button')) radioTestClasses.remove('active-button');
+
+
+        /* $.get('https://ipinfo.io/json', function (data) {
+
+             siteBlockListener('radiorooma', 'stop_canal', data);
+         });
+         */
+
+    }
+
+    function showInfo() {
+        window.location.href = 'site/show-track-info/';
+    }
+
+    function changeActiveClass(elAddClass, elRemClass_1='', elRemClass_2='') {
+        if(elAddClass.contains('active-button')) return;
+        else elAddClass.add('active-button');
+        // if(elRemClass_1.contains('active-button')) elRemClass_1.remove('active-button');
+        // if(elRemClass_2.contains('active-button')) elRemClass_2.remove('active-button');
+    }
+
+    function siteBlockListener(site, block, ip_json) {
+        //console.log(ip_json);
+
+        new Fingerprint2().get(function (result, components) {
+            //console.log(result); //a hash, representing your device fingerprint
+            //console.log(components); // an array of FP components
+
+            //$.post("site/come-in/", { name: "John", time: "2pm" } );
+
+
+            jQuery.ajax({
+                url: "<?=\yii\helpers\Url::to(['/site/come-in/']) ?>",
+                type: 'POST',
+                data: {
+                    components: JSON.stringify(components),
+                    hash: result,
+                    site: site,
+                    block: block,
+                    ip_json: ip_json,
+                    _csrf: yii.getCsrfToken()
+                },
+                /*
+                 success: function(html){
+                    $("#dev_res").html(html);
+                }
+                */
+            });
+
+        });
+    }
 
         function onWheel(e) {
             e = e || window.event;
@@ -807,7 +785,7 @@ AppAsset::register($this);
 
         function offAudio() {
             var au = document.getElementById('au');
-            au.src = 'http://37.192.187.83:10088/test_mp3';
+            au.src = 'http://88.212.253.193:8000/test';
             au.volume = 0.5;
             var off_button = document.getElementById('off_button');
             var on_button = document.getElementById('on_button');
@@ -819,7 +797,7 @@ AppAsset::register($this);
             var au = document.getElementById('au');
             var hide = document.getElementById(button_id);
             var show = document.getElementById(replace_button);
-            au.src = 'http://37.192.187.83:10088/'+link;
+            au.src = 'http://88.212.253.193:8000/test';
             au.play();
             au.volume = 0.5;
             hide.style.display = 'none';
@@ -948,9 +926,11 @@ AppAsset::register($this);
         //console.log(height);
         height = page.clientHeight;
         var acc = document.getElementById('acc');
+        var cats = document.getElementById('cats');
         //console.log(acc);
         var new_height = height + 25;
         acc.style.height = new_height+"px";
+        cats.style.height = new_height+"px";
         //console.log(acc.style.height);
     });
 
@@ -987,28 +967,47 @@ AppAsset::register($this);
         });
     });
 
-    function siteBlockListener(site, block, ip_json) {
-        //console.log(ip_json);
-
-        new Fingerprint2().get(function(result, components){
-            //console.log(result); //a hash, representing your device fingerprint
-            //console.log(components); // an array of FP components
-
-            jQuery.ajax({
-                url: "http://servyz.xyz:8098/datas/come-in/",
-                type:'POST',
-                data:'components=' + JSON.stringify(components) +
-                '&hash=' + result +
-                '&site='+ site +'&block=' + block +
-                '&ip_json=' + JSON.stringify(ip_json),
-                success: function(html){
-                    jQuery("#dev_res").html(html);
-                }
-            });
-        });
-    }
-
 
     //]]
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter44873437 = new Ya.Metrika({
+                    id:44873437,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+
+
+
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/44873437" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<?php $this->endBody() ?>
+
+</body>
+</html>
+
+
+<?php $this->endPage() ?>
 

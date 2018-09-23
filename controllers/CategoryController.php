@@ -124,11 +124,18 @@ class CategoryController extends Controller
     public function actionItems($id){
 
         $items = RadioItem::find()->where(['cat_id' => $id])->all();
+        $cat = $this->loadModel($id);
         $referrer = Yii::$app->request->referrer;
 
-        return $this->renderPartial('category_items', ['items' => $items, 'referrer' => $referrer]);
+        return $this->renderPartial('category_items', ['items' => $items, 'cat' => $cat->name]);
 
     }
+
+    function actionForRadio(){
+        $cats = Category::find()->where('id <> 5 and id <> 13 and id <> 17 and id <> 18 and id <> 19 ')->all();
+        return $this->renderPartial('cats', ['cats' => $cats]);
+    }
+
 
     /**
      * Загружает запись модели текущего контроллера по айдишнику

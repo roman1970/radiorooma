@@ -22,7 +22,7 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-    public $layout = 'test';
+    public $layout = 'main';
     /**
      * @inheritdoc
      */
@@ -72,39 +72,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        /*
-        $max_id = (int)RadioItem::find()
-            ->select('MAX(id)')
-            ->scalar();
-
-        //$item = RadioItem::findOne(rand(0, $max_id));
-
         $items = RadioItem::find()->where('cat_id <> 13 and cat_id <> 17 and cat_id <> 18 and cat_id <> 19 ')->all();
         
         $item = $items[rand(0,count($items)-1)];
 
-
         $theme_items = [];
-        $cats = Category::find()->all();
-        // $items = RadioItem::find()->all();
+        $cats = Category::find()->where('id <> 5 and id <> 13 and id <> 17 and id <> 18 and id <> 19 ')->all();
+
         $themes = Theme::find()->all();
 
         foreach ($themes as $theme) {
             $theme_items[$theme->title] = ThemeItems::find()->where(['theme_id' => $theme->id])->all();
         }
 
-        //shuffle($theme_items);
-        //return var_dump($theme_items);
-       // echo Yii::$app->request->referrer; exit;
-        /*if(Yii::$app->request->referrer != Url::home(true)) {
-            return $this->renderPartial('index', ['cats' => $cats, 'theme_items' => $theme_items]);
-        }
-        else{*/
-            return $this->render('index'
-                //['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item]
-            );
-      //  }
-
+        return $this->render('index_radio', ['cats' => $cats, 'theme_items' => $theme_items,'cur_item' => $item]);
 
     }
     

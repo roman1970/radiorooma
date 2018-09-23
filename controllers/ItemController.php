@@ -98,6 +98,14 @@ class ItemController extends Controller
         //return $this->render('index', ['item' => $item]);
         //return $this->render('index');
     }
+
+    public function actionItem($id){
+
+        $item = $this->loadModel($id);
+
+        return $this->renderPartial('item', ['item' => $item]);
+
+    }
     
     public function actionAddLike(){
         if($id = (int)Yii::$app->getRequest()->getQueryParam('id')) {
@@ -106,6 +114,14 @@ class ItemController extends Controller
             $item->update(false);
             return 'Понравилось: '.$item->likes;
         }
+    }
+
+    public function loadModel($id)
+    {
+        $model=RadioItem::findOne($id);
+        if($model===null)
+            throw new \yii\web\HttpException(404,'The requested page does not exist.');
+        return $model;
     }
 
     
