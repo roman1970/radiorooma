@@ -283,6 +283,11 @@ AppAsset::register($this);
         -moz-animation: l3_animation 20s linear infinite;
     }
 
+    .active-button {
+        background-color: rgb(86, 186, 89);
+    }
+
+
     .btn{
         width: 100%;
         color: #1c1c1c;
@@ -340,8 +345,8 @@ AppAsset::register($this);
     }
 
     .on_button {
-        width: 35px;
-        height: 35px;
+        width: 10%;
+       /* height: 35px;*/
         border-radius: 7px;
         color: #0a0a0a;
         margin: 0;
@@ -349,7 +354,7 @@ AppAsset::register($this);
 
     #buttons{
         /*display: none;*/
-        margin-left: 30%;
+        margin-left: 27%;
     }
 
     #Panel2{
@@ -387,14 +392,14 @@ AppAsset::register($this);
 
     @media(min-width:220px) and (max-width:991px) {
         .container .content {
-            padding-top: 300px;
+            padding-top: 50%;
             text-align: center;
         }
 
         .latvia {
             width: 100%;
             background-size: 100%;
-            height: 170px;
+            /*height: 170px;*/
         }
 
         /*.container .content{
@@ -438,7 +443,36 @@ AppAsset::register($this);
 
     }
 
+    @media(min-width:500px) and (max-width:600px) {
+        .container .content {
+            padding-top: 55%;
+        }
+
+    }
+    @media(min-width:400px) and (max-width:500px) {
+        .container .content {
+            padding-top: 62%;
+        }
+        #Panel {
+            top: 24%;
+            left: 11%;
+        }
+
+    }
+    @media(min-width:200px) and (max-width:400px) {
+        .container .content {
+            padding-top: 70%;
+        }
+        #Panel {
+            top: 20%;
+            left: 11%;
+        }
+
+    }
+
+
     @media(min-width:220px) and (max-width:767px){
+
         #play{
             display: block;
         }
@@ -449,6 +483,9 @@ AppAsset::register($this);
 
         #cats{
             display: none;
+        }
+        h4 {
+            font-size: 15px;
         }
     }
 </style>
@@ -505,8 +542,12 @@ AppAsset::register($this);
                         </div>
                     </div>
                     <div id="buttons">
-                        <button id="play_btn" value="On" class="on_button"><span class="glyphicon glyphicon-play"></button>
+                        <button id="play_btn" value="On" class="on_button active-button"><span class="glyphicon glyphicon-play"></button>
                         <button id="stop_btn" value="stop" class="on_button"><span class="glyphicon glyphicon-pause"></button>
+                        <button id="1_btn" value="" class="on_button"><span class="glyphicon"></button>
+                        <button id="2_btn" value="" class="on_button"><span class="glyphicon"></button>
+                        <button id="3_btn" value="" class="on_button"><span class="glyphicon"></button>
+                        <button id="4_btn" value="" class="on_button"><span class="glyphicon"></button>
                     </div>
                     <p class="text-center"></p>
                 </div>
@@ -548,6 +589,8 @@ AppAsset::register($this);
         jQuery(document).ready(function() {
             jQuery('#stop_btn').on('click',function(){
                 jQuery("#au")[0].pause();
+                jQuery("#stop_btn").addClass("active-button");
+                jQuery("#play_btn").removeClass("active-button");
             });
             jQuery('#stop_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
         });
@@ -555,6 +598,8 @@ AppAsset::register($this);
         jQuery(document).ready(function() {
             jQuery('#play_btn').on('click',function(){
                 jQuery("#au")[0].play();
+                jQuery("#play_btn").addClass("active-button");
+                jQuery("#stop_btn").removeClass("active-button");
             });
             jQuery('#play_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
         });
