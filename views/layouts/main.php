@@ -457,6 +457,13 @@ AppAsset::register($this);
             top: 24%;
             left: 11%;
         }
+        .on_button {
+            width: 14.5%;
+        }
+        #buttons{
+            display: block;
+            margin-left: 7%;
+        }
 
     }
     @media(min-width:200px) and (max-width:400px) {
@@ -466,6 +473,13 @@ AppAsset::register($this);
         #Panel {
             top: 20%;
             left: 11%;
+        }
+        .on_button {
+            width: 14.5%;
+        }
+        #buttons{
+            display: block;
+            margin-left: 7%;
         }
 
     }
@@ -487,6 +501,7 @@ AppAsset::register($this);
         h4 {
             font-size: 15px;
         }
+
     }
 </style>
 
