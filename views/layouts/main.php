@@ -464,6 +464,12 @@ AppAsset::register($this);
             display: block;
             margin-left: 7%;
         }
+        #l1.line .line_text {
+            font-size: 15px;
+        }
+        p {
+            margin: 0 0 0px;
+        }
 
     }
     @media(min-width:200px) and (max-width:400px) {
@@ -480,6 +486,12 @@ AppAsset::register($this);
         #buttons{
             display: block;
             margin-left: 7%;
+        }
+        #l1.line .line_text {
+            font-size: 15px;
+        }
+        p {
+            margin: 0 0 0px;
         }
 
     }
