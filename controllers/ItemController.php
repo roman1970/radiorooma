@@ -8,6 +8,7 @@ use app\models\Source;
 use app\models\Theme;
 use app\models\ThemeItems;
 use Yii;
+use yii\db\Expression;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -106,6 +107,17 @@ class ItemController extends Controller
         return $this->renderPartial('item', ['item' => $item]);
 
     }
+
+    public function actionRandItem(){
+
+        $items = RadioItem::find()->where('cat_id <> 13 and cat_id <> 17 and cat_id <> 18 and cat_id <> 19 and cat_id <> 19 ')->all();
+
+        $item = $items[rand(0,count($items)-1)];
+
+        return $this->renderPartial('item', ['item' => $item]);
+
+    }
+
     
     public function actionAddLike(){
         if($id = (int)Yii::$app->getRequest()->getQueryParam('id')) {

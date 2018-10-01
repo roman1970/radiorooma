@@ -607,6 +607,23 @@ AppAsset::register($this);
 </footer>
 
 <script>
+
+    setInterval(function () {
+        getRandItem('page');
+    }, 30000);
+
+
+    function getRandItem(block) {
+        jQuery.ajax({
+            type: "GET",
+            url: "/item/rand-item/",
+            success: function(html){
+                jQuery("#" + block).html(html).hide().show(1500);
+
+            }
+
+        });
+    }
     $(document).ready(function() {
 
         height = 200;
@@ -663,7 +680,6 @@ AppAsset::register($this);
         } else { // IE8-
             player.attachEvent("onmousewheel", onWheel);
         }
-
 
 
         au.onerror = function () {
