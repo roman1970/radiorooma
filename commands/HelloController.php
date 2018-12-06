@@ -76,7 +76,7 @@ class HelloController extends Controller
         $got_ids = [];
 
         for($i=0;$i<count($little_length_arr);$i++){
-            if($i%12 == 0) {
+            if($i%24 == 0) {
                 $guest = $guests[rand(0, count($guests)-1)];
                 $content .= $this->getInSiteMapItemXml($guest->alias, $guest->d_created);
                 fwrite($f, $guest->audio . PHP_EOL);
