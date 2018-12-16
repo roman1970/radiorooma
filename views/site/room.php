@@ -1,6 +1,7 @@
 <div class="container" style="text-align: center">
-    <h3><?=$item->title?></h3>
-    <h4><p><?=$item->cat->name?></p></h4>
+    <h2><?=$item->title?></h2>
+    <h5><p><?=$item->cat->name?></p></h5>
+    <h3><p><?=$item->anons?></p></h3>
     <audio controls>
         <source src="/uploads/<?=$item->audio?>">
     </audio>
