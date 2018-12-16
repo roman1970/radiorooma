@@ -174,7 +174,7 @@ AppAsset::register($this);
         width:100%;
         height:100%;
         position:absolute;
-        z-index:2;
+        /*z-index:2;*/
         /*background:url(<?php //\yii\helpers\Url::to('/img/talsvtod.png')?>);*/
     }
     .line .line_text{
@@ -507,7 +507,7 @@ AppAsset::register($this);
             display: block;
         }
 
-        #cats{
+        #cats, #section_page, #acc {
             display: none;
         }
         h4 {
@@ -571,7 +571,7 @@ AppAsset::register($this);
                     <div id="buttons">
                         <button id="play_btn" value="On" class="on_button active-button"><span class="glyphicon glyphicon-play"></button>
                         <button id="stop_btn" value="stop" class="on_button"><span class="glyphicon glyphicon-pause"></button>
-                        <button id="1_btn" value="" class="on_button"><span class="glyphicon"></button>
+                        <button id="vk_btn" value="" class="on_button"><span class="fa fa-vk"></button>
                         <button id="2_btn" value="" class="on_button"><span class="glyphicon"></button>
                         <button id="3_btn" value="" class="on_button"><span class="glyphicon"></button>
                         <button id="4_btn" value="" class="on_button"><span class="glyphicon"></button>
@@ -580,8 +580,9 @@ AppAsset::register($this);
                 </div>
                 <div class="line" id="l3">
                     <div class="line_text">
-                        <h4 class="text-center"> Авторское радио "Комната с мехом"
-                            <br>Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
+                        <h4 class="text-center" id="wellcome" style="cursor: pointer">
+                            Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
+                            <br>Вступайте в Сообщество неординарных!
                         </h4>
                     </div>
                     <div class="line_cover"></div>
@@ -646,6 +647,15 @@ AppAsset::register($this);
                 jQuery("#stop_btn").removeClass("active-button");
             });
             jQuery('#play_btn')[0].click();//initial click on 'play' button to play music which doesn't seem to be working...
+        });
+
+        jQuery(document).ready(function() {
+            jQuery('#vk_btn').on('click',function(){
+                window.open('https://vk.com/club151192768', '_blank');
+            });
+            jQuery('#wellcome').on('click',function(){
+                window.open('https://vk.com/club151192768', '_blank');
+            });
         });
 
         au.volume = 0.1;
