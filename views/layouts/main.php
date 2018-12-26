@@ -563,7 +563,7 @@ AppAsset::register($this);
                     </p>
                     <div id="Panel">
                         <div id="Container">
-                            <span id="Text">Vol</span>
+                            <span id="Text">80%</span>
                             <div id="Indicator" style="left: 57px; top: 28px; visibility: visible; zoom: 1; opacity: 1;">
                             </div>
                         </div>
@@ -659,6 +659,8 @@ AppAsset::register($this);
         });
 
         au.volume = 0.8;
+
+
         jQuery.ajax({
             type: "GET",
             //url: "site/show-current-radio-tracks-test/",
@@ -1052,6 +1054,7 @@ AppAsset::register($this);
             
             
             var volume = 72;
+            //audio.volume = volume;
 
             rheostat.addEvent('valueChanged', function (value) {
                 //alert(value);
