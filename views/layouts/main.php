@@ -658,7 +658,7 @@ AppAsset::register($this);
             });
         });
 
-        au.volume = 0.1;
+        au.volume = 0.8;
         jQuery.ajax({
             type: "GET",
             //url: "site/show-current-radio-tracks-test/",
