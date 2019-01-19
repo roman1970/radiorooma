@@ -8,7 +8,10 @@
 namespace app\commands;
 
 use app\models\Category;
+use app\models\DiaryDish;
+use app\models\DiarySite;
 use app\models\RadioItem;
+use app\models\RadioProduct;
 use yii\console\Controller;
 
 /**
@@ -65,6 +68,11 @@ class HelloController extends Controller
             ->andWhere(['published' => 1])
             ->all();
 
+        $unsorted_stories = RadioItem::find()
+            ->where('cat_id IN (21)')
+            ->andWhere(['published' => 1])
+            ->all();
+
         shuffle($shot);
         shuffle($long);
         shuffle($guests);
@@ -74,12 +82,20 @@ class HelloController extends Controller
         $little_length_arr = ($shot<=$long) ? $shot : $long;
 
         $got_ids = [];
+        $stories_counter = 0;
 
         for($i=0;$i<count($little_length_arr);$i++){
+
             if($i%24 == 0) {
                 $guest = $guests[rand(0, count($guests)-1)];
                 $content .= $this->getInSiteMapItemXml($guest->alias, $guest->d_created);
                 fwrite($f, $guest->audio . PHP_EOL);
+            }
+            if($i%18 == 0) {
+                $story = $unsorted_stories[$stories_counter];
+                $content .= $this->getInSiteMapItemXml($story->alias, $story->d_created);
+                fwrite($f, $story->audio . PHP_EOL);
+                $stories_counter++;
             }
             if($shot[$i]->next_item) {
                 //var_dump($got_ids);
@@ -192,6 +208,46 @@ class HelloController extends Controller
                 var_dump($files);
         }
 
+
+    }
+
+    public function actionCopyDishMysqlToProductPostgres()
+    {
+        /**
+         * @var DiaryDish[] $dishes
+         */
+        $dishes = DiaryDish::find()->all();
+
+        foreach ($dishes as $dish)
+        {
+            $radio_product = new RadioProduct();
+
+            $radio_product->name = $dish->name;
+            $radio_product->description = $dish->description;
+            $radio_product->kkal = $dish->kkal;
+            $radio_product->carbohydrates = $dish->carbohydrates;
+            $radio_product->fats = $dish->fats;
+            $radio_product->squirrels = $dish->squirrels;
+            $radio_product->ferrum = $dish->ferrum;
+            $radio_product->magnesium = $dish->magnesium;
+            $radio_product->cuprum = $dish->cuprum;
+            $radio_product->iodum = $dish->iodum;
+            $radio_product->fluorum = $dish->fluorum;
+            $radio_product->zincum = $dish->zincum;
+            $radio_product->cobaltum = $dish->cobaltum;
+
+            try {
+                $radio_product->save(false);
+                echo $radio_product->id.' '.PHP_EOL;
+            } catch (\Exception $e) {
+                echo $e->getMessage(); exit;
+            }
+        }
+    }
+
+    public function actionCopyArticlesMysqlToPostgres()
+    {
+        $sites = DiarySite::find()->all();
 
     }
 }
