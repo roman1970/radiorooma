@@ -92,9 +92,11 @@ class HelloController extends Controller
                 fwrite($f, $guest->audio . PHP_EOL);
             }
             if($i%18 == 0) {
-                $story = $unsorted_stories[$stories_counter];
-                $content .= $this->getInSiteMapItemXml($story->alias, $story->d_created);
-                fwrite($f, $story->audio . PHP_EOL);
+                if(isset($unsorted_stories[$stories_counter])) {
+                    $story = $unsorted_stories[$stories_counter];
+                    $content .= $this->getInSiteMapItemXml($story->alias, $story->d_created);
+                    fwrite($f, $story->audio . PHP_EOL);
+                }
                 $stories_counter++;
             }
             if($shot[$i]->next_item) {
