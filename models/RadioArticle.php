@@ -17,21 +17,16 @@ use yii\db\ActiveRecord;
  * @property string $video
  * @property string $tags
  * @property string $status
+ * @property int $site_id
  *
  * @property RadioArticleContent[] $content
  * @property RadioSite $site
- * @property Source $source
  */
 class RadioArticle extends ActiveRecord
 {
     public static function tableName()
     {
         return 'articles';
-    }
-
-    public function getSource()
-    {
-        return $this->hasOne(Source::class, ['id' => 'source_id']);
     }
 
     public function getSite()

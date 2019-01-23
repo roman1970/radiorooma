@@ -5,9 +5,10 @@ namespace app\models;
 use yii\db\ActiveRecord;
 
 /**
- * RadioArticle
+ * RadioArticleContent
  * @property int $id
  * @property int $articles_id
+ * @property int $source_id
  * @property string $body
  * @property string $minititle
  * @property int $d_shown

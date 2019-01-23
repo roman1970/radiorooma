@@ -8,10 +8,16 @@
 namespace app\commands;
 
 use app\models\Category;
+use app\models\DiaryArticles;
+use app\models\DiaryArticlesContent;
 use app\models\DiaryDish;
 use app\models\DiarySite;
+use app\models\RadioArticle;
+use app\models\RadioArticleContent;
 use app\models\RadioItem;
 use app\models\RadioProduct;
+use app\models\RadioSite;
+use app\models\Source;
 use yii\console\Controller;
 
 /**
@@ -71,6 +77,7 @@ class HelloController extends Controller
         $unsorted_stories = RadioItem::find()
             ->where('cat_id IN (21)')
             ->andWhere(['published' => 1])
+            ->orderBy('id')
             ->all();
 
         shuffle($shot);
@@ -86,12 +93,12 @@ class HelloController extends Controller
 
         for($i=0;$i<count($little_length_arr);$i++){
 
-            if($i%24 == 0) {
+            if($i%24 == 1) {
                 $guest = $guests[rand(0, count($guests)-1)];
                 $content .= $this->getInSiteMapItemXml($guest->alias, $guest->d_created);
                 fwrite($f, $guest->audio . PHP_EOL);
             }
-            if($i%18 == 0) {
+            if($i%18 == 2) {
                 if(isset($unsorted_stories[$stories_counter])) {
                     $story = $unsorted_stories[$stories_counter];
                     $content .= $this->getInSiteMapItemXml($story->alias, $story->d_created);
@@ -209,8 +216,6 @@ class HelloController extends Controller
         else {
                 var_dump($files);
         }
-
-
     }
 
     public function actionCopyDishMysqlToProductPostgres()
@@ -247,9 +252,104 @@ class HelloController extends Controller
         }
     }
 
+    public function actionCopySitesMysqlToPostgres()
+    {
+        /**
+         * @var DiarySite[] $sites
+         */
+        $sites = DiarySite::find()->all();
+        foreach ($sites as $site)
+        {
+            $radio_site = new RadioSite();
+
+            $radio_site->title = $site->title;
+            $radio_site->url = $site->url;
+            $radio_site->theme = $site->theme;
+
+            try {
+                $radio_site->save(false);
+                echo $radio_site->id.' '.PHP_EOL;
+            } catch (\Exception $e) {
+                echo $e->getMessage(); exit;
+            }
+
+        }
+
+    }
+
+    /**
+     * /usr/bin/php7.0 yii hello/copy-articles-mysql-to-postgres
+     */
     public function actionCopyArticlesMysqlToPostgres()
     {
-        $sites = DiarySite::find()->all();
+        /**
+         * @var DiaryArticles[] $articles
+         */
+        $articles = DiaryArticles::find()->all();
+        foreach ($articles as $article)
+        {
+            $radio_article = new RadioArticle();
+
+            $radio_article->id = $article->id;
+            $radio_article->title = $article->title;
+            $radio_article->alias = $article->alias;
+            $radio_article->d_created = $article->d_created;
+            $radio_article->img = $article->img;
+            $radio_article->anons = $article->anons;
+            $radio_article->text = $article->text;
+            $radio_article->audio = $article->audio;
+            $radio_article->video = $article->video;
+            $radio_article->tags = $article->tags;
+            $radio_article->status = $article->status;
+            $radio_article->site_id = 16;
+
+            try {
+                $radio_article->save(false);
+                echo $radio_article->id.' '.PHP_EOL;
+            } catch (\Exception $e) {
+                echo $e->getMessage(); exit;
+            }
+        }
+
+    }
+
+
+    /**
+     * /usr/bin/php7.0 yii hello/copy-articles-content-mysql-to-postgres
+     */
+    public function actionCopyArticlesContentMysqlToPostgres()
+    {
+        /**
+         * @var DiaryArticlesContent[] $article_content
+         */
+        $article_content = DiaryArticlesContent::find()->all();
+
+        foreach ($article_content as $content){
+
+            $radio_article_content = new RadioArticleContent();
+
+            $radio_article_content->id = $content->id;
+            $radio_article_content->articles_id = $content->articles_id;
+            $radio_article_content->body = $content->body;
+            $radio_article_content->minititle = $content->minititle;
+            $radio_article_content->img = $content->img;
+            $radio_article_content->page = $content->page;
+            $radio_article_content->count = $content->count;
+            $radio_article_content->likes = $content->likes;
+            $radio_article_content->d_shown = $content->d_shown;
+            if(Source::findOne($content->source_id))
+                $radio_article_content->source_id = $content->source_id;
+            else
+                $radio_article_content->source_id = 327;
+
+            try {
+                $radio_article_content->save(false);
+                echo $radio_article_content->id.' '.PHP_EOL;
+            } catch (\Exception $e) {
+                echo $e->getMessage(); exit;
+            }
+
+        }
 
     }
 }
