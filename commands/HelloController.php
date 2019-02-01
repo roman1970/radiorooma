@@ -98,7 +98,7 @@ class HelloController extends Controller
                 $content .= $this->getInSiteMapItemXml($guest->alias, $guest->d_created);
                 fwrite($f, $guest->audio . PHP_EOL);
             }
-            if($i%18 == 2) {
+            if($i%18 == rand(2,17)) {
                 if(isset($unsorted_stories[$stories_counter])) {
                     $story = $unsorted_stories[$stories_counter];
                     $content .= $this->getInSiteMapItemXml($story->alias, $story->d_created);
