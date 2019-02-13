@@ -15,5 +15,7 @@
     <p><a href="<?= \yii\helpers\Url::home();?>"> Радио </a>
     <?php if($item->cat_id != 22) : ?>
     <p><?=nl2br($item->text)?></p>
+    <?php else: ?>
+    <img src="<?=$item->img ?>"/>
     <?php endif; ?>
 </div>
