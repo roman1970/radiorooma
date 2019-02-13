@@ -11,8 +11,11 @@ use Yii;
  *
  * @property int $id
  * @property int $cat_id
+ * @property int $source_id
  * @property string $text
  * @property string $tags
+ * @property string $anons
+ * @property string $title
  * @property string $audio
  * @property string $img
  * @property int $cens

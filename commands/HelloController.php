@@ -11,6 +11,7 @@ use app\models\Category;
 use app\models\DiaryArticles;
 use app\models\DiaryArticlesContent;
 use app\models\DiaryDish;
+use app\models\DiaryItems;
 use app\models\DiarySite;
 use app\models\RadioArticle;
 use app\models\RadioArticleContent;
@@ -19,6 +20,7 @@ use app\models\RadioProduct;
 use app\models\RadioSite;
 use app\models\Source;
 use yii\console\Controller;
+use Yii;
 
 /**
  * This command echoes the first argument that you have entered.
@@ -349,6 +351,32 @@ class HelloController extends Controller
                 echo $e->getMessage(); exit;
             }
 
+        }
+
+    }
+
+    public function actionCopyImgItemsMysqlToPostgres()
+    {
+        $imgs = DiaryItems::find()->where(['cat_id' => 259])->all();
+
+        /**
+         * @var DiaryItems $img
+         */
+        foreach ($imgs as $img){
+           // echo $img->img.PHP_EOL;
+            $radio_item = new RadioItem();
+            $radio_item->cat_id = 22;
+            $radio_item->source_id = $img->source_id;
+            $radio_item->title = $img->title;
+            $radio_item->text = $img->text;
+            $radio_item->anons = '';
+            $radio_item->tags = $img->tags;
+            $radio_item->audio = $img->audio_link;
+            $radio_item->cens = $img->cens;
+            $radio_item->img = $img->img;
+            $radio_item->published = 1;
+            if ($radio_item->save(false)) echo "added ".$radio_item->id.PHP_EOL;
+            else echo "not added ".$radio_item->id.PHP_EOL;
         }
 
     }
