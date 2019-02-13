@@ -3,6 +3,11 @@
  * @var \app\models\RadioItem $item
  */
 ?>
+<style>
+    img{
+        width: 100%;
+    }
+</style>
 <div class="container" style="text-align: center">
     <h2><?=$item->title?></h2>
     <h5><p><?=$item->cat->name?></p></h5>
@@ -18,5 +23,4 @@
         <img src="<?=$item->img ?>"/>
     <?php endif; ?>
     <p><a href="<?= \yii\helpers\Url::home();?>"> Радио </a>
-
 </div>
