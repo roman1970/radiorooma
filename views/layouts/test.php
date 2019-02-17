@@ -275,7 +275,7 @@ AppAsset::register($this);
 <!-- /Yandex.Metrika counter -->
 
 <div class="container">
-    <h3><a href="https://radiorooma.ru"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i> Радио Комната С Мехом<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i></a></h3>
+    <h3><a href="http://radiorooma.ru"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i> Радио Комната С Мехом<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i></a></h3>
 </div>
 <?= $content ?>
 

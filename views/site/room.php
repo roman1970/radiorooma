@@ -13,7 +13,7 @@
     <h5><p><?=$item->cat->name?></p></h5>
     <h3><p><?=$item->anons?></p></h3>
     <?php if($item->audio) : ?>
-    <audio controls>
+    <audio controls controlsList="nodownload">
         <source src="/uploads/<?=$item->audio?>">
     </audio>
     <?php endif; ?>
