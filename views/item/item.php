@@ -3,6 +3,11 @@
  * @var \app\models\RadioItem $item
  */
 ?>
+<style>
+    img{
+        width: 100%;
+    }
+</style>
 <div id="page">
     <h3><?=$item->title?></h3>
     <p>(<?= $item->source->title ?> - <?= $item->source->author->name ?>)</p>
@@ -19,6 +24,9 @@
     <p id="summary">Понравилось: <?=$item->likes?></p>*/?>
     <?php if($item->cat_id != 22) : ?>
     <p class="txt"><?php echo nl2br($item->text)?></p>
+    <?php endif; ?>
+    <?php if($item->img) : ?>
+        <img src="<?=$item->img ?>"/>
     <?php endif; ?>
 </div>
 <script>
