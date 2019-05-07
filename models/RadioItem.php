@@ -20,6 +20,9 @@ use Yii;
  * @property string $img
  * @property int $cens
  * @property int $published
+ * @property int $d_created
+ * @property int $d_updated
+ * @property string $alias
  *
  * @property Category $cat
  */

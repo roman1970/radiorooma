@@ -132,6 +132,9 @@ class HelloController extends Controller
                     $content .= $this->getInSiteMapItemXml($long[$i]->alias, $long[$i]->d_created);
                     fwrite($f, $long[$i]->audio . PHP_EOL);
                 }
+                /**
+                 * @var $next RadioItem
+                 */
                 $next = RadioItem::findOne($long[$i]->next_item);
                 if(!in_array($next->id, $got_ids)){
                     $content .= $this->getInSiteMapItemXml($next->alias, $next->d_created);
@@ -162,7 +165,7 @@ class HelloController extends Controller
 
         if($data) $cut_data = explode(' ',$data)[0];
         else  $cut_data = '2018-09-09';
-        return "<url><loc>https://radiorooma.ru/".$item.".html</loc><lastmod>".$cut_data."</lastmod></url>";
+        return "<url><loc>http://radiorooma.ru/".$item.".html</loc><lastmod>".$cut_data."</lastmod></url>";
     }
 
     /**
