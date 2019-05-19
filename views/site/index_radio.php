@@ -62,7 +62,13 @@ $this->title = 'radiorooma.ru';
             <?php /*<p id="like_button"><button type="button" class="btn btn-success" onclick="like('<?=$cur_item->id?>')" >Понравилось</button></p>
             <p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p>
             <p id="summary">Понравилось: <?=$cur_item->likes?></p>*/?>
-            <p class="txt"><?php echo nl2br($cur_item->text)?></p>
+
+            <?php if($cur_item->cat_id != 22) : ?>
+                <p class="txt"><?php echo nl2br($cur_item->text)?></p>
+            <?php endif; ?>
+            <?php if($cur_item->img) : ?>
+                <img src="<?=$cur_item->img ?>" id="img"/>
+            <?php endif; ?>
         </div>
 
     <?php endif; ?>

@@ -21,7 +21,7 @@
         color: rgb(244, 134, 104);
     }
     a {
-        color: rgb(117, 147, 180);
+        color: rgb(73, 148, 75);
         text-decoration: none;
     }
 </style>

@@ -26,21 +26,25 @@
     <p class="txt"><?php echo nl2br($item->text)?></p>
     <?php endif; ?>
     <?php if($item->img) : ?>
-        <img src="<?=$item->img ?>"/>
+        <img src="<?=$item->img ?>" id="img"/>
     <?php endif; ?>
 </div>
 <script>
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
+        var img = document.getElementById('img');
         //console.log(height);
-        height = page.clientHeight;
+        if(img === null)
+            height = page.clientHeight;
+        else
+            height = page.clientHeight + img.clientHeight;
         var acc = document.getElementById('acc');
         var cats = document.getElementById('cats');
         //console.log(acc);
         var new_height = height + 25;
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
-        //console.log(acc.style.height);
+        console.log(acc.style.height);
     });
 </script>
 
