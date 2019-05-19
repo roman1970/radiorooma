@@ -1,6 +1,7 @@
 <?php
 /**
  * @var \app\models\RadioItem $item
+ * @var \app\models\RadioItem $pic
  */
 ?>
 <style>
@@ -19,6 +20,7 @@
     <?php endif; ?>
     <?php if($item->cat_id != 22) : ?>
         <p><?=nl2br($item->text)?></p>
+        <img src="<?=$pic->img ?>"/>
     <?php else: ?>
         <img src="<?=$item->img ?>"/>
     <?php endif; ?>

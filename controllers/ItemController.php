@@ -54,12 +54,21 @@ class ItemController extends Controller
     public function actionIndex($alias='')
     {
         //return var_dump($alias);
+        /**
+         * @var $item RadioItem
+         * @var $item_tags array
+         */
         $item = RadioItem::find()
             ->where(['alias' => $alias])
             ->one();
 
+        $pics = RadioItem::find()->where('cat_id = 22')->all();
+
+        $pic = $pics[rand(0,count($pics)-1)];
+
         return $this->render('/site/room', [
             'item' => $item,
+            'pic' => $pic
             //'referrer' => $referrer,
             //'url' => $home_url
         ]);
