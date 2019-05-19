@@ -26,8 +26,8 @@
     }
 </style>
 <div class="container" style="text-align: center">
+    <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="70px" id="player" class="bard_img">
     <h2>
-        <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="70px" id="player" class="bard_img">
         <span class="title"><?=$item->title?></span>
     </h2>
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
