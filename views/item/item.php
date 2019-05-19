@@ -37,7 +37,7 @@
         if(img === null)
             height = page.clientHeight;
         else
-            height = page.clientHeight + img.clientHeight;
+            height = page.clientHeight + 200;
         var acc = document.getElementById('acc');
         var cats = document.getElementById('cats');
         //console.log(acc);
