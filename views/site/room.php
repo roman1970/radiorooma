@@ -6,7 +6,7 @@
 ?>
 <style>
     .pic{
-        width: 100%;
+        width: 80%;
     }
 </style>
 <div class="container" style="text-align: center">
