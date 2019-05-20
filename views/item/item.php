@@ -9,8 +9,7 @@
     }
 </style>
 <div id="page">
-    <h3><?=$item->title?></h3>
-    <p>(<?= $item->source->title ?> - <?= $item->source->author->name ?>)</p>
+
     <?=\yii\bootstrap\Html::a(
         'Поделиться',
         '/'.$item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
@@ -23,7 +22,9 @@
     <p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p>
     <p id="summary">Понравилось: <?=$item->likes?></p>*/?>
     <?php if($item->cat_id != 22) : ?>
-    <p class="txt"><?php echo nl2br($item->text)?></p>
+        <h3><?=$item->title?></h3>
+        <p>(<?= $item->source->title ?> - <?= $item->source->author->name ?>)</p>
+        <p class="txt"><?php echo nl2br($item->text)?></p>
     <?php endif; ?>
     <?php if($item->img) : ?>
         <img src="<?=$item->img ?>" id="img"/>
