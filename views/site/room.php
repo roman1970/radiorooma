@@ -8,6 +8,9 @@
     .pic{
         width: 80%;
     }
+    h2{
+        margin: 0;
+    }
     h2 img {
         vertical-align: bottom;
     }
