@@ -51,8 +51,7 @@ $this->title = 'radiorooma.ru';
 
     <?php if(isset($cur_item)) : ?>
         <div id="page">
-            <h3><?=$cur_item->title?></h3>
-            <p>(<?= $cur_item->source->title ?> - <?= $cur_item->source->author->name ?>)</p>
+
             <?=\yii\bootstrap\Html::a(
                 'Поделиться',
                 '/'.$cur_item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
@@ -64,6 +63,8 @@ $this->title = 'radiorooma.ru';
             <p id="summary">Понравилось: <?=$cur_item->likes?></p>*/?>
 
             <?php if($cur_item->cat_id != 22) : ?>
+                <h3><?=$cur_item->title?></h3>
+                <p>(<?= $cur_item->source->title ?> - <?= $cur_item->source->author->name ?>)</p>
                 <p class="txt"><?php echo nl2br($cur_item->text)?></p>
             <?php endif; ?>
             <?php if($cur_item->img) : ?>
