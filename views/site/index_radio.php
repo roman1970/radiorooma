@@ -51,11 +51,6 @@ $this->title = 'radiorooma.ru';
 
     <?php if(isset($cur_item)) : ?>
         <div id="page">
-
-            <?=\yii\bootstrap\Html::a(
-                'Поделиться',
-                '/'.$cur_item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
-
             <p id="on_button"><button type="button" class="btn btn-success" onclick="onAudio('<?=$cur_item->audio?>')" >Воспроизвести</button></p>
             <p style="display: none" id="off_button"><button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио</button></p>
             <?php /*<p id="like_button"><button type="button" class="btn btn-success" onclick="like('<?=$cur_item->id?>')" >Понравилось</button></p>
@@ -70,6 +65,9 @@ $this->title = 'radiorooma.ru';
             <?php if($cur_item->img) : ?>
                 <img src="<?=$cur_item->img ?>" id="img"/>
             <?php endif; ?>
+            <?=\yii\bootstrap\Html::a(
+                'Поделиться',
+                '/'.$cur_item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
         </div>
 
     <?php endif; ?>

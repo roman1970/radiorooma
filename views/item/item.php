@@ -6,14 +6,10 @@
 <style>
     img{
         width: 100%;
+        border-radius: 25px;
     }
 </style>
 <div id="page">
-
-    <?=\yii\bootstrap\Html::a(
-        'Поделиться',
-        '/'.$item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
-
     <?php if($item->audio) : ?>
     <p id="on_button"><button type="button" class="btn btn-success" onclick="onAudio('<?=$item->audio?>')" >Воспроизвести</button></p>
     <?php endif; ?>
@@ -29,6 +25,10 @@
     <?php if($item->img) : ?>
         <img src="<?=$item->img ?>" id="img"/>
     <?php endif; ?>
+    <?=\yii\bootstrap\Html::a(
+        'Поделиться',
+        '/'.$item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
+
 </div>
 <script>
     jQuery(document).ready(function() {
