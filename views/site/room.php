@@ -24,6 +24,9 @@
         color: rgb(73, 148, 75);
         text-decoration: none;
     }
+    .pic{
+        border-radius: 25px;
+    }
 </style>
 <div class="container" style="text-align: center">
     <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="70px" id="player" class="bard_img">

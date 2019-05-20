@@ -6,7 +6,6 @@
 <style>
     img{
         width: 100%;
-        border-radius: 25px;
     }
 </style>
 <div id="page">
