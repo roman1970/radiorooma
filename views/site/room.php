@@ -19,16 +19,20 @@
     }
     .anons{
         color: rgb(159, 173, 178);
+        font-size: 20px;
     }
     .title{
         color: rgb(244, 134, 104);
     }
     a {
-        color: rgb(100, 107, 124);
+        color: rgb(244, 134, 104);
         text-decoration: none;
     }
     .pic{
         border-radius: 25px;
+    }
+    p{
+        font-size: 16px;
     }
     .btn-success {
         background-color: rgb(53, 68, 82);
@@ -38,14 +42,14 @@
 </style>
 <audio id="bard" ></audio>
 <div class="container" style="text-align: center">
-
+    <hr style="border: 2px solid rgb(244, 134, 104);">
     <h2>
         <span class="title"><?=$item->title?></span>
     </h2>
     <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="70px" id="player" class="bard_img">
 
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
-    <h3><p class="anons"><?=$item->anons?></p></h3>
+    <h6 class="anons"><?=$item->anons?></h6>
     <?php if($item->audio) : ?>
     <audio controls controlsList="nodownload">
         <source src="/uploads/<?=$item->audio?>">
@@ -71,6 +75,7 @@
                    placeholder="Поиск по коллекции Смешное и Грусное">
         </p>
     </div>
+    <hr style="border: 2px solid rgb(244, 134, 104);">
 </div>
 <script>
     var player_bard = document.getElementById('au_bard');
