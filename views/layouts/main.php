@@ -507,7 +507,7 @@ AppAsset::register($this);
             display: block;
         }
 
-        #cats, #section_page, #acc {
+        #cats, #acc {
             display: none;
         }
         h4 {
