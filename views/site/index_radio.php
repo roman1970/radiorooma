@@ -23,6 +23,9 @@
         height: 700px;
         overflow-y: scroll;
     }
+    .pic{
+        width: 80%;
+    }
     .accord::-webkit-scrollbar{ width: 10px; /* 1 - вертикальный скроллбар */}
     .accord::-webkit-scrollbar:horizontal{ height: 22px; /* 1 - горизонтальный скроллбар */}
     .accord::-webkit-scrollbar-button {background: #008000; /* 2 - кнопка */}
@@ -63,7 +66,7 @@ $this->title = 'radiorooma.ru';
                 <p class="txt"><?php echo nl2br($cur_item->text)?></p>
             <?php endif; ?>
             <?php if($cur_item->img) : ?>
-                <img src="<?=$cur_item->img ?>" id="img"/>
+                <img src="<?=$cur_item->img ?>" id="img" class="pic"/>
             <?php endif; ?>
             <?=\yii\bootstrap\Html::a(
                 'Поделиться',
