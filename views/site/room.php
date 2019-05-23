@@ -66,15 +66,10 @@
             Сейчас на Радио<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
         </a>
     </h3>
-    <button type="submit" class="btn-success" onclick="onRadiorooma()" id="radiorooma">
+    <button type="submit" class="btn-success" onclick="onRadiorooma()" id="radiorooma" style="height: 95px;">
         <p style="font-size: 35px;">Комната с Мехом</p>
     </button>
-    <div id="search-form">
-        <p>
-            <input type="text" class="form-control" id="album" onblur="searchMusic()"
-                   placeholder="Поиск по коллекции Смешное и Грусное">
-        </p>
-    </div>
+
     <hr style="border: 2px solid rgb(244, 134, 104);">
 </div>
 <script>
