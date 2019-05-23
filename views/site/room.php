@@ -34,6 +34,10 @@
     p{
         font-size: 16px;
     }
+    button p {
+        height: 80px;
+    }
+
     .btn-success {
         background-color: rgb(53, 68, 82);
         border-color: rgb(100, 107, 124);
