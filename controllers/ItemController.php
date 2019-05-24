@@ -62,7 +62,9 @@ class ItemController extends Controller
             ->where(['alias' => $alias])
             ->one();
 
-        $kvns_films = RadioItem::find()->where('cat_id = 13 and cat_id = 17')->all();
+        $kvns_films = RadioItem::find()->where('cat_id = 13 or cat_id = 17')->all();
+
+        //var_dump($kvns_films); exit;
 
         $kvn = $kvns_films[rand(0,count($kvns_films)-1)];
 
