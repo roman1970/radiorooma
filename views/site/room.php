@@ -2,6 +2,7 @@
 /**
  * @var \app\models\RadioItem $item
  * @var \app\models\RadioItem $pic
+ * @var \app\models\RadioItem $kvn
  */
 ?>
 <style>
@@ -63,7 +64,15 @@
         <p><?=nl2br($item->text)?></p>
         <img src="<?=$pic->img ?>" class="pic"/>
     <?php else: ?>
+        <p>Из коллекции Романа Беляшова</p>
         <img src="<?=$item->img ?>" class="pic"/>
+        <h5><p class="cat"><?=$kvn->cat->name?></p></h5>
+        <h6 class="anons"><?=$kvn->anons?></h6>
+        <audio controls controlsList="nodownload">
+            <source src="/uploads/<?=$kvn->audio?>">
+        </audio>
+        <p><?=nl2br($kvn->text)?></p>
+
     <?php endif; ?>
     <h3>
         <a href="http://radiorooma.ru"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>

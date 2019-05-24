@@ -62,16 +62,23 @@ class ItemController extends Controller
             ->where(['alias' => $alias])
             ->one();
 
+        $kvns_films = RadioItem::find()->where('cat_id = 13 and cat_id = 17')->all();
+
+        $kvn = $kvns_films[rand(0,count($kvns_films)-1)];
+
         $pics = RadioItem::find()->where('cat_id = 22')->all();
 
         $pic = $pics[rand(0,count($pics)-1)];
 
         return $this->render('/site/room', [
             'item' => $item,
-            'pic' => $pic
+            'pic' => $pic,
+            'kvn' => $kvn
             //'referrer' => $referrer,
             //'url' => $home_url
         ]);
+
+        /*
 
         if(Yii::$app->request->referrer == Url::home(true) ||  strstr(Yii::$app->request->referrer, Url::home(true).'item')) {
             return $this->renderPartial('/site/room', [
@@ -97,7 +104,7 @@ class ItemController extends Controller
             /*if(Yii::$app->request->referrer != Url::home(true)) {
                 return $this->renderPartial('index', ['cats' => $cats, 'theme_items' => $theme_items]);
             }
-            else{*/
+            else{
             return $this->render('/site/index', ['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item,]);
             //  }
 
@@ -107,6 +114,7 @@ class ItemController extends Controller
 
         //return $this->render('index', ['item' => $item]);
         //return $this->render('index');
+    */
     }
 
     public function actionItem($id){

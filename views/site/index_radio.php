@@ -54,8 +54,14 @@ $this->title = 'radiorooma.ru';
 
     <?php if(isset($cur_item)) : ?>
         <div id="page">
-            <p id="on_button"><button type="button" class="btn btn-success" onclick="onAudio('<?=$cur_item->audio?>')" >Воспроизвести</button></p>
-            <p style="display: none" id="off_button"><button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио</button></p>
+            <p id="on_button">
+                <button type="button" class="btn btn-success" onclick="onAudio('<?=$cur_item->alias?>')" >
+                    Возьми себе и другу
+                </button>
+            </p>
+            <p style="display: none" id="off_button">
+                <button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио
+                </button></p>
             <?php /*<p id="like_button"><button type="button" class="btn btn-success" onclick="like('<?=$cur_item->id?>')" >Понравилось</button></p>
             <p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p>
             <p id="summary">Понравилось: <?=$cur_item->likes?></p>*/?>

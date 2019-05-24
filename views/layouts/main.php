@@ -871,6 +871,8 @@ AppAsset::register($this);
         }
 
         function onAudio(link) {
+            window.location.href = 'http://radiorooma.ru/' + link + '.html';
+            /*
             var au = document.getElementById('au');
             au.src = 'http://37.192.187.83:10080/'+link;
             au.volume = 0.5;
@@ -879,6 +881,7 @@ AppAsset::register($this);
             var on_button = document.getElementById('on_button');
             on_button.style.display = 'none';
             off_button.style.display = 'block';
+            */
 
         }
 
