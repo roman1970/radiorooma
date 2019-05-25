@@ -10,7 +10,15 @@
 </style>
 <div id="page">
     <?php if($item->audio) : ?>
-    <p id="on_button"><button type="button" class="btn btn-success" onclick="onAudio('<?=$item->audio?>')" >Воспроизвести</button></p>
+    <p id="on_button">
+        <button type="button" class="btn btn-success"  >
+            <?=\yii\bootstrap\Html::a(
+                'Возьми',
+                '/'.$item->alias.'.html',
+                ['cursor' => 'pointer', 'target' => '_blank', 'id' => 'takee'])
+            ?>
+        </button>
+    </p>
     <?php endif; ?>
     <p style="display: none" id="off_button"><button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио</button></p>
     <?php /*<p id="like_button"><button type="button" class="btn btn-success" onclick="like('<?=$item->id?>')" >Понравилось</button></p>
@@ -22,7 +30,7 @@
         <p class="txt"><?php echo nl2br($item->text)?></p>
     <?php endif; ?>
     <?php if($item->img) : ?>
-        <img src="<?=$item->img ?>" id="img"/>
+        <img src="<?=$item->img ?>" id="img" class="pic"/>
     <?php endif; ?>
     <?=\yii\bootstrap\Html::a(
         'Поделиться',

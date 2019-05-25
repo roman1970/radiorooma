@@ -55,8 +55,12 @@ $this->title = 'radiorooma.ru';
     <?php if(isset($cur_item)) : ?>
         <div id="page">
             <p id="on_button">
-                <button type="button" class="btn btn-success" onclick="onAudio('<?=$cur_item->alias?>')" >
-                    Возьми себе и другу
+                <button type="button" class="btn btn-success"  >
+                    <?=\yii\bootstrap\Html::a(
+                        'Возьми',
+                        '/'.$cur_item->alias.'.html',
+                        ['cursor' => 'pointer', 'target' => '_blank', 'id' => 'takee'])
+                    ?>
                 </button>
             </p>
             <p style="display: none" id="off_button">

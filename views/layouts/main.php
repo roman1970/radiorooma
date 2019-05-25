@@ -76,6 +76,10 @@ AppAsset::register($this);
         color: rgb(19, 238, 25);
     }
 
+    #takee {
+        color: white;
+    }
+
     a:hover {
         color: rgb(76, 238, 208);
     }

@@ -62,9 +62,28 @@ class ItemController extends Controller
             ->where(['alias' => $alias])
             ->one();
 
-        $kvns_films = RadioItem::find()->where('cat_id = 13 or cat_id = 17')->all();
+        $tags = explode(',', $item->tags);
 
-        //var_dump($kvns_films); exit;
+
+        $random_tag = trim($tags[rand(0,count($tags)-1)]);
+        //var_dump($random_tag); exit;
+
+
+        $kvns_films = RadioItem::find()
+            ->where('cat_id = 13 or cat_id = 17')
+            ->andWhere("tags LIKE '%$random_tag%'")
+            ->all();
+        if(!$kvns_films)
+            $kvns_films = RadioItem::find()
+                ->where('cat_id = 13 or cat_id = 17')
+                ->all();
+        /*
+        $query = RadioItem::find()
+            ->where('cat_id = 13 or cat_id = 17')
+            ->andWhere("tags LIKE '%$random_tag%'");
+
+        var_dump($query->prepare(Yii::$app->db->queryBuilder)->createCommand()->rawSql); exit;
+        */
 
         $kvn = $kvns_films[rand(0,count($kvns_films)-1)];
 
