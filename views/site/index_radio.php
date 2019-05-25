@@ -78,6 +78,7 @@ $this->title = 'radiorooma.ru';
             <?php if($cur_item->img) : ?>
                 <img src="<?=$cur_item->img ?>" id="img" class="pic"/>
             <?php endif; ?>
+            <br>
             <?=\yii\bootstrap\Html::a(
                 'Поделиться',
                 '/'.$cur_item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>

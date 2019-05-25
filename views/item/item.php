@@ -32,6 +32,7 @@
     <?php if($item->img) : ?>
         <img src="<?=$item->img ?>" id="img" class="pic"/>
     <?php endif; ?>
+    <br>
     <?=\yii\bootstrap\Html::a(
         'Поделиться',
         '/'.$item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
