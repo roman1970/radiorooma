@@ -94,6 +94,9 @@
     $(window).scroll(function () {
         hidden_audio.play();
     });
+    $(window).bind('touchmove', function(e) {
+        hidden_audio.play();
+    });
 
     setTimeout(function run() {
         $.ajax({
