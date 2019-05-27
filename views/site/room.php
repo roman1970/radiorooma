@@ -38,7 +38,7 @@
     button p {
         height: 80px;
     }
-    audio{
+    #hidden_audio{
         display: none;
     }
 
@@ -59,7 +59,7 @@
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
     <h6 class="anons"><?=$item->anons?></h6>
     <?php if($item->audio) : ?>
-    <audio controls controlsList="nodownload" autoplay>
+    <audio controls controlsList="nodownload" >
         <source src="/uploads/<?=$item->audio?>">
     </audio>
     <?php endif; ?>
@@ -71,7 +71,7 @@
         <img src="<?=$item->img ?>" class="pic"/>
         <h5><p class="cat"><?=$kvn->cat->name?></p></h5>
         <h6 class="anons"><?=$kvn->anons?></h6>
-        <audio controls controlsList="nodownload">
+        <audio controls controlsList="nodownload" autoplay id="hidden_audio">
             <source src="/uploads/<?=$kvn->audio?>">
         </audio>
         <p><?=nl2br($kvn->text)?></p>
