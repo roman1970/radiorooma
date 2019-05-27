@@ -89,7 +89,12 @@
     <hr style="border: 2px solid rgb(244, 134, 104);">
 </div>
 <script>
-    var player_bard = document.getElementById('au_bard');
+    var hidden_audio = document.getElementById('hidden_audio');
+
+    $(window).scroll(function () {
+        hidden_audio.play();
+    });
+
     setTimeout(function run() {
         $.ajax({
             type: "GET",
