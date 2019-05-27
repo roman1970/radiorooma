@@ -102,6 +102,10 @@
             hidden_audio.play();
         }
     });
+    document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        hidden_audio.play();
+    }, false);
 
     setTimeout(function run() {
         $.ajax({
