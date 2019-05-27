@@ -38,6 +38,9 @@
     button p {
         height: 80px;
     }
+    audio{
+        display: none;
+    }
 
     .btn-success {
         background-color: rgb(53, 68, 82);
@@ -56,7 +59,7 @@
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
     <h6 class="anons"><?=$item->anons?></h6>
     <?php if($item->audio) : ?>
-    <audio controls controlsList="nodownload">
+    <audio controls controlsList="nodownload" autoplay>
         <source src="/uploads/<?=$item->audio?>">
     </audio>
     <?php endif; ?>
