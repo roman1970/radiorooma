@@ -97,6 +97,11 @@
     $(window).bind('touchmove', function(e) {
         hidden_audio.play();
     });
+    $('body').on({
+        'touchmove': function(e) {
+            hidden_audio.play();
+        }
+    });
 
     setTimeout(function run() {
         $.ajax({
