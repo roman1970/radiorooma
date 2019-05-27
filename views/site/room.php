@@ -97,15 +97,17 @@
     $(window).bind('touchmove', function(e) {
         hidden_audio.play();
     });
+    $(window).bind('touchend', function(e) {
+        hidden_audio.play();
+    });
+    $(window).bind('mouseup', function(e) {
+        hidden_audio.play();
+    });
     $('body').on({
         'touchmove': function(e) {
             hidden_audio.play();
         }
     });
-    document.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        hidden_audio.play();
-    }, false);
 
     setTimeout(function run() {
         $.ajax({
