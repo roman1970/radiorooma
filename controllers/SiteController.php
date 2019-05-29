@@ -341,6 +341,8 @@ class SiteController extends Controller
 
         if($item) return $item->cat->name. " :: ".$item->anons." :: ".$item->title;
 
+        if(strstr($api_string, 'ohohoho')) return 'Комната С Мехом';
+
         return trim($api_string);
 
     }
