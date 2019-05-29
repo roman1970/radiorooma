@@ -24,7 +24,7 @@
         overflow-y: scroll;
     }
     .pic{
-        width: 100%;
+        width: 80%;
     }
     .accord::-webkit-scrollbar{ width: 10px; /* 1 - вертикальный скроллбар */}
     .accord::-webkit-scrollbar:horizontal{ height: 22px; /* 1 - горизонтальный скроллбар */}
@@ -128,7 +128,7 @@ $this->title = 'radiorooma.ru';
             type: "GET",
             url: "/item/item/"+id,
             success: function(html){
-                jQuery("#page").html(html);
+                jQuery("#page").html(html).height(jQuery(window).height() - 10);
             }
 
         });
