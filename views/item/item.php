@@ -8,7 +8,7 @@
         width: 80%;
     }
 </style>
-<div id="page">
+<div id="page" >
 
     <p id="on_button">
         <button type="button" class="btn btn-success"  >
@@ -42,15 +42,20 @@
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
         var img = document.getElementById('img');
-        //console.log(height);
+        var magnitola = document.getElementById('magnitola');
+        console.log(window.innerHeight-magnitola.clientHeight);
+        //console.log(magnitola.clientHeight);
         if(img === null)
-            height = page.clientHeight;
+            //height = page.clientHeight;
+            height = window.innerHeight-magnitola.clientHeight - 100;
         else
-            height = page.clientHeight + 200;
+            //height = page.clientHeight + 200;
+            height = window.innerHeight-magnitola.clientHeight - 100;
         var acc = document.getElementById('acc');
         var cats = document.getElementById('cats');
         //console.log(acc);
         var new_height = height + 25;
+        page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
         console.log(acc.style.height);

@@ -26,6 +26,7 @@
     .pic{
         width: 80%;
     }
+
     .accord::-webkit-scrollbar{ width: 10px; /* 1 - вертикальный скроллбар */}
     .accord::-webkit-scrollbar:horizontal{ height: 22px; /* 1 - горизонтальный скроллбар */}
     .accord::-webkit-scrollbar-button {background: #008000; /* 2 - кнопка */}
@@ -53,7 +54,7 @@ $this->title = 'radiorooma.ru';
     <div id="section_page">
 
     <?php if(isset($cur_item)) : ?>
-        <div id="page">
+        <div id="page" >
             <p id="on_button">
                 <button type="button" class="btn btn-success"  >
                     <?=\yii\bootstrap\Html::a(
@@ -128,7 +129,7 @@ $this->title = 'radiorooma.ru';
             type: "GET",
             url: "/item/item/"+id,
             success: function(html){
-                jQuery("#page").html(html).height(jQuery(window).height() - 10);
+                jQuery("#page").html(html);
             }
 
         });

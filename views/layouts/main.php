@@ -159,6 +159,17 @@ AppAsset::register($this);
         margin-top:50px;
         text-align:center;
     }
+    #page{
+        overflow-y: auto;
+     }
+
+    #page::-webkit-scrollbar{ width: 10px; /* 1 - вертикальный скроллбар */}
+    #page::-webkit-scrollbar:horizontal{ height: 22px; /* 1 - горизонтальный скроллбар */}
+    #page::-webkit-scrollbar-button {background: #008000; /* 2 - кнопка */}
+    #page::-webkit-scrollbar-track {background: #008000;/* 3 - трек */}
+    #page::-webkit-scrollbar-track-piece { background: rgb(73, 148, 75); /* 4 – видимая часть трека */ }
+    #page::-webkit-scrollbar-thumb {background: #35ee2c; border-radius: 10px; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /* 5 - ползунок */}
+
     /****** Lines *******/
     .line {
         overflow:hidden;
@@ -557,7 +568,7 @@ AppAsset::register($this);
 <div class="wrap">
     <div class="container">
         <div class="row row-offcanvas row-offcanvas-right ">
-            <div class="navbar-fixed-top container">
+            <div class="navbar-fixed-top container" id="magnitola">
                 <div class="line" id="l1">
                     <div class="line_text" id="radio_test">РАДИО 'КОМНАТА С МЕХОМ'</div>
                 </div>
@@ -1027,6 +1038,7 @@ AppAsset::register($this);
 </script>
 <script>
     /*Выравнивание колонок*/
+    /*
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
         //console.log(height);
@@ -1038,6 +1050,28 @@ AppAsset::register($this);
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
         //console.log(acc.style.height);
+    });
+    */
+    jQuery(document).ready(function() {
+        var page = document.getElementById('page');
+        var img = document.getElementById('img');
+        var magnitola = document.getElementById('magnitola');
+        console.log(window.innerHeight-magnitola.clientHeight);
+        //console.log(magnitola.clientHeight);
+        if(img === null)
+        //height = page.clientHeight;
+            height = window.innerHeight-magnitola.clientHeight - 100;
+        else
+        //height = page.clientHeight + 200;
+            height = window.innerHeight-magnitola.clientHeight - 100;
+        var acc = document.getElementById('acc');
+        var cats = document.getElementById('cats');
+        //console.log(acc);
+        var new_height = height + 25;
+        page.style.height = height+"px";
+        acc.style.height = new_height+"px";
+        cats.style.height = new_height+"px";
+        console.log(acc.style.height);
     });
 
 
