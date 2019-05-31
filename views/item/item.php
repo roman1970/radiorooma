@@ -10,6 +10,8 @@
 </style>
 <div id="page" >
 
+    <?php /*
+
     <p id="on_button">
         <button type="button" class="btn btn-success"  >
             <?=\yii\bootstrap\Html::a(
@@ -19,6 +21,7 @@
             ?>
         </button>
     </p>
+ */?>
 
     <p style="display: none" id="off_button"><button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио</button></p>
     <?php /*<p id="like_button"><button type="button" class="btn btn-success" onclick="like('<?=$item->id?>')" >Понравилось</button></p>
@@ -54,7 +57,7 @@
         var acc = document.getElementById('acc');
         var cats = document.getElementById('cats');
         //console.log(acc);
-        var new_height = height + 25;
+        var new_height = height;
         page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";

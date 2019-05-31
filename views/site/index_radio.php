@@ -55,6 +55,7 @@ $this->title = 'radiorooma.ru';
 
     <?php if(isset($cur_item)) : ?>
         <div id="page" >
+            <?php /*
             <p id="on_button">
                 <button type="button" class="btn btn-success"  >
                     <?=\yii\bootstrap\Html::a(
@@ -64,6 +65,7 @@ $this->title = 'radiorooma.ru';
                     ?>
                 </button>
             </p>
+           */?>
             <p style="display: none" id="off_button">
                 <button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио
                 </button></p>
