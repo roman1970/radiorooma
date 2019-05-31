@@ -1060,10 +1060,10 @@ AppAsset::register($this);
         //console.log(magnitola.clientHeight);
         if(img === null)
         //height = page.clientHeight;
-            height = window.innerHeight-magnitola.clientHeight - 80;
+            height = window.innerHeight-magnitola.clientHeight - 70;
         else
         //height = page.clientHeight + 200;
-            height = window.innerHeight-magnitola.clientHeight - 80;
+            height = window.innerHeight-magnitola.clientHeight - 70;
         var acc = document.getElementById('acc');
         var cats = document.getElementById('cats');
         //console.log(acc);
