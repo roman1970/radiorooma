@@ -74,7 +74,12 @@ $this->title = 'radiorooma.ru';
             <p id="summary">Понравилось: <?=$cur_item->likes?></p>*/?>
 
             <?php if($cur_item->cat_id != 22) : ?>
-                <h3><?=$cur_item->title?></h3>
+                <h3><?=\yii\bootstrap\Html::a(
+                        $cur_item->title,
+                        '/'.$cur_item->alias.'.html',
+                        ['cursor' => 'pointer', 'target' => '_blank', 'id' => 'takee', 'style' => 'color:#35ee2c'])
+                    ?>
+                </h3>
                 <p>(<?= $cur_item->source->title ?> - <?= $cur_item->source->author->name ?>)</p>
                 <p class="txt"><?php echo nl2br($cur_item->text)?></p>
             <?php endif; ?>
