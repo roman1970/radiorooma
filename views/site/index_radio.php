@@ -24,7 +24,8 @@
         overflow-y: scroll;
     }
     .pic{
-        width: 80%;
+        height: 80%;
+        border-radius: 25px;
     }
 
     .accord::-webkit-scrollbar{ width: 10px; /* 1 - вертикальный скроллбар */}

@@ -6,6 +6,8 @@
 <style>
     img{
         width: 80%;
+        border-radius: 25px;
+        margin-top: 20px;
     }
 </style>
 <div id="page" >
