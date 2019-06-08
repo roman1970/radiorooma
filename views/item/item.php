@@ -8,10 +8,8 @@
         width: 80%;
     }
     #img{
-        border-radius: 25px;
+        border-radius: 15px;
         margin-top: 20px;
-        max-height: 80%;
-        max-width: 80%
     }
 </style>
 <div id="page" >
@@ -77,7 +75,11 @@
         page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
-        if(img !== null)img.style.height = img_height+"px";
+        if(img !== null){
+            img.style.height = img_height+"px";
+            img.style.maxHeight = "80%";
+            img.style.maxWidth = "80%";
+        }
         //console.log(acc.style.height);
     });
 </script>
