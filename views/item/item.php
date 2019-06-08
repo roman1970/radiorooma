@@ -10,6 +10,8 @@
     #img{
         border-radius: 25px;
         margin-top: 20px;
+        max-height: 80%;
+        max-width: 80%
     }
 </style>
 <div id="page" >
@@ -75,7 +77,7 @@
         page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
-        img.style.height = img_height+"px";
+        if(img !== null)img.style.height = img_height+"px";
         //console.log(acc.style.height);
     });
 </script>

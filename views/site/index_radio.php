@@ -26,6 +26,8 @@
     .pic{
         height: 80%;
         border-radius: 25px;
+        max-height: 80%;
+        max-width: 80%
     }
 
     .accord::-webkit-scrollbar{ width: 10px; /* 1 - вертикальный скроллбар */}
