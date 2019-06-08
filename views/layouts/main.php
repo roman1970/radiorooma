@@ -1068,10 +1068,11 @@ AppAsset::register($this);
         var cats = document.getElementById('cats');
         //console.log(acc);
         var new_height = height;
+        var img_height = new_height - 40;
         page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
-        console.log(acc.style.height);
+        img.style.height = img_height+"px";
     });
 
 

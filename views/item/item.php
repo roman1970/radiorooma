@@ -6,6 +6,8 @@
 <style>
     img{
         width: 80%;
+    }
+    #img{
         border-radius: 25px;
         margin-top: 20px;
     }
@@ -28,7 +30,11 @@
     <p style="display: none" id="off_button"><button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио</button></p>
     <?php /*<p id="like_button"><button type="button" class="btn btn-success" onclick="like('<?=$item->id?>')" >Понравилось</button></p>
     <p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p>
+
     <p id="summary">Понравилось: <?=$item->likes?></p>*/?>
+    <!--
+    <img src='<?=\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')?>' id="img" class="pic"/>
+     -->
     <?php if($item->cat_id != 22) : ?>
         <h3><?=\yii\bootstrap\Html::a(
                 $item->title,
@@ -53,7 +59,7 @@
         var page = document.getElementById('page');
         var img = document.getElementById('img');
         var magnitola = document.getElementById('magnitola');
-        console.log(window.innerHeight-magnitola.clientHeight);
+        // console.log(window.innerHeight-magnitola.clientHeight);
         //console.log(magnitola.clientHeight);
         if(img === null)
             //height = page.clientHeight;
@@ -65,10 +71,12 @@
         var cats = document.getElementById('cats');
         //console.log(acc);
         var new_height = height;
+        var img_height = new_height - 40;
         page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
-        console.log(acc.style.height);
+        img.style.height = img_height+"px";
+        //console.log(acc.style.height);
     });
 </script>
 
