@@ -77,8 +77,7 @@
         cats.style.height = new_height+"px";
         if(img !== null){
             img.style.height = img_height+"px";
-            img.style.maxHeight = "80%";
-            img.style.maxWidth = "80%";
+
         }
         //console.log(acc.style.height);
     });

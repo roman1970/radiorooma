@@ -427,7 +427,7 @@ AppAsset::register($this);
         }
 
         #l3.line {
-             height: 75px;
+             height: 65px;
          }
          #l3.line .line_text{
              font-size:13px;
@@ -596,7 +596,7 @@ AppAsset::register($this);
                 <div class="line" id="l3">
                     <div class="line_text">
                         <h4 class="text-center" id="wellcome" style="cursor: pointer">
-                            Ведущий "Бард, который перевернул ЗИЛ" <br>Роман Беляшов
+                            Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
                         </h4>
                     </div>
                     <div class="line_cover"></div>
