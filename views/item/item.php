@@ -108,9 +108,6 @@
             }
         });
     });
-    */
-
-    /*
 
     $(document).ready(function() {
         $('.story-small img').each(function() {
