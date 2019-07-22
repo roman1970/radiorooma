@@ -61,24 +61,25 @@
         var magnitola = document.getElementById('magnitola');
         // console.log(window.innerHeight-magnitola.clientHeight);
         //console.log(magnitola.clientHeight);
-        if(img === null)
-            //height = page.clientHeight;
-            height = window.innerHeight-magnitola.clientHeight - 70;
+        if (img === null)
+        //height = page.clientHeight;
+            height = window.innerHeight - magnitola.clientHeight - 70;
         else
-            //height = page.clientHeight + 200;
-            height = window.innerHeight-magnitola.clientHeight - 70;
+        //height = page.clientHeight + 200;
+            height = window.innerHeight - magnitola.clientHeight - 70;
         var acc = document.getElementById('acc');
         var cats = document.getElementById('cats');
         //console.log(acc);
         var new_height = height;
         var img_height = new_height - 40;
-        page.style.height = height+"px";
-        acc.style.height = new_height+"px";
-        cats.style.height = new_height+"px";
-        if(img !== null && img.clientHeight > new_height){
-            img.style.height = img_height+"px";
+        page.style.height = height + "px";
+        acc.style.height = new_height + "px";
+        cats.style.height = new_height + "px";
+        if (img !== null && img.clientHeight > new_height) {
+            img.style.height = img_height + "px";
         }
         console.log(acc.style.height);
+    });
         /*
 
         jQuery('#img').each(function() {
