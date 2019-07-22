@@ -32,9 +32,9 @@
     <p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p>
 
     <p id="summary">Понравилось: <?=$item->likes?></p>*/?>
-    <!--
+
     <img src='<?=\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')?>' id="img" class="pic"/>
-     -->
+
     <?php if($item->cat_id != 22) : ?>
         <h3><?=\yii\bootstrap\Html::a(
                 $item->title,
@@ -79,7 +79,66 @@
             img.style.height = img_height+"px";
         }
         //console.log(acc.style.height);
+
+        jQuery('#img').each(function() {
+            var maxWidth = 500; // Max width for the image
+            var maxHeight = new_height;    // Max height for the image
+            var ratio = 0;  // Used for aspect ratio
+            var width = jQuery(this).width();    // Current image width
+            var height = jQuery(this).height();  // Current image height
+
+            // Check if the current width is larger than the max
+            if(width > maxWidth){
+                ratio = maxWidth / width;   // get ratio for scaling image
+                jQuery(this).css("width", maxWidth); // Set new width
+                jQuery(this).css("height", height * ratio);  // Scale height based on ratio
+                height = height * ratio;    // Reset height to match scaled image
+            }
+
+            var width = jQuery(this).width();    // Current image width
+            var height = jQuery(this).height();  // Current image height
+
+            // Check if current height is larger than max
+            if(height > maxHeight){
+                ratio = maxHeight / height; // get ratio for scaling image
+                jQuery(this).css("height", maxHeight);   // Set new height
+                jQuery(this).css("width", width * ratio);    // Scale width based on ratio
+                width = width * ratio;    // Reset width to match scaled image
+            }
+        });
     });
+
+    /*
+
+    $(document).ready(function() {
+        $('.story-small img').each(function() {
+            var maxWidth = 100; // Max width for the image
+            var maxHeight = 100;    // Max height for the image
+            var ratio = 0;  // Used for aspect ratio
+            var width = $(this).width();    // Current image width
+            var height = $(this).height();  // Current image height
+
+            // Check if the current width is larger than the max
+            if(width > maxWidth){
+                ratio = maxWidth / width;   // get ratio for scaling image
+                $(this).css("width", maxWidth); // Set new width
+                $(this).css("height", height * ratio);  // Scale height based on ratio
+                height = height * ratio;    // Reset height to match scaled image
+            }
+
+            var width = $(this).width();    // Current image width
+            var height = $(this).height();  // Current image height
+
+            // Check if current height is larger than max
+            if(height > maxHeight){
+                ratio = maxHeight / height; // get ratio for scaling image
+                $(this).css("height", maxHeight);   // Set new height
+                $(this).css("width", width * ratio);    // Scale width based on ratio
+                width = width * ratio;    // Reset width to match scaled image
+            }
+        });
+
+     */
 </script>
 
 
