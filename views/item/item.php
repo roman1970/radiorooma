@@ -81,8 +81,8 @@
         //console.log(acc.style.height);
 
         jQuery('#img').each(function() {
-            var maxWidth = 500; // Max width for the image
-            var maxHeight = new_height;    // Max height for the image
+            var maxWidth = jQuery('#page').width(); // Max width for the image
+            var maxHeight = new_height-30;    // Max height for the image
             var ratio = 0;  // Used for aspect ratio
             var width = jQuery(this).width();    // Current image width
             var height = jQuery(this).height();  // Current image height
