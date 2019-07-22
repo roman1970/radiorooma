@@ -78,7 +78,7 @@
         if(img !== null && img.clientHeight > new_height){
             img.style.height = img_height+"px";
         }
-        //console.log(acc.style.height);
+        console.log(acc.style.height);
         /*
 
         jQuery('#img').each(function() {
