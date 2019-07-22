@@ -32,9 +32,9 @@
     <p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p>
 
     <p id="summary">Понравилось: <?=$item->likes?></p>*/?>
-
+    <!--
     <img src='<?=\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')?>' id="img" class="pic"/>
-
+    -->
     <?php if($item->cat_id != 22) : ?>
         <h3><?=\yii\bootstrap\Html::a(
                 $item->title,
