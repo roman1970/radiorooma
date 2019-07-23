@@ -1068,13 +1068,13 @@ AppAsset::register($this);
         var cats = document.getElementById('cats');
         //console.log(acc);
         var new_height = height;
-        var img_height = new_height - 40;
+        //var img_height = new_height - 40;
         page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
-        if (img !== null) {
-            img.style.height = img_height + "px";
-            img.style.width = (img.innerWidth-40)+ "px";
+        if (img !== null && img.innerHeight > new_height) {
+            img.style.height = (new_height - 40) + "px";
+           // img.style.width = (img.innerWidth-40)+ "px";
         }
     });
 
