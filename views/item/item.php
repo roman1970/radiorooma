@@ -77,9 +77,12 @@
         acc.style.height = new_height + "px";
         cats.style.height = new_height + "px";
         if (img !== null && img.clientHeight > new_height) {
+            console.log(img.style.height);
             img.style.height = (img_height-100) + "px";
+            console.log(img.clientHeight);
+            console.log(img.style.height);
         }
-        console.log(img.clientHeight);
+
     });
         /*
 
