@@ -64,10 +64,10 @@
         //console.log(magnitola.clientHeight);
         if (img === null)
         //height = page.clientHeight;
-            height = window.innerHeight - magnitola.clientHeight - 170;
+            height = window.innerHeight - magnitola.clientHeight - 70;
         else
         //height = page.clientHeight + 200;
-            height = window.innerHeight - magnitola.clientHeight - 170;
+            height = window.innerHeight - magnitola.clientHeight - 70;
         var acc = document.getElementById('acc');
         var cats = document.getElementById('cats');
         //console.log(acc);
@@ -77,10 +77,7 @@
         acc.style.height = new_height + "px";
         cats.style.height = new_height + "px";
         if (img !== null) {
-            alert(img.style.height);
             img.style.height = (img_height-100) + "px";
-            alert(img.clientHeight);
-            alert(img.style.height);
         }
 
     });
