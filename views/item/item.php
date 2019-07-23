@@ -5,8 +5,8 @@
 ?>
 <style>
     img{
-        /*width: 80%;*/
-        height: 80%;
+        width: 80%;
+        /*height: 80%;*/
     }
     #img{
         border-radius: 15px;
@@ -77,7 +77,7 @@
         acc.style.height = new_height + "px";
         cats.style.height = new_height + "px";
         if (img !== null && img.clientHeight > new_height) {
-            img.style.height = img_height + "px";
+            img.style.height = (img_height-100) + "px";
         }
         console.log(acc.style.height);
     });
