@@ -78,6 +78,7 @@
         cats.style.height = new_height + "px";
         if (img !== null) {
             img.style.height = (img_height-100) + "px";
+            img.style.width = (img.innerWidth-100) + "px";
         }
 
     });
