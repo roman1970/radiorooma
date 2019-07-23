@@ -79,7 +79,7 @@
         if (img !== null && img.clientHeight > new_height) {
             img.style.height = (img_height-100) + "px";
         }
-        console.log(img.style.height);
+        console.log(img.clientHeight);
     });
         /*
 
