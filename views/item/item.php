@@ -76,7 +76,7 @@
         page.style.height = height + "px";
         acc.style.height = new_height + "px";
         cats.style.height = new_height + "px";
-        if (img !== null && img.clientHeight > new_height) {
+        if (img !== null) {
             alert(img.style.height);
             img.style.height = (img_height-100) + "px";
             alert(img.clientHeight);
