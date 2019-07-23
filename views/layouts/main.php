@@ -1073,7 +1073,8 @@ AppAsset::register($this);
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
         if (img !== null && img.innerHeight > new_height) {
-            img.style.height = (new_height - 40) + "px";
+            img.style.height = (img.innerHeight - (img.innerHeight-new_height)) + "px";
+            img.style.width = (img.innerWidth - (img.innerHeight-new_height)) + "px";
            // img.style.width = (img.innerWidth-40)+ "px";
         }
     });
