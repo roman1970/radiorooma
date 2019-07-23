@@ -5,7 +5,8 @@
 ?>
 <style>
     img{
-        width: 80%;
+        /*width: 80%;*/
+        height: 80%;
     }
     #img{
         border-radius: 15px;
