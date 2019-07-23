@@ -1072,11 +1072,9 @@ AppAsset::register($this);
         page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
-        if (img !== null && img.clientHeight > new_height) {
-            console.log(img.style.height);
-            img.style.height = (img_height-100) + "px";
-            console.log(img.clientHeight);
-            console.log(img.style.height);
+        if (img !== null) {
+            img.style.height = img_height + "px";
+            img.style.width = (img.innerWidth-40)+ "px";
         }
     });
 
