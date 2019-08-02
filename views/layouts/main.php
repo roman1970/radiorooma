@@ -1051,7 +1051,7 @@ AppAsset::register($this);
         cats.style.height = new_height+"px";
         //console.log(acc.style.height);
     });
-    /*
+
 
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
@@ -1073,13 +1073,16 @@ AppAsset::register($this);
         page.style.height = height+"px";
         acc.style.height = new_height+"px";
         cats.style.height = new_height+"px";
+        /*
         if (img !== null && img.innerHeight > new_height) {
             img.style.height = (img.innerHeight - (img.innerHeight-new_height)) + "px";
             img.style.width = (img.innerWidth - (img.innerHeight-new_height)) + "px";
            // img.style.width = (img.innerWidth-40)+ "px";
         }
+        */
+         */
     });
-    */
+
 
 
 

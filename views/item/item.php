@@ -82,7 +82,7 @@
 
 </div>
 <script>
-    /*
+
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
         var img = document.getElementById('img');
@@ -98,17 +98,19 @@
         var acc = document.getElementById('acc');
         var cats = document.getElementById('cats');
         //console.log(acc);
-        var new_height = height;
+        var new_height = height+100;
         var img_height = new_height - 40;
         page.style.height = height + "px";
         acc.style.height = new_height + "px";
         cats.style.height = new_height + "px";
-        if (img !== null) {
+        /*if (img !== null) {
             img.style.height = img_height + "px";
             img.style.width = (img.innerWidth-40)+ "px";
         }
+        */
 
     });
+    /*
 
 
         jQuery('#img').each(function() {
