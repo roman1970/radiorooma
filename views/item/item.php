@@ -82,6 +82,7 @@
 
 </div>
 <script>
+    /*
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
         var img = document.getElementById('img');
@@ -108,7 +109,7 @@
         }
 
     });
-        /*
+
 
         jQuery('#img').each(function() {
             var maxWidth = jQuery('#page').width(); // Max width for the image

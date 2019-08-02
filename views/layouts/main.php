@@ -1051,7 +1051,7 @@ AppAsset::register($this);
         cats.style.height = new_height+"px";
         //console.log(acc.style.height);
     });
-    */
+
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
         var img = document.getElementById('img');
@@ -1078,6 +1078,8 @@ AppAsset::register($this);
            // img.style.width = (img.innerWidth-40)+ "px";
         }
     });
+    */
+
 
 
 </script>
