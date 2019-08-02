@@ -148,11 +148,21 @@ class ItemController extends Controller
 
     public function actionRandItem(){
 
+        /*
         $items = RadioItem::find()->where('cat_id <> 13 and cat_id <> 17 and cat_id <> 18 and cat_id <> 19 and cat_id <> 19 ')->all();
 
         $item = $items[rand(0,count($items)-1)];
+        */
 
-        return $this->renderPartial('item', ['item' => $item]);
+        $items = RadioItem::find()
+            ->where('cat_id <> 13 and cat_id <> 17 and cat_id <> 18 and cat_id <> 19 and cat_id <> 22')->all();
+        $imgs = RadioItem::find()
+            ->where('cat_id = 22')->all();
+
+        $item = $items[rand(0,count($items)-1)];
+        $img = $imgs[rand(0,count($imgs)-1)];
+
+        return $this->renderPartial('item', ['item' => $item, 'img' => $img]);
 
     }
 

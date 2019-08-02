@@ -29,6 +29,14 @@
         max-height: 80%;
         max-width: 80%
     }
+    .css-adaptive {
+        max-width: 70%;
+        height: auto;
+        padding: 10px;
+    }
+    .row{
+        margin: 0;
+    }
 
     .accord::-webkit-scrollbar{ width: 10px; /* 1 - вертикальный скроллбар */}
     .accord::-webkit-scrollbar:horizontal{ height: 22px; /* 1 - горизонтальный скроллбар */}
@@ -72,24 +80,26 @@ $this->title = 'radiorooma.ru';
             <p style="display: none" id="off_button">
                 <button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио
                 </button></p>
-            <?php /*<p id="like_button"><button type="button" class="btn btn-success" onclick="like('<?=$cur_item->id?>')" >Понравилось</button></p>
-            <p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p>
-            <p id="summary">Понравилось: <?=$cur_item->likes?></p>*/?>
+            <div class='row'>
+                <div class='col-lg-6'>
+                    <h3><?=\yii\bootstrap\Html::a(
+                            $cur_item->title,
+                            '/'.$cur_item->alias.'.html',
+                            ['cursor' => 'pointer', 'target' => '_blank', 'id' => 'takee', 'style' => 'color:#35ee2c'])
+                        ?>
+                    </h3>
+                    <p>(<?= $cur_item->source->title ?> - <?= $cur_item->source->author->name ?>)</p>
+                    <p class="txt"><?php echo nl2br($cur_item->text)?></p>
+                </div>
+                <div class='col-lg-6'>
+                    <img src='<?=
+                    //\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
+                    $img->img?>'
+                         id="img" class="pic css-adaptive"/>
 
-            <?php if($cur_item->cat_id != 22) : ?>
-                <h3><?=\yii\bootstrap\Html::a(
-                        $cur_item->title,
-                        '/'.$cur_item->alias.'.html',
-                        ['cursor' => 'pointer', 'target' => '_blank', 'id' => 'takee', 'style' => 'color:#35ee2c'])
-                    ?>
-                </h3>
-                <p>(<?= $cur_item->source->title ?> - <?= $cur_item->source->author->name ?>)</p>
-                <p class="txt"><?php echo nl2br($cur_item->text)?></p>
-            <?php endif; ?>
-            <?php if($cur_item->img) : ?>
-                <img src="<?=$cur_item->img ?>" id="img" class="pic"/>
-            <?php endif; ?>
-            <br>
+                </div>
+            </div>
+
             <?=\yii\bootstrap\Html::a(
                 'Поделиться',
                 '/'.$cur_item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>

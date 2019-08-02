@@ -12,6 +12,9 @@
         border-radius: 15px;
         margin-top: 20px;
     }
+    .row{
+        margin: 0;
+    }
 </style>
 <div id="page" >
 
@@ -33,9 +36,31 @@
     <p><audio controls src="http://37.192.187.83:10080/<?=$item->audio"></audio></p>
 
     <p id="summary">Понравилось: <?=$item->likes?></p>*/?>
+    <p style="display: none" id="off_button">
+        <button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио
+        </button></p>
+    <div class='row'>
+        <div class='col-lg-6'>
+            <h3><?=\yii\bootstrap\Html::a(
+                    $item->title,
+                    '/'.$item->alias.'.html',
+                    ['cursor' => 'pointer', 'target' => '_blank', 'id' => 'takee', 'style' => 'color:#35ee2c'])
+                ?>
+            </h3>
+            <p>(<?= $item->source->title ?> - <?= $item->source->author->name ?>)</p>
+            <p class="txt"><?php echo nl2br($item->text)?></p>
+        </div>
+        <div class='col-lg-6'>
+            <img src='<?=
+            //\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
+            $img->img?>'
+                 id="img" class="pic css-adaptive"/>
+
+        </div>
+    </div>
     <!--
     <img src='<?=\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')?>' id="img" class="pic"/>
-    -->
+
     <?php if($item->cat_id != 22) : ?>
         <h3><?=\yii\bootstrap\Html::a(
                 $item->title,
@@ -50,6 +75,7 @@
         <img src="<?=$item->img ?>" id="img" class="pic"/>
     <?php endif; ?>
     <br>
+    -->
     <?=\yii\bootstrap\Html::a(
         'Поделиться',
         '/'.$item->alias.'.html', ['cursor' => 'pointer', 'target' => '_blank']) ?>
