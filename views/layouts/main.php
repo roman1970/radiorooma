@@ -1038,7 +1038,7 @@ AppAsset::register($this);
 </script>
 <script>
     /*Выравнивание колонок*/
-    /*
+
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
         //console.log(height);
@@ -1051,6 +1051,7 @@ AppAsset::register($this);
         cats.style.height = new_height+"px";
         //console.log(acc.style.height);
     });
+    /*
 
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
