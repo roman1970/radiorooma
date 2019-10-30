@@ -630,6 +630,10 @@ AppAsset::register($this);
             url: "/item/rand-img-item/",
             success: function(html){
                 jQuery("#" + block).html(html).hide().show(1500);
+                jQuery("#l3").animate({
+                    'height': html.height(),
+                    'borderBottomWidth': '0px'
+                }, 1500);
 
             }
 
