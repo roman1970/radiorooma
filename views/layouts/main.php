@@ -597,15 +597,13 @@ AppAsset::register($this);
                             Ведущий "Бард, который перевернул ЗИЛ" Роман Беляшов
                         </h4>
                     </div>
-                    <div class="line_cover"></div>
+                    <div class="line_cover" ></div>
                 </div>
                 <audio id="au"  autoplay ></audio>
 
             </div>
 
-            <div class="container content" id="page">
-                <?= $content ?>
-            </div>
+
                     
         </div>
     </div>
@@ -622,7 +620,7 @@ AppAsset::register($this);
 <script>
 
     setInterval(function () {
-        getRandItem('page');
+        getRandItem('wellcome');
     }, 30000);
 
 
