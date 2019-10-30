@@ -123,7 +123,7 @@ AppAsset::register($this);
 
     }
     .text-center{
-        padding-top: 10px;
+        padding-top: 0px;
     }
 
     .latvia{
@@ -425,7 +425,7 @@ AppAsset::register($this);
         }
 
         #l3.line {
-             height: 65px;
+             height: 55px;
          }
          #l3.line .line_text{
              font-size:13px;
@@ -487,7 +487,7 @@ AppAsset::register($this);
     }
     @media(min-width:200px) and (max-width:400px) {
         .container .content {
-            padding-top: 70%;
+            padding-top: 60%;
         }
         #Panel {
             top: 20%;
@@ -600,7 +600,7 @@ AppAsset::register($this);
                     <div class="line_cover"></div>
                 </div>
                 <audio id="au"  autoplay ></audio>
-                <h1 class="text-center" id="gone"></h1>
+
             </div>
 
             <div class="container content" id="page">
