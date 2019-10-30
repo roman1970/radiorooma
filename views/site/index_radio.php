@@ -27,7 +27,7 @@
         height: 80%;
         border-radius: 25px;
         max-height: 80%;
-        max-width: 80%
+        max-width: 100%
     }
     .css-adaptive {
         max-width: 70%;
@@ -57,6 +57,7 @@ $this->title = 'radiorooma.ru';
     <img src='<?=
     //\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
     $img->img?>'
+         style="max-width: 100%;"
          id="img" class="pic css-adaptive"/>
 </div>
 

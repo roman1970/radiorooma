@@ -1030,8 +1030,10 @@ AppAsset::register($this);
 */
 
 </script>
+
+<?php /*
 <script>
-    /*Выравнивание колонок*/
+    /*Выравнивание колонок
 
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
@@ -1073,9 +1075,10 @@ AppAsset::register($this);
             img.style.width = (img.innerWidth - (img.innerHeight-new_height)) + "px";
            // img.style.width = (img.innerWidth-40)+ "px";
         }
-        */
-         */
+
+
     });
+    */?>
 
 
 
