@@ -55,8 +55,8 @@ $this->title = 'radiorooma.ru';
 ?>
 <div>
     <img src='<?=
-    \yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
-    //$img->img?>'
+    //\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
+    $img->img?>'
          id="img" class="pic css-adaptive"/>
 </div>
 
