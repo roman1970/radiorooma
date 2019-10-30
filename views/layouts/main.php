@@ -603,7 +603,7 @@ AppAsset::register($this);
                 <h1 class="text-center" id="gone"></h1>
             </div>
 
-            <div class="container content">
+            <div class="container content" id="page">
                 <?= $content ?>
             </div>
                     
@@ -629,7 +629,7 @@ AppAsset::register($this);
     function getRandItem(block) {
         jQuery.ajax({
             type: "GET",
-            url: "/item/rand-item/",
+            url: "/item/rand-img-item/",
             success: function(html){
                 jQuery("#" + block).html(html).hide().show(1500);
 

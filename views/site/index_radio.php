@@ -58,7 +58,7 @@ $this->title = 'radiorooma.ru';
     //\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
     $img->img?>'
          style="max-width: 100%;"
-         id="page" class="pic css-adaptive"/>
+         class="pic css-adaptive"/>
 </div>
 
 <?php
