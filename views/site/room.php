@@ -112,7 +112,7 @@
     setTimeout(function run() {
         $.ajax({
             type: "GET",
-            url: "http://radiorooma.ru/site/show-current-radio-tracks-test/",
+            url: "http://37.192.187.83:10033/rockncontroll/datas/show-current-radio-tracks-test/",
             success: function(html){
                 $("#radiorooma").html(html);
             }
