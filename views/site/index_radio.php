@@ -53,6 +53,15 @@ use yii\widgets\Pjax;
 
 $this->title = 'radiorooma.ru';
 ?>
+<div>
+    <img src='<?=
+    \yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
+    //$img->img?>'
+         id="img" class="pic css-adaptive"/>
+</div>
+
+<?php
+/*
 
 <div class="col-sm-3 accord lft_scroll" id="cats">
     <h4>Категории</h4>
@@ -76,7 +85,7 @@ $this->title = 'radiorooma.ru';
                     ?>
                 </button>
             </p>
-           */?>
+
             <p style="display: none" id="off_button">
                 <button type="button" class="btn btn-success" onclick="offAudio()" >Переключиться на радио
                 </button></p>
@@ -131,6 +140,7 @@ $this->title = 'radiorooma.ru';
     <?php endforeach; ?>
 
 </div>
+ */?>
 
 <script>
     function getCategory(id){

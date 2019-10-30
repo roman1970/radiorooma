@@ -643,7 +643,8 @@ AppAsset::register($this);
 
         height = 200;
         var au = document.getElementById('au');
-        au.src = 'http://88.212.253.193:8000/test';
+        //au.src = 'http://88.212.253.193:8000/test';
+        au.src = 'http://37.192.187.83:10088/test_mp3';
 
         jQuery(document).ready(function() {
             jQuery('#stop_btn').on('click',function(){
@@ -678,7 +679,8 @@ AppAsset::register($this);
         jQuery.ajax({
             type: "GET",
             //url: "site/show-current-radio-tracks-test/",
-            url: '<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>',
+            //url: '<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>',
+            url: 'http://37.192.187.83:10033/rockncontroll/datas/show-current-radio-tracks-test/',
             success: function(html){
                 console.log(html);
                 jQuery("#radio_test").html(html);
@@ -750,7 +752,7 @@ AppAsset::register($this);
 
         jQuery.ajax({
             type: "GET",
-            url: "site/show-current-radio-tracks-test/",
+            url: "http://37.192.187.83:10033/rockncontroll/datas/show-current-radio-tracks-test/",
             success: function(html){
                 jQuery("#radio_test").html(html);
             }
@@ -785,14 +787,6 @@ AppAsset::register($this);
         //if(stop_btn.style.display == 'none')
         // stop_btn.style.display = 'block';
         play_btn.style.display = 'none';
-
-        //info.style.display = 'none';
-
-        /*$.get('https://ipinfo.io/json', function (data) {
-
-            siteBlockListener('radiorooma', 'test_canal', data);
-        });
-        */
 
     }
 
