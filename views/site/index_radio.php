@@ -30,7 +30,7 @@
         max-width: 100%
     }
     .css-adaptive {
-        max-width: 70%;
+        max-width: 100%;
         height: auto;
         padding: 10px;
     }
