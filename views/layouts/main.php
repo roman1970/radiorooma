@@ -159,9 +159,7 @@ AppAsset::register($this);
         margin-top:50px;
         text-align:center;
     }
-    #page{
-        overflow-y: auto;
-     }
+
 
     #page::-webkit-scrollbar{ width: 10px; /* 1 - вертикальный скроллбар */}
     #page::-webkit-scrollbar:horizontal{ height: 22px; /* 1 - горизонтальный скроллбар */}
@@ -1078,12 +1076,13 @@ AppAsset::register($this);
 
 
     });
-    */?>
+
 
 
 
 
 </script>
+ */?>
 <script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/MooToolsCore.js')?>"></script>
 <script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/rheostat.js')?>"></script>
 <script type="text/javascript" src="<?=\yii\helpers\Url::to('/js/ua-parser.js')?>"></script>

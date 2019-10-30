@@ -5,7 +5,7 @@
 ?>
 <style>
     img{
-        width: 80%;
+        width: 100%;
         /*height: 80%;*/
     }
     #img{
@@ -82,6 +82,7 @@
 
 </div>
 <script>
+    /*
 
     jQuery(document).ready(function() {
         var page = document.getElementById('page');
@@ -107,10 +108,10 @@
             img.style.height = img_height + "px";
             img.style.width = (img.innerWidth-40)+ "px";
         }
-        */
+
 
     });
-    /*
+
 
 
         jQuery('#img').each(function() {
