@@ -327,7 +327,7 @@ AppAsset::register($this);
         background-image: url(<?=\yii\helpers\Url::to('/img/rheostat.png')?>);
         width: 64px;
         height: 64px;
-        top: -20px;
+
     }
 
     #Indicator
@@ -440,7 +440,7 @@ AppAsset::register($this);
             width: 44px;
             height: 44px;
             background-size: 44px 44px;
-            top: 10px;
+            top: 22px;
         }
 
         #Panel {
@@ -623,6 +623,13 @@ AppAsset::register($this);
         getRandItem('wellcome');
     }, 30000);
 
+    /*
+    var img = document.getElementById('imageid');
+//or however you get a handle to the IMG
+var width = img.clientWidth;
+var height = img.clientHeight;
+     */
+
 
     function getRandItem(block) {
         jQuery.ajax({
@@ -630,8 +637,18 @@ AppAsset::register($this);
             url: "/item/rand-img-item/",
             success: function(html){
                 jQuery("#" + block).html(html).hide().show(1500);
+                jQuery('#img_rand').load(function(){
+                        // удаляем атрибуты width и height
+                        $(this).removeAttr("width")
+                            .removeAttr("height")
+                            .css({ width: "", height: "" });
+
+                        // получаем заветные цифры
+
+                        height = $(this).height();
+                    });
                 jQuery("#l3").animate({
-                    'height': html.height(),
+                    'height': height,
                     'borderBottomWidth': '0px'
                 }, 1500);
 
