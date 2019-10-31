@@ -645,12 +645,13 @@ var height = img.clientHeight;
 
                         // получаем заветные цифры
 
-                        height = $(this).height();
-                    });
-                jQuery("#l3").animate({
-                    'height': height,
-                    'borderBottomWidth': '0px'
-                }, 1500);
+                        let height_img = $(this).height();
+                        jQuery("#l3").animate({
+                            'height': height_img,
+                            'borderBottomWidth': '0px'
+                        }, 1500);
+
+                });
 
             }
 
