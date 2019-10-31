@@ -619,45 +619,22 @@ AppAsset::register($this);
 
 <script>
 
-    setInterval(function () {
-        getRandItem('wellcome');
-    }, 30000);
 
-    /*
-    var img = document.getElementById('imageid');
-//or however you get a handle to the IMG
-var width = img.clientWidth;
-var height = img.clientHeight;
-     */
+    $(document).ready(function() {
 
-
-    function getRandItem(block) {
         jQuery.ajax({
             type: "GET",
             url: "/item/rand-img-item/",
             success: function(html){
-                jQuery("#" + block).html(html).hide().show(1500);
-                jQuery('#img_rand').load(function(){
-                        // удаляем атрибуты width и height
-                        $(this).removeAttr("width")
-                            .removeAttr("height")
-                            .css({ width: "", height: "" });
-
-                        // получаем заветные цифры
-
-                        let height_img = $(this).height();
-                        jQuery("#l3").animate({
-                            'height': height_img,
-                            'borderBottomWidth': '0px'
-                        }, 1500);
-
-                });
+                jQuery("#wellcome").html(html).hide().show(1500);
+                jQuery('#img_rand').animate({
+                    'height': 300,
+                    'borderBottomWidth': '0px'
+                }, 1500);
 
             }
 
         });
-    }
-    $(document).ready(function() {
 
         height = 200;
         var au = document.getElementById('au');
