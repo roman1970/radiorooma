@@ -640,7 +640,7 @@ AppAsset::register($this);
                     jQuery("#" + block).html(img).hide().show(1500);
 
                     jQuery('#l3').animate({
-                        'height': 500,
+                        'height': img.height,
                         'borderBottomWidth': '0px'
                     }, 1500);
 
