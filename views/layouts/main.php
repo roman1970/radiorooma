@@ -626,7 +626,7 @@ AppAsset::register($this);
             getRandItem('wellcome');
         }, 10000);
 
-        function getRandItem(block, img_rand) {
+        function getRandItem(block) {
             jQuery.ajax({
                 type: "GET",
                 url: "/item/rand-img-src/",
@@ -636,9 +636,12 @@ AppAsset::register($this);
                     img.onload = function() {
                         jQuery("#" + block).html(img).hide().show(1500);
 
+                        if(img.height>500){
+                            var height = img.height = 500;
+                        }
+                        else height = img.height+20;
                         jQuery('#l3').animate({
-                            'height': img.height+10,
-                            'borderBottomWidth': '0px'
+                            'height': height,
                         }, 1500);
 
                     };
