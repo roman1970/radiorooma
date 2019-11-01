@@ -23,30 +23,6 @@ $img->img?>'
      class="pic css-adaptive"/>
 </div>
 <script>
-    var img_rand = document.getElementById('img_rand');
 
-    console.log(img_rand.height);
-
-    jQuery(document).ready(function() {
-        setInterval(function () {
-            getRandItem('wellcome');
-        }, 30000);
-
-        function getRandItem(block) {
-            jQuery.ajax({
-                type: "GET",
-                url: "/item/rand-img-item/",
-                success: function(html){
-                    jQuery("#" + block).html(html).hide().show(1500);
-                    jQuery('#l3').animate({
-                        'height': img_rand.height,
-                        'borderBottomWidth': '0px'
-                    }, 1500);
-
-                }
-
-            });
-        }
-    });
 </script>
 

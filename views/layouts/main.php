@@ -318,7 +318,7 @@ AppAsset::register($this);
     /*регулятор громкости*****/
     #Panel{
         position: absolute;
-        top: 30%;
+        top: 130px;
         left: 10%;
     }
     #Container
@@ -397,7 +397,7 @@ AppAsset::register($this);
         }
         #Panel{
             position: absolute;
-            top: 33%;
+            top: 90px;
             left: 11%;
         }
     }
@@ -444,7 +444,7 @@ AppAsset::register($this);
         }
 
         #Panel {
-            top: 25%;
+            top: 75px;
             left: 11%;
         }
 
@@ -467,7 +467,7 @@ AppAsset::register($this);
             padding-top: 62%;
         }
         #Panel {
-            top: 24%;
+            top: 83px;
             left: 11%;
         }
         .on_button {
@@ -618,6 +618,32 @@ AppAsset::register($this);
 </footer>
 
 <script>
+
+    var img_rand = document.getElementById('img_rand') ? document.getElementById('img_rand') : new Image();
+
+    console.log(img_rand.height);
+
+    jQuery(document).ready(function() {
+        setInterval(function () {
+            getRandItem('wellcome');
+        }, 30000);
+
+        function getRandItem(block) {
+            jQuery.ajax({
+                type: "GET",
+                url: "/item/rand-img-item/",
+                success: function(html){
+                    jQuery("#" + block).html(html).hide().show(1500);
+                    jQuery('#l3').animate({
+                        'height': img_rand.height,
+                        'borderBottomWidth': '0px'
+                    }, 1500);
+
+                }
+
+            });
+        }
+    });
 
 
     $(document).ready(function() {
