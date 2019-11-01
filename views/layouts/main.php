@@ -646,8 +646,6 @@ AppAsset::register($this);
 
                     };
                     img.src = html;
-                    img.width = '100%';
-
 
                 }
 
