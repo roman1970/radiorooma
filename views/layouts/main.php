@@ -632,17 +632,18 @@ AppAsset::register($this);
                 url: "/item/rand-img-src/",
                 success: function(html){
                     var img = new Image();
+
                     img.onload = function() {
-                        console.log(img.height);
+                        jQuery("#" + block).html(img).hide().show(1500);
+
+                        jQuery('#l3').animate({
+                            'height': img.height,
+                            'borderBottomWidth': '0px'
+                        }, 1500);
+
                     };
                     img.src = html;
 
-                    jQuery("#" + block).html(img).hide().show(1500);
-
-                    jQuery('#l3').animate({
-                        'height': img.height,
-                        'borderBottomWidth': '0px'
-                    }, 1500);
 
                 }
 
