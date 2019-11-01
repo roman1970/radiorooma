@@ -624,7 +624,7 @@ AppAsset::register($this);
         setInterval(function () {
             //var img_rand = document.getElementById('img_rand') ? document.getElementById('img_rand') : new Image();
             getRandItem('wellcome');
-        }, 10000);
+        }, 30000);
 
         function getRandItem(block) {
             jQuery.ajax({
@@ -646,6 +646,7 @@ AppAsset::register($this);
 
                     };
                     img.src = html;
+                    img.width = '100%';
 
 
                 }
