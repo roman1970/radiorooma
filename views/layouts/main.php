@@ -622,7 +622,7 @@ AppAsset::register($this);
 
     jQuery(document).ready(function() {
         setInterval(function () {
-            //var img_rand = document.getElementById('img_rand') ? document.getElementById('img_rand') : new Image();
+
             getRandItem('wellcome');
         }, 30000);
 
