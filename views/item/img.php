@@ -22,7 +22,3 @@ $img->img?>'
      id="img_rand"
      class="pic css-adaptive"/>
 </div>
-<script>
-
-</script>
-

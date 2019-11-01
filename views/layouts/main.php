@@ -619,21 +619,22 @@ AppAsset::register($this);
 
 <script>
 
-    var img_rand = document.getElementById('img_rand') ? document.getElementById('img_rand') : new Image();
-
-    console.log(img_rand.height);
 
     jQuery(document).ready(function() {
         setInterval(function () {
-            getRandItem('wellcome');
+            //var img_rand = document.getElementById('img_rand') ? document.getElementById('img_rand') : new Image();
+            getRandItem('wellcome', img_rand);
         }, 30000);
 
-        function getRandItem(block) {
+        function getRandItem(block, img_rand) {
             jQuery.ajax({
                 type: "GET",
                 url: "/item/rand-img-item/",
                 success: function(html){
                     jQuery("#" + block).html(html).hide().show(1500);
+                    img_rand = jQuery('#img_rand');
+                    console.log(img_rand);
+
                     jQuery('#l3').animate({
                         'height': img_rand.height,
                         'borderBottomWidth': '0px'
