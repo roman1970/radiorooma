@@ -623,20 +623,24 @@ AppAsset::register($this);
     jQuery(document).ready(function() {
         setInterval(function () {
             //var img_rand = document.getElementById('img_rand') ? document.getElementById('img_rand') : new Image();
-            getRandItem('wellcome', img_rand);
-        }, 30000);
+            getRandItem('wellcome');
+        }, 10000);
 
         function getRandItem(block, img_rand) {
             jQuery.ajax({
                 type: "GET",
-                url: "/item/rand-img-item/",
+                url: "/item/rand-img-src/",
                 success: function(html){
-                    jQuery("#" + block).html(html).hide().show(1500);
-                    img_rand = jQuery('#img_rand');
-                    console.log(img_rand);
+                    var img = new Image();
+                    img.onload = function() {
+                        console.log(img.height);
+                    };
+                    img.src = html;
+
+                    jQuery("#" + block).html(img).hide().show(1500);
 
                     jQuery('#l3').animate({
-                        'height': img_rand.height,
+                        'height': 500,
                         'borderBottomWidth': '0px'
                     }, 1500);
 

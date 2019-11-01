@@ -175,6 +175,17 @@ class ItemController extends Controller
         return $this->renderPartial('img', ['img' => $img]);
     }
 
+    public function actionRandImgSrc()
+    {
+        $imgs = RadioItem::find()
+            ->where('cat_id = 22')->all();
+
+        $img = $imgs[rand(0,count($imgs)-1)];
+
+        return $img->img;
+
+    }
+
     
     public function actionAddLike(){
         if($id = (int)Yii::$app->getRequest()->getQueryParam('id')) {
