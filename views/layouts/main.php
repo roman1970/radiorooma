@@ -599,6 +599,9 @@ AppAsset::register($this);
                     </div>
                     <div class="line_cover" ></div>
                 </div>
+                <div id="img">
+
+                </div>
                 <audio id="au"  autoplay ></audio>
 
             </div>
@@ -623,14 +626,16 @@ AppAsset::register($this);
     jQuery(document).ready(function() {
         setInterval(function () {
 
-            getRandItem('wellcome');
+            getRandItem('img');
         }, 30000);
 
         function getRandItem(block) {
             jQuery.ajax({
                 type: "GET",
-                url: "/item/rand-img-src/",
+                url: "/item/rand-img-item/",
                 success: function(html){
+                    jQuery("#" + block).html(html).hide().show(1500);
+                    /*
                     var img = new Image();
 
                     img.onload = function() {
@@ -646,6 +651,8 @@ AppAsset::register($this);
 
                     };
                     img.src = html;
+                    */
+
 
                 }
 
@@ -660,7 +667,7 @@ AppAsset::register($this);
             type: "GET",
             url: "/item/rand-img-item/",
             success: function(html){
-                jQuery("#wellcome").html(html).hide().show(1500);
+                jQuery("#rand_img").html(html).hide().show(1500);
                 jQuery('#img_rand').animate({
                     'height': 300,
                     'borderBottomWidth': '0px'
