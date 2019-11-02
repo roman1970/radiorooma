@@ -26,7 +26,7 @@
         background-color: rgba(119, 118, 103, 0.5);
     }
     */
-     */
+
 </style>
 <div class="image-container">
 <img src='<?=
@@ -37,3 +37,4 @@ $img->img
      id="img_rand"
      class="pic css-adaptive"/>
 </div>
+<p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>

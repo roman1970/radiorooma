@@ -297,7 +297,8 @@ AppAsset::register($this);
     }
 
     .active-button {
-        background-color: rgb(86, 186, 89);
+        background-color: rgb(255, 131, 96);
+        /*background-color: rgb(86, 186, 89);*/
     }
 
 
@@ -618,7 +619,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>
+
     </div>
 </footer>
 
