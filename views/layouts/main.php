@@ -199,7 +199,7 @@ AppAsset::register($this);
     }
     /****** Line 1 *******/
     #l1.line{
-        height: 43px;
+        height: 38px;
         background: #2e2e2e;
         margin-top: 10px;
     }
