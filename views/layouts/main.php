@@ -199,7 +199,7 @@ AppAsset::register($this);
     }
     /****** Line 1 *******/
     #l1.line{
-        height: 50px;
+        height: 43px;
         background: #2e2e2e;
         margin-top: 10px;
     }
@@ -374,6 +374,10 @@ AppAsset::register($this);
         display: none;
     }
 
+    #img{
+        text-align: center;
+    }
+
     @-webkit-keyframes l3_animation {
         0%    {color: rgb(189, 217, 233); }
         20%   {color: rgb(139, 173, 196); }
@@ -425,7 +429,7 @@ AppAsset::register($this);
         }
 
         #l3.line {
-             height: 55px;
+             height: 43px;
          }
          #l3.line .line_text{
              font-size:13px;
@@ -467,7 +471,7 @@ AppAsset::register($this);
             padding-top: 62%;
         }
         #Panel {
-            top: 83px;
+            top: 20%;
             left: 11%;
         }
         .on_button {
@@ -524,7 +528,7 @@ AppAsset::register($this);
             display: none;
         }
         h4 {
-            font-size: 15px;
+            font-size: 13px;
         }
 
     }
@@ -599,9 +603,7 @@ AppAsset::register($this);
                     </div>
                     <div class="line_cover" ></div>
                 </div>
-                <div id="img">
-
-                </div>
+                <div id="img"></div>
                 <audio id="au"  autoplay ></audio>
 
             </div>
