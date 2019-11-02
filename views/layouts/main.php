@@ -471,7 +471,7 @@ AppAsset::register($this);
             padding-top: 62%;
         }
         #Panel {
-            top: 20%;
+            top: 40px;
             left: 11%;
         }
         .on_button {
@@ -494,7 +494,7 @@ AppAsset::register($this);
             padding-top: 60%;
         }
         #Panel {
-            top: 20%;
+            top: 40px;
             left: 11%;
         }
         .on_button {
@@ -749,8 +749,22 @@ AppAsset::register($this);
 
 
         au.onerror = function () {
+            au.src = 'http://88.212.253.193:8000/test';
+            jQuery.ajax({
+                type: "GET",
+                //url: "site/show-current-radio-tracks-test/",
+                url: '<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>',
+                //url: 'http://37.192.187.83:10033/rockncontroll/datas/show-current-radio-tracks-test/',
+                success: function(html){
+                    console.log(html);
+                    jQuery("#radio_test").html(html);
+                }
+
+            });
+            /*
             var gone = document.getElementById('gone');
             gone.innerHTML = 'Извините, пошёл спать!';
+            */
         };
 
 
