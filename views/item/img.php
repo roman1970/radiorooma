@@ -30,8 +30,8 @@
 </style>
 <div class="image-container">
 <img src='<?=
-//\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
-$img->img
+\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
+//$img->img
 ?>'
      style="max-width: 100%;"
      id="img_rand"
@@ -48,7 +48,7 @@ $img->img
         console.log(mag_img_h);
 
         if(window_h<mag_img_h)
-            jQuery('#img_rand').css({'height' : (window_h-mag_height) });
+            jQuery('#img_rand').css({'height' : (window_h-mag_height-100) });
     })();
 
 </script>
