@@ -39,12 +39,12 @@ $img->img
 </div>
 <p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>
 <script>
-    console.log(jQuery(window).height());
-    console.log(jQuery('#magnitola').height());
+    let window_h = jQuery(window).height();
+    let mag_img_h = jQuery('#magnitola').height();
     let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
-    //console.log(mag_height);
+    console.log(mag_img_h);
 
-    if(jQuery(window).height()<jQuery('#magnitola').height())
+    if(window_h<mag_img_h)
         jQuery('#img_rand').css({'height' : (jQuery(window).height()-mag_height-200) });
 
 </script>
