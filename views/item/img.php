@@ -30,8 +30,8 @@
 </style>
 <div class="image-container">
 <img src='<?=
-\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
-//$img->img
+//\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
+$img->img
 ?>'
      style="max-width: 100%;"
      id="img_rand"
