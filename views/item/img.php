@@ -30,8 +30,8 @@
 </style>
 <div class="image-container">
 <img src='<?=
-//\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
-$img->img
+\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
+//$img->img
 ?>'
      style="max-width: 100%;"
      id="img_rand"
@@ -39,6 +39,12 @@ $img->img
 </div>
 <p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>
 <script>
+    console.log(jQuery(window).height());
+    console.log(jQuery('#magnitola').height());
+    let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
+    console.log(mag_height);
+
     if(jQuery(window).height()<jQuery('#magnitola').height())
-        jQuery('#img_rand').css({'height' : jQuery(window).height()-10});
+        jQuery('#img_rand').css({'height' : (jQuery(window).height()-mag_height-100) });
+
 </script>

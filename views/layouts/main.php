@@ -691,7 +691,7 @@ AppAsset::register($this);
                 <div class="line" id="l1">
                     <div class="line_text" id="radio_test">РАДИО 'КОМНАТА С МЕХОМ' +18</div>
                 </div>
-                <div class="latvia">
+                <div class="latvia" id="lt">
                     <p class="text-center" >
                        <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img">
                     </p>
