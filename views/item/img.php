@@ -38,3 +38,7 @@ $img->img
      class="pic css-adaptive"/>
 </div>
 <p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>
+<script>
+    if(jQuery(window).height()<jQuery('#magnitola').height())
+        jQuery('#img_rand').css({'height' : jQuery(window).height()-10});
+</script>

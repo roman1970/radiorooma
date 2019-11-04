@@ -765,9 +765,7 @@ AppAsset::register($this);
                         .hide()
                         //.css({'height' : 100})
                         .show(1500);
-                    let max_height_for_img = jQuery(window).height()-jQuery('#magnitola').height();
-                    if(max_height_for_img<jQuery('#img_rand').height())
-                        jQuery('#img_rand').css({'height' : jQuery(window).height()-jQuery('#magnitola').height()});
+
                     /*
                     var img = new Image();
 
