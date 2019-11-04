@@ -319,7 +319,7 @@ AppAsset::register($this);
     /*регулятор громкости*****/
     #Panel{
         position: absolute;
-        top: 130px;
+        top: 125px;
         left: 10%;
     }
     #Container
@@ -340,6 +340,34 @@ AppAsset::register($this);
         visibility: hidden;
     }
     #Text{
+        position: absolute;
+        top: 20px;
+        left: 22px;
+        color: rgb(0, 0, 0);
+    }
+    #Panel2{
+        position: absolute;
+        top: 125px;
+        left: 85%;
+    }
+    #Container2
+    {
+        position: relative;
+        background-image: url(<?=\yii\helpers\Url::to('/img/rheostat.png')?>);
+        width: 64px;
+        height: 64px;
+
+    }
+
+    #Indicator2
+    {
+        position: absolute;
+        background-image: url(<?=\yii\helpers\Url::to('/img/indicator.png')?>);
+        width: 4px;
+        height: 4px;
+        visibility: hidden;
+    }
+    #Text2{
         position: absolute;
         top: 20px;
         left: 22px;
@@ -371,10 +399,6 @@ AppAsset::register($this);
         margin-left: 27%;
     }
 
-    #Panel2{
-        display: none;
-    }
-
     #img{
         text-align: center;
     }
@@ -402,13 +426,42 @@ AppAsset::register($this);
         }
         #Panel{
             position: absolute;
-            top: 90px;
+            top: 125px;
             left: 11%;
+        }
+        #Panel2{
+            position: absolute;
+            top: 125px;
+            left: 86%;
+        }
+    }
+
+    @media(min-width:700px) and (max-width:991px) {
+
+        #Panel {
+            top: 75px;
+            left: 11%;
+        }
+
+        #Text {
+            top: 13px;
+            left: 11px;
+
+        }
+        #Panel2 {
+            top: 75px;
+            left: 84%;
+        }
+
+        #Text2 {
+            top: 13px;
+            left: 11px;
+
         }
     }
 
 
-    @media(min-width:220px) and (max-width:991px) {
+    @media(min-width:400px) and (max-width:700px) {
         .container .content {
             padding-top: 50%;
             text-align: center;
@@ -449,11 +502,28 @@ AppAsset::register($this);
         }
 
         #Panel {
-            top: 75px;
+            top: 55px;
             left: 11%;
         }
 
         #Text {
+            top: 13px;
+            left: 11px;
+
+        }
+        #Container2 {
+            width: 44px;
+            height: 44px;
+            background-size: 44px 44px;
+            top: 22px;
+        }
+
+        #Panel2 {
+            top: 55px;
+            left: 80%;
+        }
+
+        #Text2 {
             top: 13px;
             left: 11px;
 
@@ -467,14 +537,11 @@ AppAsset::register($this);
         }
 
     }
-    @media(min-width:400px) and (max-width:500px) {
+    @media(min-width:150px) and (max-width:500px) {
         .container .content {
             padding-top: 62%;
         }
-        #Panel {
-            top: 40px;
-            left: 11%;
-        }
+
         .on_button {
             width: 14.5%;
         }
@@ -488,34 +555,16 @@ AppAsset::register($this);
         p {
             margin: 0 0 0px;
         }
+        h4 {
+            font-size: 13px;
+        }
 
-    }
-    @media(min-width:200px) and (max-width:400px) {
-        .container .content {
-            padding-top: 60%;
-        }
-        #Panel {
-            top: 40px;
-            left: 11%;
-        }
-        .on_button {
-            width: 14.5%;
-        }
-        #buttons{
-            display: block;
-            margin-left: 7%;
-        }
-        #l1.line .line_text {
-            font-size: 15px;
-        }
-        p {
-            margin: 0 0 0px;
-        }
 
     }
 
 
-    @media(min-width:220px) and (max-width:767px){
+
+    @media(min-width:150px) and (max-width:400px){
 
         #play{
             display: block;
@@ -530,6 +579,73 @@ AppAsset::register($this);
         }
         h4 {
             font-size: 13px;
+        }
+
+        .container .content {
+            padding-top: 50%;
+            text-align: center;
+        }
+
+        .latvia {
+            width: 100%;
+            background-size: 100%;
+            /*height: 170px;*/
+        }
+
+        /*.container .content{
+            padding-top: 60%;
+            text-align: center;
+        }
+        */
+        .bard_img {
+            width: 30%;
+        }
+
+        #l3.line {
+            height: 43px;
+        }
+        #l3.line .line_text{
+            font-size:13px;
+
+        }
+
+        .bard_img {
+            padding-top: 0;
+        }
+
+        #Container {
+            width: 44px;
+            height: 44px;
+            background-size: 44px 44px;
+            top: 22px;
+        }
+
+        #Panel {
+            top: 50px;
+            left: 11%;
+        }
+
+        #Text {
+            top: 13px;
+            left: 11px;
+
+        }
+        #Container2 {
+            width: 44px;
+            height: 44px;
+            background-size: 44px 44px;
+            top: 22px;
+        }
+
+        #Panel2 {
+            top: 50px;
+            left: 80%;
+        }
+
+        #Text2 {
+            top: 13px;
+            left: 11px;
+
         }
 
     }
@@ -573,7 +689,7 @@ AppAsset::register($this);
         <div class="row row-offcanvas row-offcanvas-right ">
             <div class="navbar-fixed-top container" id="magnitola">
                 <div class="line" id="l1">
-                    <div class="line_text" id="radio_test">РАДИО 'КОМНАТА С МЕХОМ'</div>
+                    <div class="line_text" id="radio_test">РАДИО 'КОМНАТА С МЕХОМ' +18</div>
                 </div>
                 <div class="latvia">
                     <p class="text-center" >
@@ -583,6 +699,13 @@ AppAsset::register($this);
                         <div id="Container">
                             <span id="Text">80%</span>
                             <div id="Indicator" style="left: 57px; top: 28px; visibility: visible; zoom: 1; opacity: 1;">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Panel2">
+                        <div id="Container2">
+                            <span id="Text2">18+</span>
+                            <div id="Indicator2" style="left: 57px; top: 28px; visibility: visible; zoom: 1; opacity: 1;">
                             </div>
                         </div>
                     </div>
@@ -637,7 +760,14 @@ AppAsset::register($this);
                 type: "GET",
                 url: "/item/rand-img-item/",
                 success: function(html){
-                    jQuery("#" + block).html(html).hide().show(1500);
+                    jQuery("#" + block)
+                        .html(html)
+                        .hide()
+                        //.css({'height' : 100})
+                        .show(1500);
+                    let max_height_for_img = jQuery(window).height()-jQuery('#magnitola').height();
+                    if(max_height_for_img<jQuery('#img_rand').height())
+                        jQuery('#img_rand').css({'height' : jQuery(window).height()-jQuery('#magnitola').height()});
                     /*
                     var img = new Image();
 
