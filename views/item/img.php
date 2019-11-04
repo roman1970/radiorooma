@@ -42,9 +42,9 @@ $img->img
     console.log(jQuery(window).height());
     console.log(jQuery('#magnitola').height());
     let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
-    console.log(mag_height);
+    //console.log(mag_height);
 
     if(jQuery(window).height()<jQuery('#magnitola').height())
-        jQuery('#img_rand').css({'height' : (jQuery(window).height()-mag_height-100) });
+        jQuery('#img_rand').css({'height' : (jQuery(window).height()-mag_height-200) });
 
 </script>
