@@ -40,7 +40,7 @@ $img->img
 <p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>
 <script>
 
-    (function () {
+    $(document).ready(function()  {
         let window_h = jQuery(document).height();
         let mag_img_h = jQuery('#magnitola').height();
         let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
