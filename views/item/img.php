@@ -43,8 +43,9 @@ $img->img
         let window_h = jQuery(document).height();
         let mag_img_h = jQuery('#magnitola').height();
         let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
-        console.log(window_h);
+        /*console.log(window_h);
         console.log(mag_img_h);
+        */
 
         makeSmallerHeightBlockIfBiggerThanWindow(window_h, mag_img_h, mag_height);
 
