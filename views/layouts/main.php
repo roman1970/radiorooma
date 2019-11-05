@@ -1298,6 +1298,11 @@ AppAsset::register($this);
         });
     });
 
+    function makeSmallerHeightBlockIfBiggerThanWindow(window_height, block_height, mag_height) {
+        if(window_height < block_height)
+            jQuery('#img_rand').css({'height' : (window_height-mag_height-100) });
+    }
+
 
     //]]
 </script>

@@ -30,8 +30,8 @@
 </style>
 <div class="image-container">
 <img src='<?=
-//\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
-$img->img
+\yii\helpers\Url::to('/img/poossusuddnnii-sshhkaff-s-knniiigigmaai_1559727712.jpg')
+//$img->img
 ?>'
      style="max-width: 100%;"
      id="img_rand"
@@ -46,9 +46,6 @@ $img->img
         console.log(window_h);
         console.log(mag_img_h);
 
-        if(window_h<mag_img_h)
-            jQuery('#img_rand').css({'height' : (window_h-mag_height-100) });
-
-        console.log(window_h-mag_height-100);
+        makeSmallerHeightBlockIfBiggerThanWindow(window_h, mag_img_h, mag_height);
 
 </script>
