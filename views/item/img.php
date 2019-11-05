@@ -40,7 +40,6 @@ $img->img
 <p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>
 <script>
 
-    $(document).ready(function()  {
         let window_h = jQuery(document).height();
         let mag_img_h = jQuery('#magnitola').height();
         let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
@@ -51,6 +50,5 @@ $img->img
             jQuery('#img_rand').css({'height' : (window_h-mag_height-100) });
 
         console.log(window_h-mag_height-100);
-    })();
 
 </script>
