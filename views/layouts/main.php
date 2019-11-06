@@ -401,7 +401,7 @@ AppAsset::register($this);
 
     #img{
         text-align: center;
-        height: 400px;
+        height: 380px;
     }
 
     @-webkit-keyframes l3_animation {
