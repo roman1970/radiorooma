@@ -401,6 +401,7 @@ AppAsset::register($this);
 
     #img{
         text-align: center;
+        height: 400px;
     }
 
     @-webkit-keyframes l3_animation {
@@ -766,13 +767,17 @@ AppAsset::register($this);
                         //.css({'height' : 100})
                         .show(1500);
                     let window_h = jQuery(document).height();
-                    let mag_img_h = jQuery('#magnitola').height();
-                    let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
+                    jQuery('#magnitola').height(400);
+                    /*let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
                     /*console.log(window_h);
                     console.log(mag_img_h);
-                    */
+                        $("#list2 .item").height(function(i,val){
+                           return val+10;
+                          });
 
-                    makeSmallerHeightBlockIfBiggerThanWindow(window_h, mag_img_h, mag_height);
+
+
+                    makeSmallerHeightBlockIfBiggerThanWindow(window_h, mag_img_h, mag_height);*/
 
 
                     /*
