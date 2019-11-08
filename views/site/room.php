@@ -47,6 +47,10 @@
         border-color: rgb(100, 107, 124);
         background: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgb(100, 107, 124)), to(rgb(0, 0, 20)));
     }
+    #text{
+        max-height: 70px;
+        overflow: hidden;
+    }
 </style>
 <audio id="bard" ></audio>
 <div class="container" style="text-align: center">
@@ -64,7 +68,9 @@
     </audio>
     <?php endif; ?>
     <?php if($item->cat_id != 22) : ?>
-        <p><?=nl2br($item->text)?></p>
+        <p id="text"><?=nl2br($item->text)?></p>
+        <a class="content_toggle" href="#">Полный текст</a><br>
+
         <img src="<?=$pic->img ?>" class="pic"/>
     <?php else: ?>
         <p>Из коллекции Романа Беляшова</p>
@@ -74,7 +80,7 @@
         <audio controls controlsList="nodownload" autoplay id="hidden_audio">
             <source src="/uploads/<?=$kvn->audio?>">
         </audio>
-        <p><?=nl2br($kvn->text)?></p>
+        <p id="text2"><?=nl2br($kvn->text)?></p>
 
     <?php endif; ?>
     <h3>
@@ -128,5 +134,14 @@
     function onRadiorooma(){
         window.location.href = 'http://radiorooma.ru';
     }
+
+    $(".content_toggle").click(function(){
+        $('#text').slideDown(300, function(){
+            $(this).css({"display":"block", "max-height":"none"});
+            $('.content_toggle').hide();
+        });
+
+        return false;
+    });
 
 </script>
