@@ -68,7 +68,7 @@
     </audio>
     <?php endif; ?>
     <?php if($item->cat_id != 22) : ?>
-        <p id="text"><?=nl2br($item->text)?></p>
+        <div id="text"><?=nl2br($item->text)?></div>
         <a class="content_toggle" href="#">Полный текст</a><br>
 
         <img src="<?=$pic->img ?>" class="pic"/>
