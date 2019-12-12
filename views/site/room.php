@@ -48,7 +48,7 @@
         background: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgb(100, 107, 124)), to(rgb(0, 0, 20)));
     }
     #text{
-        max-height: 70px;
+        max-height: 0px;
         overflow: hidden;
     }
 </style>
@@ -69,7 +69,7 @@
     <?php endif; ?>
     <?php if($item->cat_id != 22) : ?>
         <div id="text"><?=nl2br($item->text)?></div>
-        <a class="content_toggle" href="#">Полный текст</a><br>
+        <a class="content_toggle" href="#">Текст</a><br>
 
         <img src="<?=$pic->img ?>" class="pic"/>
     <?php else: ?>
