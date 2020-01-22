@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\CleverAnswer;
 use app\models\RadioItem;
 use app\models\Source;
 use app\models\Theme;
@@ -61,6 +62,13 @@ class ItemController extends Controller
         $item = RadioItem::find()
             ->where(['alias' => $alias])
             ->one();
+
+        if($item->cat_id == 23){
+            $answers = CleverAnswer::find()->where(['item_id' => $item->id])->all();
+            return $this->render('clever',  ['item' => $item, 'ans' => $answers]);
+        }
+
+
 
         $tags = explode(',', $item->tags);
 
@@ -136,6 +144,21 @@ class ItemController extends Controller
         //return $this->render('index', ['item' => $item]);
         //return $this->render('index');
     */
+    }
+
+    public function actionTestAnswer()
+    {
+        if($answer_id = (int)Yii::$app->getRequest()->getQueryParam('answer_id')) {
+            if ($item_id = (int)Yii::$app->getRequest()->getQueryParam('item_id')) {
+                $answer = CleverAnswer::findOne($answer_id);
+                $item = RadioItem::findOne($item_id);
+                if ($answer->right) {
+                    return $this->renderPartial('clever_klar', ['item' => $item, 'resp' => 'Правлиьно']);
+                }
+                return $this->renderPartial('clever_klar', ['item' => $item, 'resp' => 'Не Правлиьно']);
+            } else return 'ошибка';
+        }
+
     }
 
     public function actionItem($id){
