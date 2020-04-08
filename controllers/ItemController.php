@@ -65,6 +65,7 @@ class ItemController extends Controller
 
         if($item->cat_id == 23){
             $answers = CleverAnswer::find()->where(['item_id' => $item->id])->all();
+            shuffle($answers);
             return $this->render('clever',  ['item' => $item, 'ans' => $answers]);
         }
 
@@ -153,9 +154,9 @@ class ItemController extends Controller
                 $answer = CleverAnswer::findOne($answer_id);
                 $item = RadioItem::findOne($item_id);
                 if ($answer->right) {
-                    return $this->renderPartial('clever_klar', ['item' => $item, 'resp' => 'Правлиьно']);
+                    return $this->renderPartial('clever_klar', ['item' => $item, 'resp' => 'Правильно!']);
                 }
-                return $this->renderPartial('clever_klar', ['item' => $item, 'resp' => 'Не Правлиьно']);
+                return $this->renderPartial('clever_klar', ['item' => $item, 'resp' => 'Не Правильно!']);
             } else return 'ошибка';
         }
 

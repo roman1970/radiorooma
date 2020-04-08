@@ -38,7 +38,7 @@
     button p {
         height: 80px;
     }
-    #hidden_audio{
+    #hidden_audio, #radio_player{
         display: none;
     }
 
@@ -63,9 +63,12 @@
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
     <h6 class="anons"><?=$item->anons?></h6>
     <?php if($item->audio) : ?>
-    <audio controls controlsList="nodownload" >
+    <audio controls controlsList="nodownload" id="song_player">
         <source src="/uploads/<?=$item->audio?>">
     </audio>
+        <audio controls controlsList="nodownload" id="radio_player">
+            <source src="http://37.192.187.83:10088/test_mp3">
+        </audio>
     <?php endif; ?>
     <?php if($item->cat_id != 22) : ?>
         <div id="text"><?=nl2br($item->text)?></div>
@@ -96,6 +99,9 @@
 </div>
 <script>
     var hidden_audio = document.getElementById('hidden_audio');
+    var au = document.getElementById('au');
+    //au.src = 'http://88.212.253.193:8000/test';
+    au.src = 'http://37.192.187.83:10088/test_mp3';
 
     $(window).scroll(function () {
         hidden_audio.play();
@@ -132,7 +138,9 @@
     }, 10000);
 
     function onRadiorooma(){
-        window.location.href = 'http://radiorooma.ru';
+        $('#radio_player').hide();
+        au.play();
+        //window.location.href = 'http://radiorooma.ru';
     }
 
     $(".content_toggle").click(function(){
@@ -143,5 +151,28 @@
 
         return false;
     });
+
+    au.onerror = function () {
+        au.src = 'http://88.212.253.193:8000/test';
+        setTimeout(function run() {
+
+            jQuery.ajax({
+                type: "GET",
+                url: '<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>',
+                success: function(html){
+                    jQuery("#radio_test").html(html);
+                }
+
+            });
+
+            setTimeout(run, 10000);
+
+        }, 10000);
+
+        /*
+        var gone = document.getElementById('gone');
+        gone.innerHTML = 'Извините, пошёл спать!';
+        */
+    };
 
 </script>
