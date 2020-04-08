@@ -101,11 +101,13 @@
     <hr style="border: 2px solid rgb(244, 134, 104);">
 </div>
 <script>
+
     var hidden_audio = document.getElementById('hidden_audio');
     var song_player = document.getElementById('song_player');
     var au = document.getElementById('radio_player');
     //au.src = 'http://88.212.253.193:8000/test';
     au.src = 'http://37.192.187.83:10088/test_mp3';
+
 
     $(window).scroll(function () {
         hidden_audio.play();
@@ -142,12 +144,19 @@
     }, 10000);
 
     function stopRadiorooma() {
+        var au = document.getElementById('radio_player');
+        //au.src = 'http://88.212.253.193:8000/test';
+        au.src = 'http://37.192.187.83:10088/test_mp3';
         au.stop();
         $('#song_player').show();
         $('#stop-radiorooma').hide();
     }
 
     function onRadiorooma(){
+        var song_player = document.getElementById('song_player');
+        var au = document.getElementById('radio_player');
+        //au.src = 'http://88.212.253.193:8000/test';
+        au.src = 'http://37.192.187.83:10088/test_mp3';
         song_player.stop();
         $('#song_player').hide();
         $('#stop-radiorooma').show();
