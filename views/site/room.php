@@ -39,7 +39,7 @@
     }
     .css-adaptive {
         max-width: 100%;
-        height: 200px;
+        height: 300px;
         padding: 10px;
     }
     p{
@@ -103,8 +103,8 @@
     <button type="submit" class="btn-success" onclick="onRadiorooma()" id="radiorooma" style="height: 95px;">
         <p style="font-size: 35px;">Комната с Мехом</p>
     </button>
-    <button type="submit" class="btn-success glyphicon glyphicon-pause" onclick="stopRadiorooma()" id="stop-radiorooma" style="height: 95px;display: none">
-        <p style="font-size: 35px;">Вырубить</p>
+    <button type="submit" class="btn-success glyphicon glyphicon-pause" onclick="stopRadiorooma()" id="stop-radiorooma" style="height: 45px;display: none">
+        <p style="font-size: 35px;"></p>
     </button>
 
     <hr style="border: 2px solid rgb(244, 134, 104);">
@@ -166,9 +166,9 @@
         var song_player = document.getElementById('song_player');
         var au = document.getElementById('radio_player');
         //au.src = 'http://88.212.253.193:8000/test';
-        au.src = 'http://37.192.187.83:10088/test_mp3';
-        song_player.pause();
-        song_player.currentTime = 0;
+        if(au)au.src = 'http://37.192.187.83:10088/test_mp3';
+        if(song_player)song_player.pause();
+        if(song_player)song_player.currentTime = 0;
         $('#song_player').hide();
         $('#stop-radiorooma').show();
         au.play();
