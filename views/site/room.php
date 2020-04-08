@@ -94,7 +94,7 @@
     <button type="submit" class="btn-success" onclick="onRadiorooma()" id="radiorooma" style="height: 95px;">
         <p style="font-size: 35px;">Комната с Мехом</p>
     </button>
-    <button type="submit" class="btn-success" onclick="stopRadiorooma()" id="stop-radiorooma" style="height: 95px;">
+    <button type="submit" class="btn-success glyphicon glyphicon-pause" onclick="stopRadiorooma()" id="stop-radiorooma" style="height: 95px;display: none">
         <p style="font-size: 35px;">Вырубить</p>
     </button>
 
@@ -158,7 +158,8 @@
         var au = document.getElementById('radio_player');
         //au.src = 'http://88.212.253.193:8000/test';
         au.src = 'http://37.192.187.83:10088/test_mp3';
-        //song_player.stop();
+        song_player.pause();
+        song_player.currentTime = 0;
         $('#song_player').hide();
         $('#stop-radiorooma').show();
         au.play();
