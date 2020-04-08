@@ -147,7 +147,8 @@
         var au = document.getElementById('radio_player');
         //au.src = 'http://88.212.253.193:8000/test';
         au.src = 'http://37.192.187.83:10088/test_mp3';
-        au.stop();
+        au.pause();
+        au.currentTime = 0;
         $('#song_player').show();
         $('#stop-radiorooma').hide();
     }
