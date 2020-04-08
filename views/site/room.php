@@ -6,9 +6,7 @@
  */
 ?>
 <style>
-    .pic{
-        width: 80%;
-    }
+
     h2{
         margin: 0;
     }
@@ -30,8 +28,19 @@
         text-decoration: none;
     }
     .pic{
+        height: 80%;
         border-radius: 25px;
-        height: 300px;
+        max-height: 80%;
+        max-width: 100%;
+        background-color: rgba(84, 84, 84, 0.2);
+        opacity: 0.7;
+        /**/
+
+    }
+    .css-adaptive {
+        max-width: 100%;
+        height: 200px;
+        padding: 10px;
     }
     p{
         font-size: 16px;
@@ -75,10 +84,10 @@
         <div id="text"><?=nl2br($item->text)?></div>
         <a class="content_toggle" href="#">Текст</a><br>
 
-        <img src="<?=$pic->img ?>" class="pic"/>
+        <img src="<?=$pic->img ?>" class="pic css-adaptive"/>
     <?php else: ?>
         <p>Из коллекции Романа Беляшова</p>
-        <img src="<?=$item->img ?>" class="pic"/>
+        <img src="<?=$item->img ?>" class="pic css-adaptive"/>
         <h5><p class="cat"><?=$kvn->cat->name?></p></h5>
         <h6 class="anons"><?=$kvn->anons?></h6>
         <audio controls controlsList="nodownload" autoplay id="hidden_audio">
@@ -88,9 +97,8 @@
 
     <?php endif; ?>
     <h3>
-        <a href="http://radiorooma.ru"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
+        <i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
             Сейчас на Радио<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
-        </a>
     </h3>
     <button type="submit" class="btn-success" onclick="onRadiorooma()" id="radiorooma" style="height: 95px;">
         <p style="font-size: 35px;">Комната с Мехом</p>
