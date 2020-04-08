@@ -31,6 +31,7 @@
     }
     .pic{
         border-radius: 25px;
+        height: 300px;
     }
     p{
         font-size: 16px;
@@ -110,20 +111,20 @@
 
 
     $(window).scroll(function () {
-        hidden_audio.play();
+        if(hidden_audio) hidden_audio.play();
     });
     $(window).bind('touchmove', function(e) {
-        hidden_audio.play();
+        if(hidden_audio) hidden_audio.play();
     });
     $(window).bind('touchend', function(e) {
-        hidden_audio.play();
+        if(hidden_audio) hidden_audio.play();
     });
     $(window).bind('mouseup', function(e) {
-        hidden_audio.play();
+        if(hidden_audio) hidden_audio.play();
     });
     $('body').on({
         'touchmove': function(e) {
-            hidden_audio.play();
+            if(hidden_audio) hidden_audio.play();
         }
     });
 
