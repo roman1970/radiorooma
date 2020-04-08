@@ -99,7 +99,7 @@
 </div>
 <script>
     var hidden_audio = document.getElementById('hidden_audio');
-    var au = document.getElementById('au');
+    var au = document.getElementById('radio_player');
     //au.src = 'http://88.212.253.193:8000/test';
     au.src = 'http://37.192.187.83:10088/test_mp3';
 
@@ -138,7 +138,7 @@
     }, 10000);
 
     function onRadiorooma(){
-        $('#radio_player').hide();
+        $('#song_player').hide();
         au.play();
         //window.location.href = 'http://radiorooma.ru';
     }
