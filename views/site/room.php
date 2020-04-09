@@ -118,6 +118,7 @@
     if(au)au.src = 'http://37.192.187.83:10088/test_mp3';
 
 
+    /*
     $(window).scroll(function () {
         if(hidden_audio) hidden_audio.play();
     });
@@ -135,6 +136,8 @@
             if(hidden_audio) hidden_audio.play();
         }
     });
+    */
+
 
     function playPrase()
     {
