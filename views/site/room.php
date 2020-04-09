@@ -72,13 +72,13 @@
 
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
     <h6 class="anons"><?=$item->anons?></h6>
+    <audio controls controlsList="nodownload" id="radio_player">
+        <source src="http://37.192.187.83:10088/test_mp3">
+    </audio>
     <?php if($item->audio) : ?>
     <audio controls controlsList="nodownload" id="song_player">
         <source src="/uploads/<?=$item->audio?>">
     </audio>
-        <audio controls controlsList="nodownload" id="radio_player">
-            <source src="http://37.192.187.83:10088/test_mp3">
-        </audio>
     <?php endif; ?>
     <?php if($item->cat_id != 22) : ?>
         <div id="text"><?=nl2br($item->text)?></div>
