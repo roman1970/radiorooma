@@ -87,7 +87,7 @@
         <img src="<?=$pic->img ?>" class="pic css-adaptive"/>
     <?php else: ?>
         <p>Из коллекции Романа Беляшова</p>
-        <img src="<?=$item->img ?>" class="pic css-adaptive"/>
+        <img src="<?=$item->img ?>" class="pic css-adaptive" id="from_pics" onclick="playPrase()"/>
         <h5><p class="cat"><?=$kvn->cat->name?></p></h5>
         <h6 class="anons"><?=$kvn->anons?></h6>
         <audio controls controlsList="nodownload" autoplay id="hidden_audio">
@@ -136,6 +136,12 @@
         }
     });
 
+    function playPrase()
+    {
+        var hidden_audio = document.getElementById('hidden_audio');
+        if(hidden_audio) hidden_audio.play();
+    }
+
     setTimeout(function run() {
         $.ajax({
             type: "GET",
@@ -160,6 +166,7 @@
         au.currentTime = 0;
         $('#song_player').show();
         $('#stop-radiorooma').hide();
+        if(hidden_audio) hidden_audio.play();
     }
 
     function onRadiorooma(){
@@ -184,7 +191,7 @@
         return false;
     });
 
-    au.onerror = function () {
+    if(au)au.onerror = function () {
         au.src = 'http://88.212.253.193:8000/test';
         setTimeout(function run() {
 
