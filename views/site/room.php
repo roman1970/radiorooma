@@ -28,10 +28,11 @@
         text-decoration: none;
     }
     .pic{
-        height: 80%;
+        /*height: 80%;*/
         border-radius: 25px;
+        /*
         max-height: 80%;
-        max-width: 100%;
+        max-width: 100%;*/
         background-color: rgba(84, 84, 84, 0.2);
         opacity: 0.7;
         /**/
@@ -39,7 +40,7 @@
     }
     .css-adaptive {
         max-width: 100%;
-        height: 300px;
+        /*height: 300px;*/
         padding: 10px;
     }
     p{
@@ -181,6 +182,11 @@
         if(song_player)song_player.currentTime = 0;
         $('#song_player').hide();
         $('#stop-radiorooma').show();
+        var hidden_audio = document.getElementById('hidden_audio');
+        if(hidden_audio) {
+            hidden_audio.pause();
+            hidden_audio.currentTime = 0;
+        }
         au.play();
         //window.location.href = 'http://radiorooma.ru';
     }
