@@ -112,11 +112,11 @@
 </div>
 <script>
 
-    var hidden_audio = document.getElementById('hidden_audio');
-    var song_player = document.getElementById('song_player');
-    var au = document.getElementById('radio_player');
+    //var hidden_audio = document.getElementById('hidden_audio');
+    //var song_player = document.getElementById('song_player');
+    //var au = document.getElementById('radio_player');
     //au.src = 'http://88.212.253.193:8000/test';
-    if(au)au.src = 'http://37.192.187.83:10088/test_mp3';
+    //if(au)au.src = 'http://37.192.187.83:10088/test_mp3';
 
 
     /*
