@@ -1,9 +1,12 @@
 
 <head>
-    <meta property="og:type" content="music.song"/>
-    <meta property="og:title" content="<?=$item->title?>">
-    <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=$item->alias?>.html">
+
+
     <meta property="og:description" name="description" content="<?=$item->anons?>">
-    <meta property="og:image" content="http://static.noravbo.ru/<?=$pic->img ?>">
-    <meta property="og:audio" content="http://radiorooma.noravbo.ru/uploads/<?=$item->audio?>" />
+
+
+    <meta property="og:title" content="<?=$item->title?>"/>
+    <meta property="og:type" content="music.song"/>
+    <meta property="og:url" content="http://radiorooma.noravbo.ru/uploads/<?=$item->audio?>"/>
+    <meta property="og:image" content="http://static.noravbo.ru/<?=$pic->img ?>"/>
 </head>
