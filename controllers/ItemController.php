@@ -100,7 +100,7 @@ class ItemController extends Controller
 
         $pic = $pics[rand(0,count($pics)-1)];
 
-        return $this->render('/site/room', [
+        return $this->renderPartial('/site/room', [
             'item' => $item,
             'pic' => $pic,
             'kvn' => $kvn
