@@ -63,6 +63,11 @@
         overflow: hidden;
     }
 </style>
+<meta property="og:title" content="<?=$item->title?>">
+<meta property="og:image" content="<?=$item->img ?>">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pr-cy.ru/news/p/7463-kak-nastroit-redirekt-samostoyatelno">
+
 <audio id="bard" ></audio>
 <div class="container" style="text-align: center">
     <hr style="border: 2px solid rgb(244, 134, 104);">
