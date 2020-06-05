@@ -63,10 +63,13 @@
         overflow: hidden;
     }
 </style>
-<meta property="og:title" content="<?=$item->title?>">
-<meta property="og:image" content="<?=$item->img ?>">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://pr-cy.ru/news/p/7463-kak-nastroit-redirekt-samostoyatelno">
+<figure>
+    <figcaption><?=$item->title?>:</figcaption>
+    <audio
+            controls
+            src="/uploads/<?=$item->audio?>">
+    </audio>
+</figure>
 
 <audio id="bard" ></audio>
 <div class="container" style="text-align: center">
