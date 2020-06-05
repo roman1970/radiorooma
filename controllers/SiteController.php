@@ -93,8 +93,7 @@ class SiteController extends Controller
             ['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item, 'img' => $img]);
 
     }
-    
-  
+
     /**
      * Login action.
      *

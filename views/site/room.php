@@ -63,7 +63,6 @@
         overflow: hidden;
     }
 </style>
-<meta itemprop="image" content="<?=$item->img ?>">
 
 <audio id="bard" ></audio>
 <div class="container" style="text-align: center">
