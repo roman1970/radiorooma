@@ -46,6 +46,100 @@ class ItemController extends Controller
         ];
     }
 
+    public function actionR($alias='')
+    {
+        //return var_dump($alias);
+        /**
+         * @var $item RadioItem
+         * @var $item_tags array
+         */
+        $item = RadioItem::find()
+            ->where(['alias' => $alias])
+            ->one();
+
+        if($item->cat_id == 23){
+            $answers = CleverAnswer::find()->where(['item_id' => $item->id])->all();
+            shuffle($answers);
+            return $this->render('clever',  ['item' => $item, 'ans' => $answers]);
+        }
+
+        $tags = explode(',', $item->tags);
+
+
+        $random_tag = trim($tags[rand(0,count($tags)-1)]);
+        //var_dump($random_tag); exit;
+
+
+        $kvns_films = RadioItem::find()
+            ->where('cat_id = 13 or cat_id = 17')
+            ->andWhere("tags LIKE '%$random_tag%'")
+            ->all();
+        if(!$kvns_films)
+            $kvns_films = RadioItem::find()
+                ->where('cat_id = 13 or cat_id = 17')
+                ->all();
+        /*
+        $query = RadioItem::find()
+            ->where('cat_id = 13 or cat_id = 17')
+            ->andWhere("tags LIKE '%$random_tag%'");
+
+        var_dump($query->prepare(Yii::$app->db->queryBuilder)->createCommand()->rawSql); exit;
+        */
+
+        $kvn = $kvns_films[rand(0,count($kvns_films)-1)];
+
+        $pics = RadioItem::find()->where('cat_id = 22')->all();
+
+        $pic = $pics[rand(0,count($pics)-1)];
+
+        return $this->render('/site/room', [
+            'item' => $item,
+            'pic' => $pic,
+            'kvn' => $kvn
+            //'referrer' => $referrer,
+            //'url' => $home_url
+        ]);
+
+        /*
+
+        if(Yii::$app->request->referrer == Url::home(true) ||  strstr(Yii::$app->request->referrer, Url::home(true).'item')) {
+            return $this->renderPartial('/site/room', [
+                'item' => $item,
+                //'referrer' => $referrer,
+                //'url' => $home_url
+            ]);
+        }
+
+        else{
+            $theme_items = [];
+            $cats = Category::find()->all();
+            // $items = RadioItem::find()->all();
+            $themes = Theme::find()->all();
+
+            foreach ($themes as $theme) {
+                $theme_items[$theme->title] = ThemeItems::find()->where(['theme_id' => $theme->id])->all();
+            }
+
+            //shuffle($theme_items);
+            //return var_dump($theme_items);
+            // echo Yii::$app->request->referrer; exit;
+            /*if(Yii::$app->request->referrer != Url::home(true)) {
+                return $this->renderPartial('index', ['cats' => $cats, 'theme_items' => $theme_items]);
+            }
+            else{
+            return $this->render('/site/index', ['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item,]);
+            //  }
+
+        }
+
+        //return $this->redirect(Url::toRoute('/'));
+
+        //return $this->render('index', ['item' => $item]);
+        //return $this->render('index');
+    */
+    }
+
+
 
     /**
      * Displays homepage.
@@ -68,8 +162,6 @@ class ItemController extends Controller
             shuffle($answers);
             return $this->render('clever',  ['item' => $item, 'ans' => $answers]);
         }
-
-
 
         $tags = explode(',', $item->tags);
 

@@ -74,6 +74,11 @@ $config = [
                     'route' => 'item/index',
                     'suffix' => '.html',
                 ],
+                [
+                    'pattern'=>'r/<alias>',
+                    'route' => 'item/r',
+                    'suffix' => '.html',
+                ],
                 //'<alias>' => 'item/index',
 
                 '<controller:\w+>/<id:\d+>'   => '<controller>/index',
