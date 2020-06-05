@@ -63,13 +63,17 @@
         overflow: hidden;
     }
 </style>
-<figure>
-    <figcaption><?=$item->title?>:</figcaption>
-    <audio
-            controls
-            src="/uploads/<?=$item->audio?>">
-    </audio>
-</figure>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "AudioObject",
+        "contentUrl": "/uploads/<?=$item->audio?>",
+        "description": "<?=$item->anons?>",
+        "duration": "T0M15S",
+        "encodingFormat": "audio/mpeg",
+        "name": "<?=$item->title?>"
+    }
+</script>
 
 <audio id="bard" ></audio>
 <div class="container" style="text-align: center">
