@@ -57,8 +57,20 @@
     button p {
         height: 80px;
     }
+    button{
+        width: auto;
+    }
     #hidden_audio, #radio_player{
         display: none;
+    }
+    .btn-default {
+        color: rgb(255, 152, 0);
+        background-color: rgb(120, 61, 23);
+        border-color: rgb(204, 204, 204);
+        width: 30px;
+    }
+    .width-wide{
+        width: 100%;
     }
 
     .btn-success {
@@ -110,15 +122,78 @@
         <i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
             Сейчас на Радио<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
     </h3>
-    <button type="submit" class="btn-success" onclick="onRadiorooma()" id="radiorooma" style="height: 95px;">
+    <button type="submit" class="btn-success width-wide" onclick="onRadiorooma()" id="radiorooma" style="height: 95px;">
         <p style="font-size: 35px;">Комната с Мехом</p>
     </button>
-    <button type="submit" class="btn-success glyphicon glyphicon-pause" onclick="stopRadiorooma()" id="stop-radiorooma" style="height: 45px;display: none">
+    <button type="submit" class="btn-success glyphicon glyphicon-pause width-wide" onclick="stopRadiorooma()" id="stop-radiorooma" style="height: 45px;display: none">
         <p style="font-size: 35px;"></p>
     </button>
 
+
+    <div class="container">
+        <div class="btn-toolbar">
+            <div class="btn-group btn-group-sm">
+                <button class="btn btn-default" onclick="onLetter('A')">A</button>
+                <button class="btn btn-default">B</button>
+                <button class="btn btn-default">C</button>
+                <button class="btn btn-default">D</button>
+                <button class="btn btn-default">E</button>
+                <button class="btn btn-default">F</button>
+                <button class="btn btn-default">G</button>
+                <button class="btn btn-default">H</button>
+                <button class="btn btn-default">I</button>
+                <button class="btn btn-default">J</button>
+                <button class="btn btn-default">K</button>
+                <button class="btn btn-default">L</button>
+                <button class="btn btn-default">M</button>
+                <button class="btn btn-default">N</button>
+                <button class="btn btn-default">O</button>
+                <button class="btn btn-default">P</button>
+                <button class="btn btn-default">Q</button>
+                <button class="btn btn-default">R</button>
+                <button class="btn btn-default">S</button>
+                <button class="btn btn-default">T</button>
+                <button class="btn btn-default">U</button>
+                <button class="btn btn-default">V</button>
+                <button class="btn btn-default">W</button>
+                <button class="btn btn-default">X</button>
+                <button class="btn btn-default">Y</button>
+                <button class="btn btn-default">Z</button>
+                <button class="btn btn-default">А</button>
+                <button class="btn btn-default">Б</button>
+                <button class="btn btn-default">В</button>
+                <button class="btn btn-default">Г</button>
+                <button class="btn btn-default">Д</button>
+                <button class="btn btn-default">Е</button>
+                <button class="btn btn-default">Ж</button>
+                <button class="btn btn-default">З</button>
+                <button class="btn btn-default">И</button>
+                <button class="btn btn-default">К</button>
+                <button class="btn btn-default">Л</button>
+                <button class="btn btn-default">М</button>
+                <button class="btn btn-default">Н</button>
+                <button class="btn btn-default">О</button>
+                <button class="btn btn-default">П</button>
+                <button class="btn btn-default">Р</button>
+                <button class="btn btn-default">С</button>
+                <button class="btn btn-default">Т</button>
+                <button class="btn btn-default">У</button>
+                <button class="btn btn-default">Ф</button>
+                <button class="btn btn-default">Х</button>
+                <button class="btn btn-default">Ч</button>
+                <button class="btn btn-default">Ц</button>
+                <button class="btn btn-default">Ш</button>
+                <button class="btn btn-default">Щ</button>
+                <button class="btn btn-default">Ы</button>
+                <button class="btn btn-default">Э</button>
+                <button class="btn btn-default">Ю</button>
+                <button class="btn btn-default">Я</button>
+            </div>
+        </div>
+    </div>
     <hr style="border: 2px solid rgb(244, 134, 104);">
 </div>
+
 <script>
 
     //var hidden_audio = document.getElementById('hidden_audio');
@@ -198,6 +273,10 @@
         }
         au.play();
         //window.location.href = 'http://radiorooma.ru';
+    }
+
+    function onLetter(letter){
+        alert(letter);
     }
 
     $(".content_toggle").click(function(){

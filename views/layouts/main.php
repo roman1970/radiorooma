@@ -766,7 +766,7 @@ AppAsset::register($this);
                         .hide()
                         //.css({'height' : 100})
                         .show(1500);
-                    let window_h = jQuery(document).height();
+                    var window_h = jQuery(document).height();
                     jQuery('#magnitola').height(400);
                     /*let mag_height = jQuery('#l1').height()+jQuery('#lt').height()+jQuery('#l3').height();
                     /*console.log(window_h);
