@@ -57,14 +57,14 @@ AppAsset::register($this);
 
     <meta name="twitter:image:src" content="<?=\yii\helpers\Url::to('/img/barded2.png')?>">
     <meta name="twitter:site" content="Бард, который перевернул ЗИЛ">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Бард, который перевернул ЗИЛ">
+    <meta name="twitter:card" content="<?= \Yii::$app->params['text'] ?>">
+    <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>">
     <meta name="twitter:description" content="Бард, который перевернул ЗИЛ">
     <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/barded2.png')?>">
-    <meta property="og:site_name" content="GitHub">
+    <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
     <meta property="og:type" content="object">
-    <meta property="og:title" content="shadowhand/latitude">
-    <meta property="og:url" content="https://github.com/shadowhand/latitude">
+    <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
+    <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
     <meta property="og:description" content="Бард, который перевернул ЗИЛ">
 
     <title><?= Html::encode($this->title) ?></title>
@@ -290,6 +290,7 @@ AppAsset::register($this);
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/44873437" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
 
 
 <?= $content ?>
