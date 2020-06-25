@@ -65,7 +65,7 @@ AppAsset::register($this);
     <meta property="og:type" content="object">
     <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
     <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
-    <meta property="og:description" content="Бард, который перевернул ЗИЛ">
+    <meta property="og:description" content=""<?= \Yii::$app->params['text'] ?>"">
 
     <title><?= Html::encode($this->title) ?></title>
 
