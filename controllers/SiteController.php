@@ -94,6 +94,11 @@ class SiteController extends Controller
 
     }
 
+    public function actionLetter()
+    {
+
+    }
+
     /**
      * Login action.
      *

@@ -383,4 +383,23 @@ class HelloController extends Controller
         }
 
     }
+
+    public function actionFillTags()
+    {
+        $res = [];
+        $items = RadioItem::find()->where('cat_id < 22')->all();
+        foreach ($items as $item){
+            $tags = explode(',', $item->tags);
+            foreach ($tags as $tag) {
+                if(!in_array(trim($tag), $res))
+                    // if(!Tag::find('title')->one) $tag = new Tag;
+                    //$new_tag_item = new ItemTagAssoc;
+                    //$new_tag_item->tag_id = $tag->id;
+                    //$new_tag_item->item_id = $item->id;
+                    array_push($res, trim($tag));
+            }
+        }
+        print_r($res);
+        echo count($res);
+    }
 }

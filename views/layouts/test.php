@@ -50,6 +50,23 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
+    <meta name="description" content="Бард, который перевернул ЗИЛ">
+
+    <meta property="fb:app_id" content="1401488693436528">
+    <meta name="apple-itunes-app" content="app-id=1477376905">
+
+    <meta name="twitter:image:src" content="<?=\yii\helpers\Url::to('/img/barded2.png')?>">
+    <meta name="twitter:site" content="Бард, который перевернул ЗИЛ">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Бард, который перевернул ЗИЛ">
+    <meta name="twitter:description" content="Бард, который перевернул ЗИЛ">
+    <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/barded2.png')?>">
+    <meta property="og:site_name" content="GitHub">
+    <meta property="og:type" content="object">
+    <meta property="og:title" content="shadowhand/latitude">
+    <meta property="og:url" content="https://github.com/shadowhand/latitude">
+    <meta property="og:description" content="Бард, который перевернул ЗИЛ">
+
     <title><?= Html::encode($this->title) ?></title>
 
     <?php $this->head() ?>

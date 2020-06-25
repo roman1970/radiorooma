@@ -5,7 +5,7 @@
  * @var \app\models\RadioItem $kvn
  */
 ?>
-<head>
+<head title="<?=$item->title?>">
     <meta property="og:type" content="music.son"/>
     <meta property="og:title" content="<?=$item->title?>">
     <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=$item->alias?>.html">
@@ -131,6 +131,7 @@
 
 
     <div class="container">
+        <span class="title">Словарь БКПЗ</span>
         <div class="btn-toolbar">
             <div class="btn-group btn-group-sm">
                 <button class="btn btn-default" onclick="onLetter('A')">A</button>
