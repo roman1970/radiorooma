@@ -55,12 +55,12 @@ AppAsset::register($this);
     <meta property="fb:app_id" content="1401488693436528">
     <meta name="apple-itunes-app" content="app-id=1477376905">
 
-    <meta name="twitter:image:src" content="<?=\yii\helpers\Url::to('/img/barded2.png')?>">
+    <meta name="twitter:image:src" content="<?= \Yii::$app->params['pic'] ?>">
     <meta name="twitter:site" content="Бард, который перевернул ЗИЛ">
     <meta name="twitter:card" content="<?= \Yii::$app->params['text'] ?>">
     <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>">
     <meta name="twitter:description" content="<?= \Yii::$app->params['text'] ?>">
-    <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/barded2.png')?>">
+    <meta property="og:image" content="<?= \Yii::$app->params['pic'] ?>">
     <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
     <meta property="og:type" content="object">
     <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">

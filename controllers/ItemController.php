@@ -101,6 +101,7 @@ class ItemController extends Controller
         \Yii::$app->params['title'] = $item->title;
         \Yii::$app->params['text'] = $item->text;
         \Yii::$app->params['alias'] = $item->alias;
+        \Yii::$app->params['pic'] = $pic->img;
 
         return $this->render('/site/room', [
             'item' => $item,
