@@ -12,6 +12,14 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
+    <meta property="og:image" content="<?= \Yii::$app->params['pic'] ?>">
+    ​<meta property="og:image:width" content="600" />
+    <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
+    <meta property="og:type" content="audio">
+    <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
+    <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
+    <meta property="og:description" content="<?= \Yii::$app->params['text'].' ('.\Yii::$app->params['cat'].')' ?>">
+    <meta property="og:audio" content="<?= \Yii::$app->params['audio'] ?>">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80881607-1"></script>
     <script>
@@ -69,14 +77,7 @@ AppAsset::register($this);
     <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>">
     <meta name="twitter:description" content="<?= \Yii::$app->params['text'].' ('.\Yii::$app->params['cat'].')' ?>">
 
-    <meta property="og:image" content="<?= \Yii::$app->params['pic'] ?>">
-    ​<meta property="og:image:width" content="600" />
-    <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
-    <meta property="og:type" content="audio">
-    <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
-    <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
-    <meta property="og:description" content="<?= \Yii::$app->params['text'].' ('.\Yii::$app->params['cat'].')' ?>">
-    <meta property="og:audio" content="<?= \Yii::$app->params['audio'] ?>">
+
 
     <title><?= Html::encode($this->title) ?></title>
 
