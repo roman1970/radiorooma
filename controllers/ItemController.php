@@ -99,9 +99,10 @@ class ItemController extends Controller
         $pic = $pics[rand(0,count($pics)-1)];
 
         \Yii::$app->params['title'] = $item->title;
-        \Yii::$app->params['text'] = $item->text;
+        \Yii::$app->params['anons'] = $item->anons;
         \Yii::$app->params['alias'] = $item->alias;
         \Yii::$app->params['pic'] = $pic->img;
+        \Yii::$app->params['audio'] = $pic->audio;
 
         return $this->render('/site/room', [
             'item' => $item,

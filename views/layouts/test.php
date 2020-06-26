@@ -59,13 +59,14 @@ AppAsset::register($this);
     <meta name="twitter:site" content="Бард, который перевернул ЗИЛ">
     <meta name="twitter:card" content="<?= \Yii::$app->params['text'] ?>">
     <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>">
-    <meta name="twitter:description" content="<?= \Yii::$app->params['text'] ?>">
+    <meta name="twitter:description" content="<?= \Yii::$app->params['anons'] ?>">
     <meta property="og:image" content="<?= \Yii::$app->params['pic'] ?>">
     <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
     <meta property="og:type" content="object">
     <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
     <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
-    <meta property="og:description" content="<?= \Yii::$app->params['text'] ?>">
+    <meta property="og:description" content="<?= \Yii::$app->params['anons'] ?>">
+    <meta property="og:audio" content="<?= \Yii::$app->params['audio'] ?>">
 
     <title><?= Html::encode($this->title) ?></title>
 
