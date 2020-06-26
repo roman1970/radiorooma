@@ -55,6 +55,17 @@ AppAsset::register($this);
     <meta property="fb:app_id" content="1401488693436528">
     <meta name="apple-itunes-app" content="app-id=1477376905">
 
+    <meta name="twitter:card" content="player" />
+    <meta name="twitter:site" content="Бард, который перевернул ЗИЛ" />
+    <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>" />
+    <meta name="twitter:description" content="<?= \Yii::$app->params['text'] ?>" />
+    <meta name="twitter:image" content="<?= \Yii::$app->params['pic'] ?>" />
+    <meta name="twitter:player" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html" />
+    <meta name="twitter:player:width" content="1280" />
+    <meta name="twitter:player:height" content="720" />
+    <meta name="twitter:player:stream" content="http://radiorooma.noravbo.ru/<?= \Yii::$app->params['audio'] ?>" />
+    <meta name="twitter:player:stream:content_type" content="audio" />
+
     <meta name="twitter:image:src" content="<?= \Yii::$app->params['pic'] ?>">
     <meta name="twitter:site" content="Бард, который перевернул ЗИЛ">
     <meta name="twitter:card" content="<?= \Yii::$app->params['text'] ?>">
