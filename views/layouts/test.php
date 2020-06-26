@@ -52,9 +52,6 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <meta name="description" content="Бард, который перевернул ЗИЛ">
 
-    <meta property="fb:app_id" content="1401488693436528">
-    <meta name="apple-itunes-app" content="app-id=1477376905">
-
     <meta name="twitter:card" content="player" />
     <meta name="twitter:site" content="Бард, который перевернул ЗИЛ" />
     <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>" />
@@ -71,10 +68,10 @@ AppAsset::register($this);
     <meta name="twitter:card" content="<?= \Yii::$app->params['text'] ?>">
     <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>">
     <meta name="twitter:description" content="<?= \Yii::$app->params['text'].' ('.\Yii::$app->params['cat'].')' ?>">
+
     <meta property="og:image" content="<?= \Yii::$app->params['pic'] ?>">
     ​<meta property="og:image:width" content="600" />
     <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
-
     <meta property="og:type" content="audio">
     <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
     <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
