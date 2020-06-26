@@ -103,6 +103,7 @@ class ItemController extends Controller
         \Yii::$app->params['audio'] = $item->audio;
         \Yii::$app->params['alias'] = $item->alias;
         \Yii::$app->params['pic'] = $pic->img;
+        \Yii::$app->params['cat'] = $item->cat->name;
 
         return $this->render('/site/room', [
             'item' => $item,
