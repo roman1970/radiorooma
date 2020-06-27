@@ -227,7 +227,8 @@
     setTimeout(function run() {
         $.ajax({
             type: "GET",
-            url: "http://37.192.187.83:10033/rockncontroll/datas/show-current-radio-tracks-test/",
+            //url: "http://37.192.187.83:10033/rockncontroll/datas/show-current-radio-tracks-test/",
+            url: "<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>",
             success: function(html){
                 $("#radiorooma").html(html);
             }
@@ -242,8 +243,8 @@
 
     function stopRadiorooma() {
         var au = document.getElementById('radio_player');
-        //au.src = 'http://88.212.253.193:8000/test';
-        au.src = 'http://37.192.187.83:10088/test_mp3';
+        au.src = 'http://88.212.253.193:8000/test';
+        //au.src = 'http://37.192.187.83:10088/test_mp3';
         au.pause();
         au.currentTime = 0;
         $('#song_player').show();
@@ -254,8 +255,8 @@
     function onRadiorooma(){
         var song_player = document.getElementById('song_player');
         var au = document.getElementById('radio_player');
-        //au.src = 'http://88.212.253.193:8000/test';
-        if(au)au.src = 'http://37.192.187.83:10088/test_mp3';
+        if(au)au.src = 'http://88.212.253.193:8000/test';
+        //if(au)au.src = 'http://37.192.187.83:10088/test_mp3';
         if(song_player)song_player.pause();
         if(song_player)song_player.currentTime = 0;
         $('#song_player').hide();
