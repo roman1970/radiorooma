@@ -72,7 +72,7 @@ class HelloController extends Controller
             ->all();
 
         $guests = RadioItem::find()
-            ->where('cat_id IN (20)')
+            ->where('cat_id IN (13,17)')
             ->andWhere(['published' => 1])
             ->all();
 
@@ -95,7 +95,7 @@ class HelloController extends Controller
 
         for($i=0;$i<count($little_length_arr);$i++){
 
-            if($i%24 == 1) {
+            if($i%10 == 1) {
                 $guest = $guests[rand(0, count($guests)-1)];
                 $content .= $this->getInSiteMapItemXml($guest->alias, $guest->d_created);
                 fwrite($f, $guest->audio . PHP_EOL);
