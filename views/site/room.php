@@ -84,7 +84,7 @@
         <span class="title"><?=$item->title?></span>
     </h2>
     <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="70px" id="player" class="bard_img">
-
+    <p style="font-size: 12px">Из коллекции Романа Беляшова</p>
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
     <h6 class="anons"><?=$item->anons?></h6>
     <audio controls controlsList="nodownload" id="radio_player">
@@ -101,7 +101,7 @@
 
         <img src="<?=$pic->img ?>" class="pic css-adaptive"/>
     <?php else: ?>
-        <p>Из коллекции Романа Беляшова</p>
+
         <img src="<?=$item->img ?>" class="pic css-adaptive" id="from_pics" onclick="playPrase()"/>
         <h5><p class="cat"><?=$kvn->cat->name?></p></h5>
         <h6 class="anons"><?=$kvn->anons?></h6>
@@ -122,7 +122,7 @@
         <p style="font-size: 35px;"></p>
     </button>
 
-
+<?php /*
     <div class="container">
         <span class="title">Словарь БКПЗ</span>
         <div class="btn-toolbar">
@@ -185,6 +185,7 @@
             </div>
         </div>
     </div>
+ */?>
     <hr style="border: 2px solid rgb(244, 134, 104);">
 </div>
 
