@@ -12,14 +12,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
-    <meta property="og:image" content="<?= \Yii::$app->params['pic'] ?>">
-    ​<meta property="og:image:width" content="600" />
-    <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
-    <meta property="og:type" content="audio">
-    <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
-    <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
-    <meta property="og:description" content="<?= \Yii::$app->params['text'].' ('.\Yii::$app->params['cat'].')' ?>">
-    <meta property="og:audio" content="<?= \Yii::$app->params['audio'] ?>">
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80881607-1"></script>
     <script>
@@ -60,22 +53,20 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <meta name="description" content="Бард, который перевернул ЗИЛ">
 
-    <meta name="twitter:card" content="player" />
-    <meta name="twitter:site" content="Бард, который перевернул ЗИЛ" />
-    <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>" />
-    <meta name="twitter:description" content="<?= \Yii::$app->params['text'] ?>" />
-    <meta name="twitter:image" content="<?= \Yii::$app->params['pic'] ?>" />
-    <meta name="twitter:player" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html" />
-    <meta name="twitter:player:width" content="1280" />
-    <meta name="twitter:player:height" content="720" />
-    <meta name="twitter:player:stream" content="http://radiorooma.noravbo.ru/<?= \Yii::$app->params['audio'] ?>" />
-    <meta name="twitter:player:stream:content_type" content="audio" />
-
     <meta name="twitter:image:src" content="<?= \Yii::$app->params['pic'] ?>">
     <meta name="twitter:site" content="Бард, который перевернул ЗИЛ">
     <meta name="twitter:card" content="<?= \Yii::$app->params['text'] ?>">
     <meta name="twitter:title" content="<?= \Yii::$app->params['title'] ?>">
     <meta name="twitter:description" content="<?= \Yii::$app->params['text'].' ('.\Yii::$app->params['cat'].')' ?>">
+
+    <meta property="og:image" content="<?= \Yii::$app->params['pic'] ?>">
+    ​<meta property="og:image:width" content="600" />
+    <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
+    <meta property="og:type" content="audio">
+    <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
+    <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
+    <meta property="og:description" content="<?= \Yii::$app->params['text'].' ('.\Yii::$app->params['cat'].')' ?>">
+    <meta property="og:audio" content="<?= \Yii::$app->params['audio'] ?>">
 
 
 
