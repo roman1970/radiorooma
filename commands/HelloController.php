@@ -108,6 +108,7 @@ class HelloController extends Controller
                 }
                 $stories_counter++;
             }
+            /*
             if($shot[$i]->next_item) {
                 //var_dump($got_ids);
                 if(!in_array($shot[$i]->id, $got_ids)){
@@ -134,7 +135,7 @@ class HelloController extends Controller
                 }
                 /**
                  * @var $next RadioItem
-                 */
+
                 $next = RadioItem::findOne($long[$i]->next_item);
                 if(!in_array($next->id, $got_ids)){
                     $content .= $this->getInSiteMapItemXml($next->alias, $next->d_created);
@@ -147,6 +148,12 @@ class HelloController extends Controller
                     $content .= $this->getInSiteMapItemXml($long[$i]->alias, $long[$i]->d_created);
                     fwrite($f, $long[$i]->audio . PHP_EOL);
                 }
+            */
+
+            $content .= $this->getInSiteMapItemXml($shot[$i]->alias, $shot[$i]->d_created);
+            fwrite($f, $shot[$i]->audio . PHP_EOL);
+            $content .= $this->getInSiteMapItemXml($long[$i]->alias, $long[$i]->d_created);
+            fwrite($f, $long[$i]->audio . PHP_EOL);
 
             fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
             if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
