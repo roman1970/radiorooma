@@ -95,8 +95,8 @@ class HelloController extends Controller
 
         for($i=0;$i<count($little_length_arr);$i++){
 
-            if($i%10 == 1) {
-                $guest = $guests[rand(0, count($guests)-1)];
+            if($i%5 == 1) {
+                $guest = $guests[$i];
                 $content .= $this->getInSiteMapItemXml($guest->alias, $guest->d_created);
                 fwrite($f, $guest->audio . PHP_EOL);
             }
