@@ -72,15 +72,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        /*
         $items = RadioItem::find()
             ->where('cat_id <> 13 and cat_id <> 17 and cat_id <> 18 and cat_id <> 19 and cat_id <> 22')->all();
+        */
         $imgs = RadioItem::find()
             ->where('cat_id = 22')->all();
         
-        $item = $items[rand(0,count($items)-1)];
+        //$item = $items[rand(0,count($items)-1)];
         $img = $imgs[rand(0,count($imgs)-1)];
 
-        $theme_items = [];
+        /*$theme_items = [];
         $cats = Category::find()->where('id <> 5 and id <> 13 and id <> 17 and id <> 18 and id <> 19 ')->all();
 
         $themes = Theme::find()->all();
@@ -88,9 +90,14 @@ class SiteController extends Controller
         foreach ($themes as $theme) {
             $theme_items[$theme->title] = ThemeItems::find()->where(['theme_id' => $theme->id])->all();
         }
+        */
 
         return $this->render('index_radio',
-            ['cats' => $cats, 'theme_items' => $theme_items, 'cur_item' => $item, 'img' => $img]);
+            [
+                //'cats' => $cats,
+                //'theme_items' => $theme_items,
+                //'cur_item' => $item,
+             'img' => $img]);
 
     }
 
