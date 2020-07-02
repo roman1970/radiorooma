@@ -37,7 +37,7 @@ $img->img
      id="img_rand"
      class="pic css-adaptive"/>
 
-<p style="text-align: center">&copy; "Комната с мехом" <?= date('Y') ?></p>
+<p style="text-align: center">&copy; "НораVБорУ" <?= date('Y') ?></p>
 <script>
 
 
