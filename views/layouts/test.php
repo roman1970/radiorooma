@@ -64,7 +64,7 @@ AppAsset::register($this);
     <meta property="og:site_name" content="<?= \Yii::$app->params['title'] ?>">
     <meta property="og:type" content="audio">
     <meta property="og:title" content="<?= \Yii::$app->params['title'] ?>">
-    <meta property="og:url" content="http://radiorooma.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
+    <meta property="og:url" content="http://radio.noravbo.ru/<?=\Yii::$app->params['alias']?>.html">
     <meta property="og:description" content="<?= \Yii::$app->params['text'].' ('.\Yii::$app->params['cat'].')' ?>">
     <meta property="og:audio" content="<?= \Yii::$app->params['audio'] ?>">
 
