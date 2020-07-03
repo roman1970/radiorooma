@@ -60,7 +60,7 @@ AppAsset::register($this);
     <meta name="twitter:title" content="Горький юмор и Весёлая философия">
     <meta name="twitter:description" content="<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>">
 
-    <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/barded2.png')?>">
+    <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/barded3_small.png')?>">
 
     <meta property="og:site_name" content="Радио НОРА-V-БОРУ">
     <meta property="og:type" content="audio">
@@ -708,7 +708,7 @@ AppAsset::register($this);
                 </div>
                 <div class="latvia" id="lt">
                     <p class="text-center" >
-                       <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="200px" id="player" class="bard_img">
+                       <img src='<?=\yii\helpers\Url::to('/img/barded3.png')?>' width="200px" id="player" class="bard_img">
                     </p>
                     <div id="Panel">
                         <div id="Container">
