@@ -54,18 +54,18 @@ AppAsset::register($this);
 
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:image:src" content="<?=\yii\helpers\Url::to('/img/barded2.png')?>">
-    <meta name="twitter:site" content="Радио НОРА-V-БОРУ">
-    <meta name="twitter:card" content="Радио НОРА-V-БОРУ">
+    <meta name="twitter:image:src" content="<?=\yii\helpers\Url::to('/img/barded3_small.png')?>">
+    <meta name="twitter:site" content="radiorooma.noravbo.ru">
+    <meta name="twitter:card" content="radiorooma.noravbo.ru">
     <meta name="twitter:title" content="Горький юмор и Весёлая философия">
     <meta name="twitter:description" content="<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>">
 
     <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/barded3_small.png')?>">
 
-    <meta property="og:site_name" content="Радио НОРА-V-БОРУ">
-    <meta property="og:type" content="audio">
+    <meta property="og:site_name" content="radiorooma.noravbo.ru">
+    <meta property="og:type" content="website">
     <meta property="og:title" content="Горький юмор и Весёлая философия">
-    <meta property="og:url" content="http://radio.noravbo.ru">
+    <meta property="og:url" content="http://radiorooma.noravbo.ru">
     <meta property="og:description" content="<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>">
 
     <?= Html::csrfMetaTags() ?>
@@ -861,10 +861,14 @@ AppAsset::register($this);
 
         jQuery(document).ready(function() {
             jQuery('#vk_btn').on('click',function(){
-                window.open('https://vk.com/club151192768', '_blank');
+                //https://vk.com/id439623451
+                window.open('https://vk.com/id439623451', '_blank');
+                // window.open('https://vk.com/club151192768', '_blank');
             });
             jQuery('#wellcome').on('click',function(){
-                window.open('https://vk.com/club151192768', '_blank');
+                //https://vk.com/id439623451
+                window.open('https://vk.com/id439623451', '_blank');
+                // window.open('https://vk.com/club151192768', '_blank');
             });
         });
 

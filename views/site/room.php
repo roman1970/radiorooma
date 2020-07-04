@@ -83,7 +83,7 @@
     <h2>
         <span class="title"><?=$item->title?></span>
     </h2>
-    <img src='<?=\yii\helpers\Url::to('/img/barded2.png')?>' width="70px" id="player" class="bard_img">
+    <img src='<?=\yii\helpers\Url::to('/img/barded3.png')?>' width="70px" id="player" class="bard_img">
     <p style="font-size: 12px">Из коллекции Романа Беляшова</p>
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
     <h6 class="anons"><?=$item->anons?></h6>

@@ -82,6 +82,11 @@ class HelloController extends Controller
             ->orderBy('id')
             ->all();
 
+        $elec = RadioItem::find()
+            ->where('cat_id = 20')
+            ->andWhere(['published' => 1])
+            ->all();
+
         shuffle($shot);
         shuffle($long);
         shuffle($guests);
@@ -92,6 +97,10 @@ class HelloController extends Controller
 
         $got_ids = [];
         $stories_counter = 0;
+
+        $el_one_song = $elec[rand(0, count($elec)-1)];
+        $content .= $this->getInSiteMapItemXml($el_one_song->alias, $el_one_song->d_created);
+        fwrite($f, $el_one_song->audio . PHP_EOL);
 
         for($i=0;$i<count($little_length_arr);$i++){
 
@@ -157,8 +166,8 @@ class HelloController extends Controller
 
             fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
             // radionoravbory.mp3
-            if ($i % 10 == 0) fwrite($f, "mp3/radionoravbory.mp3" . PHP_EOL);
-            //if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
+            //if ($i % 10 == 0) fwrite($f, "mp3/radionoravbory.mp3" . PHP_EOL);
+            if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
 
         }
 
