@@ -447,30 +447,30 @@ AppAsset::register($this);
         #Panel2{
             position: absolute;
             top: 125px;
-            left: 86%;
+            left: 85%;
         }
     }
 
-    @media(min-width:700px) and (max-width:991px) {
+    @media(min-width:700px) and (max-width:800px) {
 
         #Panel {
-            top: 75px;
-            left: 11%;
+            top: 81px;
+            left: 10%;
         }
 
         #Text {
-            top: 13px;
-            left: 11px;
+            top: 20px;
+            left: 18px;
 
         }
         #Panel2 {
-            top: 75px;
-            left: 84%;
+            top: 81px;
+            left: 82%;
         }
 
         #Text2 {
-            top: 13px;
-            left: 11px;
+            top: 20px;
+            left: 18px;
 
         }
     }
@@ -516,10 +516,7 @@ AppAsset::register($this);
             top: 22px;
         }
 
-        #Panel {
-            top: 55px;
-            left: 11%;
-        }
+
 
         #Text {
             top: 13px;
@@ -533,10 +530,7 @@ AppAsset::register($this);
             top: 22px;
         }
 
-        #Panel2 {
-            top: 55px;
-            left: 80%;
-        }
+
 
         #Text2 {
             top: 13px;
@@ -546,12 +540,93 @@ AppAsset::register($this);
 
     }
 
+    /*adaptive Panel*/
+
+    @media(min-width:400px) and (max-width:500px) {
+        .container .content {
+            padding-top: 55%;
+        }
+        #Panel {
+            top: 50px;
+            left: 10%;
+        }
+        #Panel2 {
+            top: 50px;
+            left: 80%;
+        }
+    }
+
     @media(min-width:500px) and (max-width:600px) {
         .container .content {
             padding-top: 55%;
         }
-
+        #Panel {
+            top: 55px;
+            left: 10%;
+        }
+        #Panel2 {
+            top: 55px;
+            left: 82%;
+        }
     }
+
+    @media(min-width:600px) and (max-width:700px) {
+        .container .content {
+            padding-top: 55%;
+        }
+        #Panel {
+            top: 65px;
+            left: 12%;
+        }
+        #Panel2 {
+            top: 65px;
+            left: 84%;
+        }
+    }
+
+    @media(min-width:800px) and (max-width:900px) {
+        .container .content {
+            padding-top: 55%;
+        }
+        #Panel {
+            top: 85px;
+            left: 10%;
+        }
+        #Panel2 {
+            top: 85px;
+            left: 82%;
+        }
+    }
+
+    @media(min-width:900px) and (max-width:978px) {
+        .container .content {
+            padding-top: 55%;
+        }
+        #Panel {
+            top: 85px;
+            left: 10%;
+        }
+        #Panel2 {
+            top: 85px;
+            left: 82%;
+        }
+    }
+
+    @media(min-width:978px) and (max-width:1200px) {
+        .container .content {
+            padding-top: 55%;
+        }
+        #Panel {
+            top: 105px;
+            left: 11%;
+        }
+        #Panel2 {
+            top: 105px;
+            left: 84%;
+        }
+    }
+
+
     @media(min-width:150px) and (max-width:500px) {
         .container .content {
             padding-top: 62%;
@@ -637,7 +712,7 @@ AppAsset::register($this);
 
         #Panel {
             top: 50px;
-            left: 11%;
+            left: 9%;
         }
 
         #Text {
