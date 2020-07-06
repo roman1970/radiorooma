@@ -65,7 +65,7 @@ AppAsset::register($this);
     <meta property="og:site_name" content="К○Мнɑ⊥а&copy;МеχØΣ">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Горький юмор и Весёлая философия">
-    <meta property="og:url" content="http://radiorooma.noravbo.ru">
+    <meta property="og:url" content="http://radiorooma.ru">
     <meta property="og:description" content="<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>">
 
     <?= Html::csrfMetaTags() ?>
