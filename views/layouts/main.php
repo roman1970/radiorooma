@@ -54,13 +54,14 @@ AppAsset::register($this);
 
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:image:src" content="<?=\yii\helpers\Url::to('/img/barded3_small.png')?>">
+    <meta name="twitter:image" content="<?=\yii\helpers\Url::to('/img/barded3_small.png')?>">
     <meta name="twitter:site" content="К○Мнɑ⊥а&copy;МеχØΣ">
     <meta name="twitter:card" content="К○Мнɑ⊥а&copy;МеχØΣ">
     <meta name="twitter:title" content="Горький юмор и Весёлая философия">
     <meta name="twitter:description" content="<?=\yii\helpers\Url::to(['/site/show-current-radio-tracks-test/']) ?>">
 
     <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/barded3_small.png')?>">
+    <meta property="vk:image"  content="<?=\yii\helpers\Url::to('/img/barded3_small.png')?>" />
 
     <meta property="og:site_name" content="К○Мнɑ⊥а&copy;МеχØΣ">
     <meta property="og:type" content="website">
