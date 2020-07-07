@@ -51,7 +51,7 @@
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 
-$this->title = 'radiorooma.ru';
+$this->title = 'radior●●ma.ru';
 ?>
 <div>
     <img src='<?=

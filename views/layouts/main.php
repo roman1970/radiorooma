@@ -54,14 +54,14 @@ AppAsset::register($this);
 
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:image" content="http://radiorooma.ru/img/barded3_small.png">
+    <meta name="twitter:image" content="<?= \Yii::$app->params['image']?>">
     <meta name="twitter:site" content="Радио К○Мнɑ⊥а&copy;МеχØΣ">
     <meta name="twitter:card" content="Радио К○Мнɑ⊥а&copy;МеχØΣ">
     <meta name="twitter:title" content="Горький юмор и Весёлая философия">
-    <meta name="twitter:description" content="http://radiorooma.ru/site/show-current-radio-tracks-test">
+    <meta name="twitter:description" content="<?= \Yii::$app->params['discription']?>">
 
-    <meta property="og:image" content="http://radiorooma.ru/img/barded3_small.png">
-    <meta property="vk:image"  content="http://radiorooma.ru/img/barded3_small.png" />
+    <meta property="og:image" content="<?= \Yii::$app->params['image']?>">
+    <meta property="vk:image"  content="<?= \Yii::$app->params['image']?>" />
 
     <meta property="og:site_name" content="К○Мнɑ⊥а&copy;МеχØΣ">
     <meta property="og:type" content="website">

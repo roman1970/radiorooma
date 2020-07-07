@@ -92,9 +92,10 @@ class SiteController extends Controller
         }
         */
         $disription = file_get_contents('http://radiorooma.ru/site/show-current-radio-tracks-test');
-
         \Yii::$app->params['discription'] = 'Сейчас: '.$disription;
-        //\Yii::$app->params['text'] = $item->anons;
+        ///item/rand-img-item/
+        //var_dump($img); exit;
+        \Yii::$app->params['image'] = $img->img;
 
         return $this->render('index_radio',
             [
