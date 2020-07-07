@@ -67,7 +67,7 @@ AppAsset::register($this);
     <meta property="og:type" content="website">
     <meta property="og:title" content="Горький юмор и Весёлая философия">
     <meta property="og:url" content="http://radiorooma.ru">
-    <meta property="og:description" content="http://radiorooma.ru/site/show-current-radio-tracks-test">
+    <meta property="og:description" content="<?= \Yii::$app->params['discription']?>">
 
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>

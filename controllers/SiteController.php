@@ -91,6 +91,10 @@ class SiteController extends Controller
             $theme_items[$theme->title] = ThemeItems::find()->where(['theme_id' => $theme->id])->all();
         }
         */
+        $disription = file_get_contents('http://radiorooma.ru/site/show-current-radio-tracks-test');
+
+        \Yii::$app->params['discription'] = 'Сейчас: '.$disription;
+        //\Yii::$app->params['text'] = $item->anons;
 
         return $this->render('index_radio',
             [
