@@ -54,20 +54,20 @@ AppAsset::register($this);
 
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:image" content="<?= \Yii::$app->params['image']?>">
+    <meta name="twitter:image" content="<?=\yii\helpers\Url::to('/img/radiorooma_bard_treo.jpg')?>">
     <meta name="twitter:site" content="Радио К○Мнɑ⊥а&copy;МеχØΣ">
     <meta name="twitter:card" content="Радио К○Мнɑ⊥а&copy;МеχØΣ">
     <meta name="twitter:title" content="Горький юмор и Весёлая философия">
-    <meta name="twitter:description" content="<?= \Yii::$app->params['discription']?>">
+    <meta name="twitter:description" content="Интернет радио номер одиннадцать!">
 
-    <meta property="og:image" content="<?= \Yii::$app->params['image']?>">
-    <meta property="vk:image"  content="<?= \Yii::$app->params['image']?>" />
+    <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/radiorooma_bard_treo.jpg')?>">
+    <meta property="vk:image"  content="<?=\yii\helpers\Url::to('/img/radiorooma_bard_treo.jpg')?>" />
 
     <meta property="og:site_name" content="К○Мнɑ⊥а&copy;МеχØΣ">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Горький юмор и Весёлая философия">
     <meta property="og:url" content="http://radiorooma.ru">
-    <meta property="og:description" content="<?= \Yii::$app->params['discription']?>">
+    <meta property="og:description" content="Интернет радио номер одиннадцать!">
 
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
