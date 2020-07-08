@@ -54,14 +54,14 @@ AppAsset::register($this);
 
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:image" content="<?=\yii\helpers\Url::to('/img/radiorooma_bard_treo.jpg')?>">
+    <meta name="twitter:image" content="http://radiorooma.ru/img/radiorooma_bard_treo.jpg">
     <meta name="twitter:site" content="Радио К○Мнɑ⊥а&copy;МеχØΣ">
     <meta name="twitter:card" content="Радио К○Мнɑ⊥а&copy;МеχØΣ">
     <meta name="twitter:title" content="Горький юмор и Весёлая философия">
     <meta name="twitter:description" content="Интернет радио номер одиннадцать!">
 
-    <meta property="og:image" content="<?=\yii\helpers\Url::to('/img/radiorooma_bard_treo.jpg')?>">
-    <meta property="vk:image"  content="<?=\yii\helpers\Url::to('/img/radiorooma_bard_treo.jpg')?>" />
+    <meta property="og:image" content="http://radiorooma.ru/img/radiorooma_bard_treo.jpg">
+    <meta property="vk:image"  content="http://radiorooma.ru/img/radiorooma_bard_treo.jpg" />
 
     <meta property="og:site_name" content="К○Мнɑ⊥а&copy;МеχØΣ">
     <meta property="og:type" content="website">
