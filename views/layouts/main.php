@@ -928,6 +928,7 @@ AppAsset::register($this);
 
         jQuery(document).ready(function() {
             jQuery('#play_btn').on('click',function(){
+                jQuery("#au")[0].src = 'http://88.212.253.193:8000/test';
                 jQuery("#au")[0].play();
                 jQuery("#play_btn").addClass("active-button");
                 jQuery("#stop_btn").removeClass("active-button");
