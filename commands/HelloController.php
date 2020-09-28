@@ -83,7 +83,7 @@ class HelloController extends Controller
             ->all();
 
         $elec = RadioItem::find()
-            ->where('cat_id = 20')
+            ->where('cat_id = 20 or cat_id = 11')
             ->andWhere(['published' => 1])
             ->all();
 
