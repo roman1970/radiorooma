@@ -163,7 +163,7 @@ class HelloController extends Controller
             if(isset($shot[$i])) {
                 $content .= $this->getInSiteMapItemXml($shot[$i]->alias, $shot[$i]->d_created);
                 fwrite($f, $shot[$i]->audio . PHP_EOL);
-                fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
+                if($i%5 == 1) fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
             }
             if(isset($long[$i])) {
                 $content .= $this->getInSiteMapItemXml($long[$i]->alias, $long[$i]->d_created);
