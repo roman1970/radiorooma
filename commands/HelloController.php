@@ -62,12 +62,12 @@ class HelloController extends Controller
         }
 
         $shot = RadioItem::find()
-            ->where('cat_id IN (1,3,4,6,9,14,15,16,12)')
+            ->where('cat_id IN (1,3,6,9,14,15,16,12)')
             ->andWhere(['published' => 1])
             ->all();
 
         $long = RadioItem::find()
-            ->where('cat_id IN (2,5,7,8,10)')
+            ->where('cat_id IN (2,4,5,7,8,10)')
             ->andWhere(['published' => 1])
             ->all();
 
@@ -92,8 +92,9 @@ class HelloController extends Controller
         shuffle($guests);
         echo 'shot '.count($shot).PHP_EOL;
         echo 'long '.count($long).PHP_EOL;
+        echo 'guests '.count($guests).PHP_EOL;
 
-        $little_length_arr = ($shot<=$long) ? $shot : $long;
+        $little_length_arr = ($shot>=$long) ? $shot : $long;
 
         $got_ids = [];
         $stories_counter = 0;
@@ -104,7 +105,7 @@ class HelloController extends Controller
 
         for($i=0;$i<count($little_length_arr);$i++){
 
-            if($i%5 == 1) {
+            if($i%4 == 1) {
                 $guest = $guests[$i];
                 $content .= $this->getInSiteMapItemXml($guest->alias, $guest->d_created);
                 fwrite($f, $guest->audio . PHP_EOL);
@@ -159,12 +160,17 @@ class HelloController extends Controller
                 }
             */
 
-            $content .= $this->getInSiteMapItemXml($shot[$i]->alias, $shot[$i]->d_created);
-            fwrite($f, $shot[$i]->audio . PHP_EOL);
-            $content .= $this->getInSiteMapItemXml($long[$i]->alias, $long[$i]->d_created);
-            fwrite($f, $long[$i]->audio . PHP_EOL);
+            if(isset($shot[$i])) {
+                $content .= $this->getInSiteMapItemXml($shot[$i]->alias, $shot[$i]->d_created);
+                fwrite($f, $shot[$i]->audio . PHP_EOL);
+                fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
+            }
+            if(isset($long[$i])) {
+                $content .= $this->getInSiteMapItemXml($long[$i]->alias, $long[$i]->d_created);
+                fwrite($f, $long[$i]->audio . PHP_EOL);
+            }
 
-            fwrite($f, "mp3/ohohoho.mp3" . PHP_EOL);
+
             // radionoravbory.mp3
             //if ($i % 10 == 0) fwrite($f, "mp3/radionoravbory.mp3" . PHP_EOL);
             if ($i % 10 == 0) fwrite($f, "mp3/komnata_s_mehom.mp3" . PHP_EOL);
