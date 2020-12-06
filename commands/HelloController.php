@@ -67,7 +67,7 @@ class HelloController extends Controller
             ->all();
 
         $long = RadioItem::find()
-            ->where('cat_id IN (2,4,5,7,8,10)')
+            ->where('cat_id IN (2,4,5,7,8,10,11)')
             ->andWhere(['published' => 1])
             ->all();
 
@@ -83,7 +83,7 @@ class HelloController extends Controller
             ->all();
 
         $elec = RadioItem::find()
-            ->where('cat_id = 20 or cat_id = 11')
+            ->where('cat_id IN (20)')
             ->andWhere(['published' => 1])
             ->all();
 
