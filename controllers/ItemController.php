@@ -179,7 +179,7 @@ class ItemController extends Controller
     public function actionRandKino()
     {
         $items = RadioItem::find()
-            ->where('cat_id = 13')
+            ->where('cat_id = 13 or cat_id = 17')
             ->all();
 
         $kvns_films = RadioItem::find()
