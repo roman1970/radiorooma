@@ -167,11 +167,53 @@ class ItemController extends Controller
 
     }
 
-    public function actionItem($id){
+    public function actionItem($id)
+    {
 
         $item = $this->loadModel($id);
 
         return $this->renderPartial('item', ['item' => $item]);
+
+    }
+
+    public function actionRandKino()
+    {
+        $items = RadioItem::find()
+            ->where('cat_id = 13')
+            ->all();
+
+        $kvns_films = RadioItem::find()
+            ->where('cat_id = 17')
+            ->all();
+        /*
+        $query = RadioItem::find()
+            ->where('cat_id = 13 or cat_id = 17')
+            ->andWhere("tags LIKE '%$random_tag%'");
+
+        var_dump($query->prepare(Yii::$app->db->queryBuilder)->createCommand()->rawSql); exit;
+        */
+
+        $kvn = $kvns_films[rand(0,count($kvns_films)-1)];
+        $item = $items[rand(0,count($items)-1)];
+
+        $pics = RadioItem::find()->where('cat_id = 22')->all();
+
+        $pic = $pics[rand(0,count($pics)-1)];
+
+        \Yii::$app->params['title'] = $item->title;
+        \Yii::$app->params['text'] = $item->anons;
+        \Yii::$app->params['audio'] = $item->audio;
+        \Yii::$app->params['alias'] = $item->alias;
+        \Yii::$app->params['pic'] = $pic->img;
+        \Yii::$app->params['cat'] = $item->cat->name;
+
+        return $this->render('/site/room_who', [
+            'item' => $item,
+            'pic' => $pic,
+            'kvn' => $kvn
+            //'referrer' => $referrer,
+            //'url' => $home_url
+        ]);
 
     }
 

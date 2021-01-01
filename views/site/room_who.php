@@ -75,10 +75,14 @@
         max-height: 0px;
         overflow: hidden;
     }
+    #anons{
+        max-height: 0px;
+        overflow: hidden;
+    }
 </style>
 
 <audio id="bard" ></audio>
-<div class="container" style="text-align: center"><h6 class="anons"><?=$item->anons?></h6>
+<div class="container" style="text-align: center">
     <hr style="border: 2px solid rgb(244, 134, 104);">
     <h2>
         <span class="title"><?=$item->title?></span>
@@ -86,14 +90,16 @@
     <img src='<?=\yii\helpers\Url::to('/img/barded3.png')?>' width="70px" id="player" class="bard_img">
     <p style="font-size: 12px">Из коллекции Романа Беляшова</p>
     <h5><p class="cat"><?=$item->cat->name?></p></h5>
-    <h6 class="anons"><?=$item->anons?></h6>
+    <h6 class="anons" id="anons"><?=$item->anons?></h6>
+    <a class="content_toggle" href="#">Что это?</a><br>
+
     <audio controls controlsList="nodownload" id="radio_player">
         <source src="http://37.192.187.83:10088/test_mp3">
     </audio>
     <?php if($item->audio) : ?>
-    <audio controls controlsList="nodownload" id="song_player">
-        <source src="/uploads/<?=$item->audio?>">
-    </audio>
+        <audio controls controlsList="nodownload" id="song_player">
+            <source src="/uploads/<?=$item->audio?>">
+        </audio>
     <?php endif; ?>
     <?php if($item->cat_id != 22) : ?>
         <div id="text"><?=nl2br($item->text)?></div>
@@ -111,18 +117,9 @@
         <p id="text2"><?=nl2br($kvn->text)?></p>
 
     <?php endif; ?>
-    <h3>
-        <i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
-            Сейчас на Радио<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i>
-    </h3>
-    <button type="submit" class="btn-success width-wide" onclick="onRadiorooma()" id="radiorooma" style="height: 95px;">
-        <p style="font-size: 35px;">Комната с Мехом</p>
-    </button>
-    <button type="submit" class="btn-success glyphicon glyphicon-pause width-wide" onclick="stopRadiorooma()" id="stop-radiorooma" style="height: 45px;display: none">
-        <p style="font-size: 35px;"></p>
-    </button>
 
-<?php /*
+
+    <?php /*
     <div class="container">
         <span class="title">Словарь БКПЗ</span>
         <div class="btn-toolbar">
@@ -280,6 +277,10 @@
             $(this).css({"display":"block", "max-height":"none"});
             $('.content_toggle').hide();
         });
+        $('#anons').slideDown(300, function(){
+            $(this).css({"display":"block", "max-height":"none"});
+            $('.content_toggle').hide();
+        });
 
         return false;
     });
@@ -308,3 +309,4 @@
     };
 
 </script>
+
