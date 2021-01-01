@@ -101,23 +101,9 @@
             <source src="/uploads/<?=$item->audio?>">
         </audio>
     <?php endif; ?>
-    <?php if($item->cat_id != 22) : ?>
+
         <div id="text"><?=nl2br($item->text)?></div>
         <a class="content_toggle" href="#">Текст</a><br>
-
-        <img src="<?=$pic->img ?>" class="pic css-adaptive"/>
-    <?php else: ?>
-
-        <img src="<?=$item->img ?>" class="pic css-adaptive" id="from_pics" onclick="playPrase()"/>
-        <h5><p class="cat"><?=$kvn->cat->name?></p></h5>
-        <h6 class="anons"><?=$kvn->anons?></h6>
-        <audio controls controlsList="nodownload" autoplay id="hidden_audio">
-            <source src="/uploads/<?=$kvn->audio?>">
-        </audio>
-        <p id="text2"><?=nl2br($kvn->text)?></p>
-
-    <?php endif; ?>
-
 
     <?php /*
     <div class="container">
